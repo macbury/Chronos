@@ -1,0 +1,6 @@
+development:
+  app_id: dszqras877f02qp2s7fufy6tc
+  secret: "$2a$10$vQf3SOVAXePykcelpKfbmOkq2bbAVW6j8W07f0fyCI3VFXBVHlBBC"
+  site: "http://0.0.0.0:3000/"
+  base_site: "http://0.0.0.0:3000/"
+  title: "CSK"
