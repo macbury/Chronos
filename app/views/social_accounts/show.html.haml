@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @social_account.user_id
+%p
+  %b Token:
+  = @social_account.token
+%p
+  %b Uid:
+  = @social_account.uid
+%p
+  %b Type:
+  = @social_account.type
+%p
+  %b Name:
+  = @social_account.name
+
+= link_to 'Edit', edit_social_account_path(@social_account)
+\|
+= link_to 'Back', social_accounts_path

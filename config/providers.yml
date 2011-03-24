@@ -1,0 +1,10 @@
+development:
+  twitter:
+    app_id: juZ1I8VOR5qomKpFiNw
+    secret: GPbOOCgawaPmEKD1Xpn2J7QAGl5b7XOrLcqzNqjsg
+  facebook:
+    app_id: 101637799920855
+    secret: dd224dc3ee5d4f26ce26014d7eb2cec4
+  blip:
+    app_id: yDssIgI3ubvmc7HFS4IL
+    secret: bAYij962gqw0rYJTLnmcDg1QqrnHv5fiuHPfVyzf

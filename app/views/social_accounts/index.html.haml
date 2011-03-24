@@ -1,0 +1,23 @@
+%h1 Listing social_accounts
+
+%table
+  %tr
+    %th Uid
+    %th Type
+    %th Name
+    %th
+    %th
+    %th
+
+  - @social_accounts.each do |social_account|
+    %tr
+      %td= social_account.uid
+      %td= social_account.social_type
+      %td= social_account.name
+      %td= link_to 'Show', social_account
+      %td= link_to 'Edit', edit_social_account_path(social_account)
+      %td= link_to 'Destroy', social_account, :confirm => 'Are you sure?', :method => :delete
+
+%br
+- SocialAccount::Types.each do |type_id, name|
+  = link_to name, "/auth/#{name.to_s.downcase}"

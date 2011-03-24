@@ -17,7 +17,13 @@ class ApplicationController < ActionController::Base
     end
     
     def authenticate_user!
-      redirect_to login_path, :notice => "Musisz byc zalogowany!" unless logged_in?
+      if request.format == Mime::XML
+        #skip_before_filter :verify_authenticity_token
+        @current_user = User.find_by_api_token(params[:api_key])
+        render :xml => { :error => "Invalid Api Key!" } if @current_user.nil?
+      else
+        redirect_to login_path unless logged_in?
+      end
     end
     
     def logged_in?
@@ -25,7 +31,8 @@ class ApplicationController < ActionController::Base
     end
     
     def current_user
-      @current_user ||= User.find_by_uid(session[:user_id]) if session[:user_id]
+      @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
       @current_user
     end
+
 end
