@@ -12,7 +12,7 @@
   - @social_accounts.each do |social_account|
     %tr
       %td= social_account.uid
-      %td= social_account.social_type
+      %td= SocialAccount::Types[social_account.social_type].to_s
       %td= social_account.name
       %td= link_to 'Show', social_account
       %td= link_to 'Edit', edit_social_account_path(social_account)

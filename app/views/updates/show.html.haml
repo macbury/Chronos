@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @update.title
+%p
+  %b Body:
+  = @update.body
+%p
+  %b Url:
+  = @update.url
+%p
+  %b Tags:
+  = @update.tags
+%p
+  %b Publish at:
+  = @update.publish_at
+
+= link_to 'Edit', edit_update_path(@update)
+\|
+= link_to 'Back', updates_path

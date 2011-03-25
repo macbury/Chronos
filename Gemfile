@@ -14,7 +14,6 @@ gem 'json'
 gem "haml-rails"
 gem 'omniauth'
 gem 'koala'
-gem 'oa-blip'
 # Use unicorn as the web server
 # gem 'unicorn'
 

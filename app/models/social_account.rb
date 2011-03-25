@@ -1,5 +1,7 @@
 class SocialAccount < ActiveRecord::Base
   belongs_to :user
+  has_many :links, :dependent => :destroy
+  
   Facebook = 0
   Twitter = 1
   Blip = 2

@@ -1,4 +1,6 @@
 Chronos::Application.routes.draw do
+  resources :updates
+
   resources :social_accounts
   
   resource :facebook_page

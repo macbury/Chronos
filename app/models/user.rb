@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   before_create :generate_api_key
   
   has_many :social_accounts, :dependent => :destroy
+  has_many :updates, :dependent => :destroy
   
   def role_symbols
     self.roles.map { |r| r.name.to_sym }
