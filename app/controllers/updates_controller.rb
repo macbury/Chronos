@@ -47,9 +47,11 @@ class UpdatesController < ApplicationController
       if @update.save
         format.html { redirect_to(@update, :notice => 'Update was successfully created.') }
         format.xml  { render :xml => @update, :status => :created, :location => @update }
+        format.json  { render :json => @update, :status => :created, :location => @update }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @update.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @update.errors, :status => :unprocessable_entity }
       end
     end
   end

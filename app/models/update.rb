@@ -10,4 +10,19 @@ class Update < ActiveRecord::Base
     end
   end
   
+  def to_twitter
+    tags = self.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
+    [self.title, self.url, tags].compact.join(" ").strip
+  end
+  
+  def to_facebook
+    {
+      :message => self.body,
+      :link => self.url,
+      :caption => self.title,
+      :title => self.title,
+      :description => self.body
+    }
+  end
+  
 end
