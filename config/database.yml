@@ -25,7 +25,7 @@ test:
   database: rhmusic_chronos
   pool: 5
   username: rhmusic_chronos
-  password: uczylanauj123
+  password: 2c7ZU1Jw
   host: localhost
 
 
@@ -36,5 +36,5 @@ production:
   database: rhmusic_chronos
   pool: 5
   username: rhmusic_chronos
-  password: uczylanauj123
+  password: 2c7ZU1Jw
   host: localhost
