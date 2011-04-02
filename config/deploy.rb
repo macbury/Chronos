@@ -41,4 +41,10 @@ namespace :deploy do
   task :migrate do
     run "cd #{current_path} && rake db:migrate RAILS_ENV=production && rake db:seed RAILS_ENV=production" 
   end
+  
+  task :delay_job do
+    run "cd #{current_path} && RAILS_ENV=production script/delayed_job start"
+    run "cd #{current_path} && RAILS_ENV=production script/delayed_job stop"
+    
+  end
 end

@@ -16,8 +16,6 @@ gem 'omniauth'
 gem 'koala'
 gem 'delayed_job'
 gem "httparty"
-gem "mongrel"
-gem "bitly"
 # Use unicorn as the web server
 # gem 'unicorn'
 
