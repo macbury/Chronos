@@ -32,8 +32,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: chronos_production
+  database: rhmusic_chronos
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: rhmusic_csk
+  password: uczylanauj123
+  host: localhost

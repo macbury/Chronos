@@ -4,3 +4,10 @@ development:
   site: "http://user.rhmusic.pl"
   base_site: "http://tz.rhmusic.pl/"
   host: "tz.rhmusic.pl"
+  
+production:
+  app_id: 8nugjyudlq1e730qm6hl9syup
+  secret: "$2a$10$GHBMo7VwbaSBOyIx1CH7yuFL6pg.UctfzGlCpp104u2.0ZzTzgTom"
+  site: "http://user.rhmusic.pl"
+  base_site: "http://tz.rhmusic.pl/"
+  host: "tz.rhmusic.pl"

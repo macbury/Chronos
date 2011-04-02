@@ -14,3 +14,20 @@ development:
   myspace:
     app_id: 3bd0eae2e4c9480fb47883ca97a6d521
     secret: dfa9ca5a306b48f384a290b47e8f47bbd1166d503ce146508f21352be2e29ac4
+    
+providers:
+  twitter:
+    app_id: rGS0J90IVVaAOk5Ey7tnA
+    secret: KrwaJHtEh8JQZK5cxFYaHeOd5fLQlC94dr2oLZ5Y
+  facebook:
+    app_id: 194241837281882
+    secret: 6f419931f84c82118cd0c4693c8afd13
+  blip:
+    app_id: XByyZHoyoqGi2tTKCRXG
+    secret: VVyVNm1uzORXVWZzhbgcrAkecr7XvJf3dvMlThYE
+  flaker:
+    app_id: b21d81239aa91deb5c8c0d1024e8241504d9774fd
+    secret: 7ca5aa6f3ed5b67b57f235d1d4686730
+  myspace:
+    app_id: 3bd0eae2e4c9480fb47883ca97a6d521
+    secret: dfa9ca5a306b48f384a290b47e8f47bbd1166d503ce146508f21352be2e29ac4
