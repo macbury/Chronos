@@ -15,7 +15,6 @@ gem "haml-rails"
 gem 'omniauth'
 gem 'koala'
 gem 'delayed_job'
-gem "httparty"
 # Use unicorn as the web server
 # gem 'unicorn'
 
