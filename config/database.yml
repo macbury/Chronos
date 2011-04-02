@@ -34,6 +34,6 @@ production:
   reconnect: false
   database: rhmusic_chronos
   pool: 5
-  username: rhmusic_csk
+  username: rhmusic_chronos
   password: uczylanauj123
   host: localhost
