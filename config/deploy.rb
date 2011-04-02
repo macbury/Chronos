@@ -24,8 +24,8 @@ namespace :deploy do
   desc "Symlink shared configs and folders on each release."
   task :symlink_shared do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/rhcore.yml"
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/providers.yml"
+    run "ln -nfs #{shared_path}/config/rhcore.yml #{release_path}/config/rhcore.yml"
+    run "ln -nfs #{shared_path}/config/providers.yml #{release_path}/config/providers.yml"
   end
   
   desc "Sync the public/assets directory."
