@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   has_many :social_accounts, :dependent => :destroy
   has_many :updates, :dependent => :destroy
+  has_many :short_links, :dependent => :destroy
   
   def role_symbols
     self.roles.map { |r| r.name.to_sym }

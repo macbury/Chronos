@@ -23,4 +23,16 @@ module Clients
     return access_token
   end
   
+  def self.blip(token, secret)
+    consumer = OAuth::Consumer.new(PROVIDERS_CONFIG["blip"]["app_id"], PROVIDERS_CONFIG["blip"]["secret"], :site => "http://api.blip.pl/" ) 
+    access_token = OAuth::AccessToken.new(consumer, token, secret)
+    return access_token
+  end
+  
+  
+  def self.flaker(token, secret)
+    consumer = OAuth::Consumer.new(PROVIDERS_CONFIG["flaker"]["app_id"], PROVIDERS_CONFIG["flaker"]["secret"], :site => "http://api.flaker.pl/" ) 
+    access_token = OAuth::AccessToken.new(consumer, token, secret)
+    return access_token
+  end
 end

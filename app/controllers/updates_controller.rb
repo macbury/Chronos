@@ -8,6 +8,7 @@ class UpdatesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @updates }
+      format.json { render :json => @updates }
     end
   end
 

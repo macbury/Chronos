@@ -13,5 +13,7 @@ Chronos::Application.routes.draw do
   
   match '/api_test' => "home#api"
   
+  match '/r/:id' => "redirects#show", :as => :short_link
+  
   root :to => "social_accounts#index"
 end

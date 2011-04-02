@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110328203536) do
+ActiveRecord::Schema.define(:version => 20110402101930) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20110328203536) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "role_id"
+  end
+
+  create_table "short_links", :force => true do |t|
+    t.string   "url"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "hits",       :default => 0
   end
 
   create_table "social_accounts", :force => true do |t|

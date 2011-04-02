@@ -27,6 +27,24 @@ class Link < ActiveRecord::Base
         uid = resp["id"]
         self.save
       end
+    elsif self.social_account.social_type == SocialAccount::Blip
+      blip = Clients.blip(self.social_account.token, self.social_account.secret)
+      resp = blip.post("/updates.json", :body => self.update.to_twitter)
+      
+      resp = JSON.parse(resp.body)
+      if resp["id"]
+        uid = resp["id"]
+        self.save
+      end
+    elsif self.social_account.social_type == SocialAccount::Flaker
+      flaker = Clients.flaker(self.social_account.token, self.social_account.secret)
+      resp = flaker.post("/api/type:submit", :text => self.update.to_flaker, :link => self.update.short_url)
+      
+      resp = JSON.parse(resp.body)
+      if resp["info"]
+        uid = resp["info"].gsub(/[^0-9]/i, "")
+        self.save
+      end
     end
   end
   handle_asynchronously :send_to
