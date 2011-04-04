@@ -36,7 +36,7 @@ class Update < ActiveRecord::Base
   
   def to_facebook
     {
-      :message => truncate(strip_tags(self.body),
+      :message => truncate(strip_tags(self.body), :length => 255),
       :link => self.short_url,
       :caption => strip_tags(self.title),
       :title => strip_tags(self.title),
