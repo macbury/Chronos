@@ -9,7 +9,7 @@ class Update < ActiveRecord::Base
   
   after_create :build_links
   
-  validates :title, :presence => true
+  #validates :title, :presence => true
   
   def build_links
     self.user.social_accounts.all.each do |sa|
