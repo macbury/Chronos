@@ -26,7 +26,7 @@ class Update < ActiveRecord::Base
   
   def to_twitter
     tags = self.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
-    [sstrip_tags(self.title), self.short_url, tags].compact.join(" ").strip
+    [strip_tags(self.title), self.short_url, tags].compact.join(" ").strip
   end
   
   def to_flaker
@@ -36,7 +36,7 @@ class Update < ActiveRecord::Base
   
   def to_facebook
     {
-      :message => truncate(self.body, :length => 255),
+      :message => truncate(strip_tags(self.body),
       :link => self.short_url,
       :caption => strip_tags(self.title),
       :title => strip_tags(self.title),
