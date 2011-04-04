@@ -26,8 +26,8 @@ production:
     app_id: XByyZHoyoqGi2tTKCRXG
     secret: VVyVNm1uzORXVWZzhbgcrAkecr7XvJf3dvMlThYE
   flaker:
-    app_id: b21d81239aa91deb5c8c0d1024e8241504d9774fd
-    secret: 7ca5aa6f3ed5b67b57f235d1d4686730
+    app_id: "b21d81239aa91deb5c8c0d1024e8241504d9774fd"
+    secret: "7ca5aa6f3ed5b67b57f235d1d4686730"
   myspace:
     app_id: 3bd0eae2e4c9480fb47883ca97a6d521
     secret: dfa9ca5a306b48f384a290b47e8f47bbd1166d503ce146508f21352be2e29ac4
