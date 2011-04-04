@@ -27,7 +27,7 @@ test:
   username: rhmusic_chronos
   password: 2c7ZU1Jw
   host: localhost
-
+  socket: /tmp/mysql.sock
 
 production:
   adapter: mysql2
@@ -38,3 +38,4 @@ production:
   username: rhmusic_chronos
   password: 2c7ZU1Jw
   host: localhost
+  socket: /tmp/mysql.sock
