@@ -14,4 +14,4 @@ gem 'json'
 gem "haml-rails"
 gem 'omniauth'
 gem 'koala'
-gem 'delayed_job'
+gem 'delayed_job', :git => "https://github.com/collectiveidea/delayed_job.git"
