@@ -14,8 +14,9 @@ set :rails_env, "production"
 after 'deploy:symlink', 'deploy:symlink_shared'
 after 'deploy:symlink_shared', 'deploy:bundle'
 after 'deploy:symlink_shared', 'deploy:migrate'
-after "deploy:stop",    "delayed_job:stop"
-after "deploy:start",   "delayed_job:start"
+after "deploy:stop",    "deploy:delay_stop"
+after "deploy:restart",   "deploy:delay_restart"
+after "deploy:start",   "deploy:delay_start"
 namespace :deploy do
   desc "Tell Passenger to restart the app."
   task :restart do
@@ -47,7 +48,12 @@ namespace :deploy do
     run "cd #{current_path} && RAILS_ENV=production script/delayed_job stop"
   end
   
-  task :delay_stop do
+  task :delay_start do
+    run "cd #{current_path} && RAILS_ENV=production script/delayed_job start"
+  end
+  
+  task :delay_restart do
+    run "cd #{current_path} && RAILS_ENV=production script/delayed_job stop"
     run "cd #{current_path} && RAILS_ENV=production script/delayed_job start"
   end
 end
