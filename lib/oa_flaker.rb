@@ -24,7 +24,7 @@ module OmniAuth
       end
 
       def user_hash
-        @user_hash ||= MultiJson.decode @access_token.get('/api/type:user').body
+        @user_hash ||= MultiJson.decode @access_token.get('http://api.flaker.pl/api/type:user').body
       end
     end
   end
