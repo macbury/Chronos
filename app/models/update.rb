@@ -1,12 +1,16 @@
 class Update < ActiveRecord::Base
   include ActionController::UrlWriter
   include ActionView::Helpers::TextHelper
+  include ActionView::Helpers::SanitizeHelper
   default_url_options[:host] = RhCore::Config["host"]
   
   belongs_to :user
   has_many :links, :dependent => :destroy
   
   after_create :build_links
+  
+  validates :title, :presence => true
+  validates :
   
   def build_links
     self.user.social_accounts.all.each do |sa|
@@ -23,21 +27,21 @@ class Update < ActiveRecord::Base
   
   def to_twitter
     tags = self.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
-    [self.title, self.short_url, tags].compact.join(" ").strip
+    [sstrip_tags(self.title), self.short_url, tags].compact.join(" ").strip
   end
   
   def to_flaker
     tags = self.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
-    [self.title, tags, truncate(self.body, :length => 255)].compact.join("\n").strip
+    [strip_tags(self.title), tags, truncate(strip_tags(self.body), :length => 255)].compact.join("\n").strip
   end
   
   def to_facebook
     {
       :message => truncate(self.body, :length => 255),
       :link => self.short_url,
-      :caption => self.title,
-      :title => self.title,
-      :description => self.body
+      :caption => strip_tags(self.title),
+      :title => strip_tags(self.title),
+      :description => truncate(strip_tags(self.body), :length => 255)
     }
   end
   
