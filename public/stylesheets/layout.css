@@ -353,5 +353,35 @@ ul.info {
   float: right; }
 
 .accounts a {
-  padding-left: 20px;
+  padding-left: 22px;
+  line-height: 16px;
+  height: 16px;
+  display: block;
+  font-weight: bold;
   background: transparent url("/images/rss.gif") left center no-repeat; }
+.accounts .facebook {
+  background-image: url("/images/socials/facebook16.png"); }
+.accounts .twitter {
+  background-image: url("/images/socials/twitter16.png"); }
+.accounts .flaker {
+  background-image: url("/images/socials/flaker16.png"); }
+.accounts .myspace {
+  background-image: url("/images/socials/myspace16.png"); }
+.accounts .blip {
+  background-image: url("/images/socials/blip16.gif"); }
+
+.actions {
+  list-style: none inside;
+  margin: 0;
+  padding: 0; }
+  .actions li {
+    float: left;
+    width: 64px;
+    height: 64px;
+    background: #242424;
+    padding: 5px 6px;
+    text-align: center;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    margin-bottom: 10px; }

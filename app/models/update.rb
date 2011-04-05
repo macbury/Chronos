@@ -34,12 +34,19 @@ class Update < ActiveRecord::Base
     [strip_tags(self.title), tags, truncate(strip_tags(self.body), :length => 255)].compact.join("\n").strip
   end
   
+  def image
+    if body =~ /(http:\/\/.+\.(png|gif|jpg|jpeg))/i
+      return $1
+    end
+  end
+  
   def to_facebook
     {
       :message => truncate(strip_tags(self.body), :length => 255),
       :link => self.short_url,
       :caption => strip_tags(self.title),
       :title => strip_tags(self.title),
+      :picture => self.image,
       :description => truncate(strip_tags(self.body), :length => 255)
     }
   end
