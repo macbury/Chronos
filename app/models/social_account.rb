@@ -14,6 +14,10 @@ class SocialAccount < ActiveRecord::Base
     self.social_type == SocialAccount::Facebook
   end
   
+  def type_name
+    SocialAccount::Types[self.social_type]
+  end
+  
   def self.findType(f_name)
     sid = 0
     SocialAccount::Types.each do |id, name|

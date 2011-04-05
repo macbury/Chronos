@@ -1,0 +1,17 @@
+.block
+  %h2 Kokpit
+  %ul.list
+    - @updates.each do |update|
+      %li.post{ :class => cycle("normal", "alt") }
+        %h4
+          = link_to update.title, update
+        .body= truncate(strip_tags(update.body), :length => 342)
+        .info
+          Dodane:
+          = l(update.publish_at, :format => :long) if update.publish_at
+
+- content_for :sidebar do
+  %ul.tabs
+    =# render :partial => 'dashboard/tabs'
+    %li=# link_to "Nowe zgłoszenie", new_application_path
+  = render :partial => "dashboard/sidebar"
