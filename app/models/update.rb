@@ -23,7 +23,7 @@ class Update < ActiveRecord::Base
       return short_link_url(:id => short.id.to_s(32))
     end
   end
-  
+
   def to_twitter
     tags = self.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
     [strip_tags(self.title), self.short_url, tags].compact.join(" ").strip

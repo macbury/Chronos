@@ -15,5 +15,5 @@ Chronos::Application.routes.draw do
   
   match '/r/:id' => "redirects#show", :as => :short_link
   
-  root :to => "social_accounts#index"
+  root :to => redirect("http://rhmusic.pl")
 end
