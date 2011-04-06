@@ -1,4 +1,5 @@
 Chronos::Application.routes.draw do
+  resource :account, :controller => "account"
   resources :updates
 
   resources :social_accounts
@@ -17,5 +18,5 @@ Chronos::Application.routes.draw do
   
   match "/dashboard" => "dashboard#index", :as => "dashboard"
   
-  root :to => redirect("http://rhmusic.pl")
+  root :to => Rails.env == "production" ? redirect("http://rhmusic.pl") : "dashboard#index"
 end

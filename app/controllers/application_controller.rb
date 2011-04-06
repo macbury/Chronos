@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?, :current_user, :access_token
   
   protected
-  
+    
     def client
       RhCore::Client
     end

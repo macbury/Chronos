@@ -1,23 +1,16 @@
-%h1 Listing social_accounts
-
-%table
-  %tr
-    %th Uid
-    %th Type
-    %th Name
-    %th
-    %th
-    %th
-
-  - @social_accounts.each do |social_account|
-    %tr
-      %td= social_account.uid
-      %td= SocialAccount::Types[social_account.social_type].to_s
-      %td= social_account.name
-      %td= link_to 'Show', social_account
-      %td= link_to 'Edit', edit_social_account_path(social_account)
-      %td= link_to 'Destroy', social_account, :confirm => 'Are you sure?', :method => :delete
-
-%br
-- SocialAccount::Types.each do |type_id, name|
-  = link_to name, "/auth/#{name.to_s.downcase}"
+.block
+  %h2 Z których serwisów korzystasz?
+  %p Dodaj serwisy na których mają być dodawane wpisy
+  %ul.navigation.accounts
+    - PROVIDERS_CONFIG.each do |name, config|
+      %li{ :class => cycle("alt", "normal") }
+        = link_to name.classify, "/auth/#{name}", :class => name
+  .clear
+.block
+  %h2 Dodane serwisy
+  %ul.navigation.accounts
+    - @social_accounts.each do |account|
+      %li{ :class => cycle("alt", "normal") }= link_to account.name, account, :class => account.type_name
+  .clear
+- content_for :sidebar do
+  = render :partial => "dashboard/sidebar"

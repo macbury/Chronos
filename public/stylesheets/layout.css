@@ -215,16 +215,16 @@ form.formtastic fieldset > ol > li.error {
   .tabs li a {
     display: block;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 5px 10px 5px 25px;
     margin-bottom: 10px;
-    background: #0f0e0e;
+    background: #0f0e0e url("/images/dashboard.png") 5px center no-repeat;
     border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px; }
   .tabs li a:hover {
-    background: #242424; }
+    background-color: #242424; }
   .tabs .active a {
-    background: #242424; }
+    background-color: #242424; }
 
 .error {
   color: red; }
@@ -368,20 +368,67 @@ ul.info {
 .accounts .myspace {
   background-image: url("/images/socials/myspace16.png"); }
 .accounts .blip {
-  background-image: url("/images/socials/blip16.gif"); }
+  background-image: url("/images/socials/blip16.png"); }
 
 .actions {
   list-style: none inside;
   margin: 0;
   padding: 0; }
+  .actions .right {
+    float: right; }
   .actions li {
-    float: left;
-    width: 64px;
-    height: 64px;
-    background: #242424;
-    padding: 5px 6px;
-    text-align: center;
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    margin-bottom: 10px; }
+    float: left; }
+    .actions li a {
+      width: 94px;
+      height: 40px;
+      padding: 10px 0 6px 0;
+      background: #0f0e0e;
+      text-align: center;
+      border-radius: 7px;
+      -webkit-border-radius: 7px;
+      -moz-border-radius: 7px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      display: block;
+      font-size: 12px; }
+    .actions li a:hover {
+      background: #242424; }
+
+.update {
+  padding: 5px;
+  background: #0f0e0e;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px; }
+  .update h4 {
+    margin: 5px;
+    font-size: 14px; }
+    .update h4 .date {
+      float: right;
+      font-size: 10px; }
+  .update .body {
+    padding: 5px;
+    color: #999999;
+    font-size: 11px;
+    border-left: 4px solid #202117; }
+  .update .views {
+    list-style: none inside url();
+    padding: 0px;
+    margin-top: 10px;
+    margin-left: -5px;
+    margin-bottom: -1px; }
+    .update .views li {
+      float: left;
+      margin-bottom: 0px; }
+      .update .views li a {
+        font-size: 10px;
+        padding: 6px 10px;
+        background: #0a0909;
+        border-left: 1px #161414 solid !important; }
+      .update .views li .selected, .update .views li a:hover {
+        background: #242424; }
+    .update .views li:first-child a {
+      border-bottom-left-radius: 4px;
+      -moz-border-radius-bottomleft: 4px;
+      -webkit-border-bottom-left-radius: 4px;
+      border-left: 0px !important; }

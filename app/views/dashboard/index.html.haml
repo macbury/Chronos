@@ -1,22 +1,53 @@
+%h2 Wrzuć
 %ul.actions
   %li
     = link_to new_update_path do
       = image_tag "post.png"
+      %br/
+      Wpis
+  %li
+    = link_to new_update_path do
+      = image_tag "photos.png"
+      %br/
+      Zdjęcia
+  %li
+    = link_to new_update_path do
+      = image_tag "movie.png"
+      %br/
+      Wideo
+  %li
+    = link_to new_update_path do
+      = image_tag "event.png"
+      %br/
+      Wydarzenie
+  %li
+    = link_to new_update_path do
+      = image_tag "news.png"
+      %br/
+      Aktualność
+  %li
+    = link_to new_update_path do
+      = image_tag "mp3.png"
+      %br/
+      Piosenke
 .clear
-.block
-  %h2 Kokpit
-  %ul.list
-    - @updates.each do |update|
-      %li.post{ :class => cycle("normal", "alt") }
-        %h4
-          = link_to update.title, update
-        .body= truncate(strip_tags(update.body), :length => 342)
-        .info
+
+%ul.list
+  - @updates.each do |update|
+    %li.update{ :class => cycle("normal", "alt") }
+      %h4
+        .date
           Dodane:
           = l(update.publish_at, :format => :long) if update.publish_at
-
+        = link_to update.title, update
+      .body= truncate(strip_tags(update.body), :length => 342)
+      %ul.views
+        %li= link_to "Linki", "#", :class => "selected"
+        %li= link_to "Reakcje", "#"
+        %li= link_to "Statystyki", "#"
+      .clear
+    %li.links
+      - update.links.each do |link|
+        %li= link.uid
 - content_for :sidebar do
-  %ul.tabs
-    =# render :partial => 'dashboard/tabs'
-    %li=# link_to "Nowe zgłoszenie", new_application_path
   = render :partial => "dashboard/sidebar"

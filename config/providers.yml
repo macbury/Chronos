@@ -9,8 +9,8 @@ development:
     app_id: yDssIgI3ubvmc7HFS4IL
     secret: bAYij962gqw0rYJTLnmcDg1QqrnHv5fiuHPfVyzf
   flaker:
-    app_id: c6928b2609dc4dcb91d2d9f0dafc9fc004d8cfc95
-    secret: 3c78054f050a1ece32e5aa2d5305714e
+    app_id: 955fcb7b57897607a4ed665db73ab07f04d9c37ab
+    secret: d008e4e611c88ef25b1d6b540bc6e25b
   myspace:
     app_id: 3bd0eae2e4c9480fb47883ca97a6d521
     secret: dfa9ca5a306b48f384a290b47e8f47bbd1166d503ce146508f21352be2e29ac4

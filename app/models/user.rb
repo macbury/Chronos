@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  Band = 0
+  Venue = 1
   has_and_belongs_to_many :roles
   attr_protected :roles, :api_token
   
@@ -7,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :social_accounts, :dependent => :destroy
   has_many :updates, :dependent => :destroy
   has_many :short_links, :dependent => :destroy
+  
+  def type?
+    !self.user_type.nil?
+  end
   
   def role_symbols
     self.roles.map { |r| r.name.to_sym }

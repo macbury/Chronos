@@ -1,0 +1,10 @@
+.block
+  %h2 Wybierz typ konta
+  - form_tag account_path do 
+    %p
+      = radio_button "user", "type", User::Band, :checked => true
+      Zespół
+    %p
+      = radio_button "user", "type", User::Venue
+      Bar
+    = submit_tag "Zapisz"
