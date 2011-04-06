@@ -40,14 +40,18 @@
           Dodane:
           = l(update.publish_at, :format => :long) if update.publish_at
         = link_to update.title, update
-      .body= truncate(strip_tags(update.body), :length => 342)
+      .body= truncate(strip_tags(update.body), :length => 382)
       %ul.views
         %li= link_to "Linki", "#", :class => "selected"
         %li= link_to "Reakcje", "#"
         %li= link_to "Statystyki", "#"
       .clear
-    %li.links
-      - update.links.each do |link|
-        %li= link.uid
+    %li
+      %ul.links
+        - update.links.each do |link|
+          %li{ :class => link.social_account.type_name }
+            Oczekuje na dodanie do
+            = link_to link.social_account.name, link.social_account
+
 - content_for :sidebar do
   = render :partial => "dashboard/sidebar"

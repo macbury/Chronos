@@ -352,23 +352,39 @@ ul.info {
 .email-notification {
   float: right; }
 
-.accounts a {
-  padding-left: 22px;
-  line-height: 16px;
-  height: 16px;
-  display: block;
-  font-weight: bold;
-  background: transparent url("/images/rss.gif") left center no-repeat; }
-.accounts .facebook {
+.accounts {
+  list-style: none; }
+  .accounts a {
+    padding-left: 22px;
+    line-height: 16px;
+    height: 16px;
+    display: block;
+    font-weight: bold;
+    background: transparent url("/images/rss.gif") left center no-repeat; }
+
+.accounts .facebook, .links .facebook {
   background-image: url("/images/socials/facebook16.png"); }
-.accounts .twitter {
+.accounts .twitter, .links .twitter {
   background-image: url("/images/socials/twitter16.png"); }
-.accounts .flaker {
+.accounts .flaker, .links .flaker {
   background-image: url("/images/socials/flaker16.png"); }
-.accounts .myspace {
+.accounts .myspace, .links .myspace {
   background-image: url("/images/socials/myspace16.png"); }
-.accounts .blip {
+.accounts .blip, .links .blip {
   background-image: url("/images/socials/blip16.png"); }
+
+.links {
+  padding-left: 20px; }
+  .links li {
+    padding-left: 22px;
+    line-height: 16px;
+    height: 16px;
+    display: block;
+    font-weight: normal;
+    font-size: 10px;
+    background: transparent url("/images/rss.gif") left center no-repeat; }
+    .links li a {
+      font-weight: bold; }
 
 .actions {
   list-style: none inside;
@@ -432,3 +448,7 @@ ul.info {
       -moz-border-radius-bottomleft: 4px;
       -webkit-border-bottom-left-radius: 4px;
       border-left: 0px !important; }
+    .update .views li:last-child a {
+      border-top-right-radius: 4px;
+      -moz-border-radius-topright: 4px;
+      -webkit-border-top-right-radius: 4px; }

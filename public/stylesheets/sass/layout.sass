@@ -339,6 +339,7 @@ ul.info
   float: right
 
 .accounts
+  list-style: none
   a
     padding-left: 22px
     line-height: 16px
@@ -346,6 +347,8 @@ ul.info
     display: block
     font-weight: bold
     background: transparent url("/images/rss.gif") left center no-repeat
+
+.accounts, .links
   .facebook
     background-image: url("/images/socials/facebook16.png")
   .twitter
@@ -356,7 +359,20 @@ ul.info
     background-image: url("/images/socials/myspace16.png")
   .blip
     background-image: url("/images/socials/blip16.png")
-    
+
+.links
+  padding-left: 20px
+  li
+    padding-left: 22px
+    line-height: 16px
+    height: 16px
+    display: block
+    font-weight: normal
+    font-size: 10px
+    background: transparent url("/images/rss.gif") left center no-repeat
+    a
+      font-weight: bold
+
 .actions
   list-style: none inside
   margin: 0
@@ -421,3 +437,8 @@ ul.info
         -moz-border-radius-bottomleft: 4px
         -webkit-border-bottom-left-radius: 4px
         border-left: 0px !important
+    li:last-child
+      a
+        border-top-right-radius: 4px
+        -moz-border-radius-topright: 4px
+        -webkit-border-top-right-radius: 4px
