@@ -439,7 +439,7 @@ ul.info {
       .update .views li a {
         font-size: 10px;
         padding: 6px 10px;
-        background: #0a0909;
+        background: #0a0909 url("/images/links.png") no-repeat 5px center;
         border-left: 1px #161414 solid !important; }
       .update .views li .selected, .update .views li a:hover {
         background: #242424; }
