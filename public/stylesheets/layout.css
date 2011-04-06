@@ -422,6 +422,13 @@ ul.info {
     .update h4 .date {
       float: right;
       font-size: 10px; }
+  .update .tags {
+    font-size: 10px;
+    font-weight: bold;
+    display: block;
+    margin-top: 13px;
+    margin-right: 5px;
+    float: right; }
   .update .body {
     padding: 5px;
     color: #999999;
@@ -438,11 +445,15 @@ ul.info {
       margin-bottom: 0px; }
       .update .views li a {
         font-size: 10px;
-        padding: 6px 10px;
-        background: #0a0909 url("/images/links.png") no-repeat 5px center;
+        padding: 6px 10px 6px 25px;
+        background: #0a0909 url("/images/urls.png") no-repeat 5px center;
         border-left: 1px #161414 solid !important; }
       .update .views li .selected, .update .views li a:hover {
-        background: #242424; }
+        background-color: #242424; }
+      .update .views li .stats {
+        background-image: url("/images/links.png"); }
+      .update .views li .reactions {
+        background-image: url("/images/reactions.png"); }
     .update .views li:first-child a {
       border-bottom-left-radius: 4px;
       -moz-border-radius-bottomleft: 4px;

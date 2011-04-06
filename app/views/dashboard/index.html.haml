@@ -41,10 +41,11 @@
           = l(update.publish_at, :format => :long) if update.publish_at
         = link_to update.title, update
       .body= truncate(strip_tags(update.body), :length => 382)
+      .tags= update.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
       %ul.views
-        %li= link_to "Linki", "#", :class => "selected"
-        %li= link_to "Reakcje", "#"
-        %li= link_to "Statystyki", "#"
+        %li= link_to "Linki", "#", :class => "selected links"
+        %li= link_to "Reakcje", "#", :class => "reactions"
+        %li= link_to "Statystyki", "#", :class => "stats"
       .clear
     %li
       %ul.links
