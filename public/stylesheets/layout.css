@@ -374,7 +374,8 @@ ul.info {
   background-image: url("/images/socials/blip16.png"); }
 
 .links {
-  padding-left: 20px; }
+  padding-left: 20px;
+  display: none; }
   .links li {
     padding-left: 22px;
     line-height: 16px;
@@ -463,3 +464,9 @@ ul.info {
       border-top-right-radius: 4px;
       -moz-border-radius-topright: 4px;
       -webkit-border-top-right-radius: 4px; }
+
+.list li.button {
+  margin: 5px 0;
+  text-align: center;
+  font-size: 10px;
+  display: none; }

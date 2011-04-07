@@ -43,16 +43,16 @@
       .body= truncate(strip_tags(update.body), :length => 382)
       .tags= update.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
       %ul.views
-        %li= link_to "Linki", "#", :class => "selected links"
+        %li= link_to "Linki", "#", :class => "urls"
         %li= link_to "Reakcje", "#", :class => "reactions"
         %li= link_to "Statystyki", "#", :class => "stats"
       .clear
-    %li
-      %ul.links
+    %li.links
+      %ul
         - update.links.each do |link|
           %li{ :class => link.social_account.type_name }
             Oczekuje na dodanie do
             = link_to link.social_account.name, link.social_account
-
+    %li.button= link_to "Schowaj", "#"
 - content_for :sidebar do
   = render :partial => "dashboard/sidebar"
