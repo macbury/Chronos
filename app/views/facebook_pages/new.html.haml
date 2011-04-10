@@ -1,6 +1,9 @@
-%h1 Select Facebook Page to admin
-
-= form_tag facebook_page_path(:token => params[:token]) do
-  = hidden_field_tag "page[token]", params[:token]
-  = select "page", "id", @pages.map { |c| [c["name"], c["id"]] }, :include_blank => "[ Wybierz strone ]"
-  = submit_tag "Dalej"
+.block.center
+  %h2 Twoje Strony Facebooka
+  %p Wybierz stronę którą będziesz chciał zarządzać i publikować wpisy
+  = form_tag facebook_page_path(:token => params[:token]) do
+    = hidden_field_tag "page[token]", params[:token]
+    = select "page", "id", @pages.map { |c| [c["name"], c["id"]] }, :include_blank => "[ Wybierz strone ]"
+    = submit_tag "Dalej"
+    albo
+    = link_to "Anuluj", social_accounts_path, :class => "button"

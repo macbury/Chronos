@@ -1,6 +1,5 @@
 module ApplicationHelper
   def sidebar_tab(name, link, type)
-    selected_tag = params[:type].present? ? params[:type].to_sym : nil
-    content_tag :li, link_to(name, link), :class => selected_tag == type ? "active" : nil
+    content_tag :li, link_to(name, link), :class => @current_tab == type ? "#{type} active" : type
   end
 end

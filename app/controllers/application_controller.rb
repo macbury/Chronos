@@ -1,9 +1,16 @@
 class ApplicationController < ActionController::Base
   #protect_from_forgery
+  include ::SslRequirement
   helper_method :logged_in?, :current_user, :access_token
   
   protected
     
+    def self.set_tab(name, options = {})
+      before_filter(options) do |controller|
+        controller.instance_variable_set('@current_tab', name)
+      end
+    end
+  
     def client
       RhCore::Client
     end
@@ -18,9 +25,14 @@ class ApplicationController < ActionController::Base
     
     def authenticate_user!
       if request.format == Mime::XML || request.format == Mime::JSON
-        #skip_before_filter :verify_authenticity_token
         @current_user = User.find_by_api_token(params[:api_key])
-        render :xml => { :error => "Invalid Api Key!" } if @current_user.nil?
+        if @current_user.nil?
+          respond_to do |format|
+            format.xml { render :xml => { :error => "Invalid Api Key!" }  }
+            format.json { render :json => { :error => "Invalid Api Key!" }  }
+          end
+        end
+        
       else
         redirect_to login_path unless logged_in?
       end

@@ -1,9 +1,9 @@
 
 %ul.tabs
-  = sidebar_tab "Kokpit", dashboard_path, :new
-  = sidebar_tab "Twoje serwisy", social_accounts_path, :new
-  = sidebar_tab "Statystyki", dashboard_path, :new
-  = sidebar_tab "Płatności", dashboard_path, :new
+  = sidebar_tab "Kokpit", dashboard_path, :dashboard
+  = sidebar_tab "Twoje serwisy", social_accounts_path, :accounts
+  = sidebar_tab "Statystyki", dashboard_path, :stats
+  = sidebar_tab "Płatności", dashboard_path, :payments
 .block
   %h3 Twoje serwisy
   %ul.navigation.accounts

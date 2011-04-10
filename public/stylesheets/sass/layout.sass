@@ -10,6 +10,9 @@ body
 .wrapper
   width: 978px
   margin: 0 auto
+  .content.full
+    width: 978px
+    float: none
   .content
     float: left
     width: 700px
@@ -17,7 +20,11 @@ body
     float: left
     width: 268px
     margin-left: 10px
-  
+
+.block.center
+  margin: 10px auto
+  width: 500px
+
 .block
   padding: 10px 15px
   margin-bottom: 10px
@@ -124,7 +131,19 @@ a
   width: 500px
   margin: 60px auto
   text-align: center
+
+select
+  border-radius: 3px !important
+  -webkit-border-radius: 3px !important
+  -moz-border-radius: 3px !important
+  border: 1px solid #202020 !important
+  padding: 0px 5px !important
+  height: 23px
   
+  background: #242424 !important
+  color: #fff
+  font-weight: bold
+
 input[type="text"], input[type="password"], input[type="email"], textarea
   border-radius: 3px !important
   -webkit-border-radius: 3px !important
@@ -211,8 +230,14 @@ form.formtastic fieldset > ol > li.error
       border-radius: 7px
       -webkit-border-radius: 7px
       -moz-border-radius: 7px
-    a:hover
-      background-color: #242424
+  a:hover
+    background-color: #242424
+  .stats a
+    background-image: url("/images/stats.png")
+  .accounts a
+    background-image: url("/images/accounts.png")
+  .payments a
+    background-image: url("/images/payments.png")
   .active
     a
       background-color: #242424
@@ -348,7 +373,7 @@ ul.info
     font-weight: bold
     background: transparent url("/images/rss.gif") left center no-repeat
 
-.accounts, .links
+.accounts, .links, .features
   .facebook
     background-image: url("/images/socials/facebook16.png")
   .twitter
@@ -360,9 +385,35 @@ ul.info
   .blip
     background-image: url("/images/socials/blip16.png")
 
+.features
+  span
+    padding-left: 22px
+    line-height: 16px
+    height: 16px
+    display: block
+    font-weight: bold
+    margin-bottom: 5px
+    background: transparent url("/images/rss.gif") left center no-repeat
+  .add_feature, .edit_feature
+    float: right
+    width: 28px
+    height: 28px
+    display: block
+    margin-top: 3px
+    margin-right: 3px
+    text-indent: -99999px
+    background: transparent url("/images/add_social.png") center center no-repeat
+  .edit_feature
+    background-image: url('/images/settings.png')
+  .description
+    font-size: 10px
+#api_token
+  width: 660px
+  height: 35px
+.hidden
+  display: none
 .links
   padding-left: 20px
-  display: none
   li
     padding-left: 22px
     line-height: 16px
@@ -397,8 +448,11 @@ ul.info
       font-size: 12px
     a:hover
       background: #242424
-      
-
+    li:lasy-child
+      a
+        margin-right: 0px
+.unread
+  border: 2px solid rgba(0, 0, 255, 0.3)
 .update
   padding: 5px
   background: #0f0e0e
@@ -411,16 +465,32 @@ ul.info
     .date
       float: right
       font-size: 10px
+      background: #0a0909 url("/images/clock.png") 3px center no-repeat
+      padding: 5px 10px 5px 20px
+      margin-top: -10px
+      margin-right: -10px
+      border-top-right-radius: 4px
+      -moz-border-radius-topright: 4px
+      -webkit-border-top-right-radius: 4px
+
   .tags
     font-size: 10px
     font-weight: bold
     display: block
     margin-top: 13px
-    margin-right: 5px
+    margin-right: -2px
     float: right
+    .tag
+      padding: 3px 5px
+      color: #fff
+      background: #242424
+      border-radius: 3px
+      -webkit-border-radius: 3px
+      -moz-border-radius: 3px
   .body
     padding: 5px
     color: #999999
+    line-height: 13px
     font-size: 11px
     border-left: 4px solid #202117
   .views
@@ -428,7 +498,7 @@ ul.info
     padding: 0px
     margin-top: 10px
     margin-left: -5px
-    margin-bottom: -1px 
+    margin-bottom: -1px
     li
       float: left
       margin-bottom: 0px

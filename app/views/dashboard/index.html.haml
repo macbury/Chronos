@@ -1,4 +1,3 @@
-%h2 Wrzuć
 %ul.actions
   %li
     = link_to new_update_path do
@@ -34,25 +33,34 @@
 
 %ul.list
   - @updates.each do |update|
-    %li.update{ :class => cycle("normal", "alt") }
+    %li.update{ :class => cycle("normal", "alt"), :id => "update_#{update.id}" }
       %h4
         .date
           Dodane:
           = l(update.publish_at, :format => :long) if update.publish_at
         = link_to update.title, update
       .body= truncate(strip_tags(update.body), :length => 382)
-      .tags= update.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
-      %ul.views
-        %li= link_to "Linki", "#", :class => "urls"
-        %li= link_to "Reakcje", "#", :class => "reactions"
-        %li= link_to "Statystyki", "#", :class => "stats"
+      .tags= update.tags.split(",").map { |tag| content_tag(:span, "#"+h(tag.strip), :class => "tag") }.join(" ").html_safe
+      %ul.views{ 'data-id' => update.id }
+        %li= link_to "Linki", "#links_#{update.id}", :class => "urls"
+        %li= link_to "Reakcje", "#reactions_#{update.id}", :class => "reactions"
+        %li= link_to "Statystyki", "#stats_#{update.id}", :class => "stats"
       .clear
-    %li.links
-      %ul
+    %li.hidden{ :id => "links_#{update.id}" }
+      %ul.links
         - update.links.each do |link|
           %li{ :class => link.social_account.type_name }
-            Oczekuje na dodanie do
-            = link_to link.social_account.name, link.social_account
-    %li.button= link_to "Schowaj", "#"
+            - if link.published?
+              Opublikowane, Kliknij
+              %a{ :href => "#" } tutaj
+              aby zobaczyć ten link
+            - else
+              Oczekuje na dodanie do
+              = link_to link.social_account.name, link.social_account
+    %li.hidden{ :id => "reactions_#{update.id}" }
+      %p Brak Reakcji
+    %li.hidden{ :id => "stats_#{update.id}" }
+      = image_tag "http://chart.apis.google.com/chart?chf=bg,s,151515&chxl=0:|Jan|Feb|Mar|Jun|Jul|Aug|1:|0|50|100&chxt=x,y&chs=700x150&cht=lc&chco=F8F7F5,FCFAF8&chd=t:0,0|0,29.508,62.295,72.131,88.525,100,96.721,78.689,83.607,75.41,65.574,78.689,68.852,81.967,73.77,62.295,44.262,29.508,16.393,0&chg=25,50,0,4&chls=0.75,-1,-1|2,4,1&chm=o,FF9900,1,-2,8|b,3399CC44,0,1,0"
+    %li.show_button.button{ :id => "show_#{update.id}", "data-id" => update.id }= link_to "Schowaj", "#"
 - content_for :sidebar do
   = render :partial => "dashboard/sidebar"

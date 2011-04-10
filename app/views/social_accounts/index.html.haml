@@ -1,16 +1,25 @@
 .block
   %h2 Z których serwisów korzystasz?
   %p Dodaj serwisy na których mają być dodawane wpisy
-  %ul.navigation.accounts
+  %ul.navigation.features
     - PROVIDERS_CONFIG.each do |name, config|
       %li{ :class => cycle("alt", "normal") }
-        = link_to name.classify, "/auth/#{name}", :class => name
+        = link_to "Dodaj serwis", "/auth/#{name}", :class => "add_feature"
+        %span{ :class => name }= name.classify 
+        .description= t("socials.#{name}.description")
   .clear
 .block
+  %h2 Twój serwis
+  %p Token do wprowadzenia w twoim serwise wraz ze skryptem
+  .token= text_area "api", "token", :value => self.current_user.api_token, :disabled => true
+.block
   %h2 Dodane serwisy
-  %ul.navigation.accounts
+  %ul.navigation.features
     - @social_accounts.each do |account|
-      %li{ :class => cycle("alt", "normal") }= link_to account.name, account, :class => account.type_name
+      %li{ :class => cycle("alt", "normal") }
+        = link_to "Usuń serwis", account, :class => "edit_feature"
+        %span{ :class => account.type_name }= account.name
+        .description= account.type_name.to_s.classify
   .clear
 - content_for :sidebar do
   = render :partial => "dashboard/sidebar"

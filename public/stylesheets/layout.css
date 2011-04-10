@@ -11,6 +11,9 @@ body {
 .wrapper {
   width: 978px;
   margin: 0 auto; }
+  .wrapper .content.full {
+    width: 978px;
+    float: none; }
   .wrapper .content {
     float: left;
     width: 700px; }
@@ -18,6 +21,10 @@ body {
     float: left;
     width: 268px;
     margin-left: 10px; }
+
+.block.center {
+  margin: 10px auto;
+  width: 500px; }
 
 .block {
   padding: 10px 15px;
@@ -133,6 +140,17 @@ a {
   margin: 60px auto;
   text-align: center; }
 
+select {
+  border-radius: 3px !important;
+  -webkit-border-radius: 3px !important;
+  -moz-border-radius: 3px !important;
+  border: 1px solid #202020 !important;
+  padding: 0px 5px !important;
+  height: 23px;
+  background: #242424 !important;
+  color: white;
+  font-weight: bold; }
+
 input[type="text"], input[type="password"], input[type="email"], textarea {
   border-radius: 3px !important;
   -webkit-border-radius: 3px !important;
@@ -221,8 +239,14 @@ form.formtastic fieldset > ol > li.error {
     border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px; }
-  .tabs li a:hover {
+  .tabs a:hover {
     background-color: #242424; }
+  .tabs .stats a {
+    background-image: url("/images/stats.png"); }
+  .tabs .accounts a {
+    background-image: url("/images/accounts.png"); }
+  .tabs .payments a {
+    background-image: url("/images/payments.png"); }
   .tabs .active a {
     background-color: #242424; }
 
@@ -362,20 +386,48 @@ ul.info {
     font-weight: bold;
     background: transparent url("/images/rss.gif") left center no-repeat; }
 
-.accounts .facebook, .links .facebook {
+.accounts .facebook, .links .facebook, .features .facebook {
   background-image: url("/images/socials/facebook16.png"); }
-.accounts .twitter, .links .twitter {
+.accounts .twitter, .links .twitter, .features .twitter {
   background-image: url("/images/socials/twitter16.png"); }
-.accounts .flaker, .links .flaker {
+.accounts .flaker, .links .flaker, .features .flaker {
   background-image: url("/images/socials/flaker16.png"); }
-.accounts .myspace, .links .myspace {
+.accounts .myspace, .links .myspace, .features .myspace {
   background-image: url("/images/socials/myspace16.png"); }
-.accounts .blip, .links .blip {
+.accounts .blip, .links .blip, .features .blip {
   background-image: url("/images/socials/blip16.png"); }
 
-.links {
-  padding-left: 20px;
+.features span {
+  padding-left: 22px;
+  line-height: 16px;
+  height: 16px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  background: transparent url("/images/rss.gif") left center no-repeat; }
+.features .add_feature, .features .edit_feature {
+  float: right;
+  width: 28px;
+  height: 28px;
+  display: block;
+  margin-top: 3px;
+  margin-right: 3px;
+  text-indent: -99999px;
+  background: transparent url("/images/add_social.png") center center no-repeat; }
+.features .edit_feature {
+  background-image: url("/images/settings.png"); }
+.features .description {
+  font-size: 10px; }
+
+#api_token {
+  width: 660px;
+  height: 35px; }
+
+.hidden {
   display: none; }
+
+.links {
+  padding-left: 20px; }
   .links li {
     padding-left: 22px;
     line-height: 16px;
@@ -410,6 +462,11 @@ ul.info {
       font-size: 12px; }
     .actions li a:hover {
       background: #242424; }
+    .actions li li:lasy-child a {
+      margin-right: 0px; }
+
+.unread {
+  border: 2px solid rgba(0, 0, 255, 0.3); }
 
 .update {
   padding: 5px;
@@ -422,17 +479,32 @@ ul.info {
     font-size: 14px; }
     .update h4 .date {
       float: right;
-      font-size: 10px; }
+      font-size: 10px;
+      background: #0a0909 url("/images/clock.png") 3px center no-repeat;
+      padding: 5px 10px 5px 20px;
+      margin-top: -10px;
+      margin-right: -10px;
+      border-top-right-radius: 4px;
+      -moz-border-radius-topright: 4px;
+      -webkit-border-top-right-radius: 4px; }
   .update .tags {
     font-size: 10px;
     font-weight: bold;
     display: block;
     margin-top: 13px;
-    margin-right: 5px;
+    margin-right: -2px;
     float: right; }
+    .update .tags .tag {
+      padding: 3px 5px;
+      color: white;
+      background: #242424;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px; }
   .update .body {
     padding: 5px;
     color: #999999;
+    line-height: 13px;
     font-size: 11px;
     border-left: 4px solid #202117; }
   .update .views {

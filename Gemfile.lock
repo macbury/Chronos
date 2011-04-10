@@ -38,6 +38,7 @@ GEM
     activesupport (3.0.3)
     addressable (2.2.4)
     arel (2.0.9)
+    bartt-ssl_requirement (1.2.5)
     builder (2.1.2)
     daemons (1.1.2)
     erubis (2.6.6)
@@ -141,6 +142,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bartt-ssl_requirement
   delayed_job!
   haml
   haml-rails

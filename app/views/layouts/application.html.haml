@@ -7,7 +7,7 @@
     - if self.access_token
       %meta{ :name => "rhCoreAccessToken", :content => self.access_token.token }/
     = csrf_meta_tag
-    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "application", "rails"
     = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
   %body
     .wrapper
@@ -18,8 +18,11 @@
       - if flash[:notice]
         .box.notice= notice
       .clear
-      .content= yield
-      .sidebar= yield :sidebar
+      - unless yield(:sidebar).empty?
+        .content= yield
+        .sidebar= yield :sidebar
+      - else
+        .content.full= yield
       .clear
       .footer= "TZ 2010/#{Date.current.year} dla rhmusic.pl, Arkadiusz Buras"
         

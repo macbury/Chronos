@@ -1,21 +1,14 @@
-%p#notice= notice
+.block
+  %h2 Twój serwis
+  %p
+    %b Typ:
+    = @social_account.type_name
+  %p
+    %b Nazwa:
+    = @social_account.name
+  = link_to 'Anuluj', social_accounts_path, :class => "button"
+  = link_to "Podgląd", "#", :class => "button"
+  = link_to "Usuń", @social_account, :method => :delete, :class => "button"
 
-%p
-  %b User:
-  = @social_account.user_id
-%p
-  %b Token:
-  = @social_account.token
-%p
-  %b Uid:
-  = @social_account.uid
-%p
-  %b Type:
-  = @social_account.type
-%p
-  %b Name:
-  = @social_account.name
-
-= link_to 'Edit', edit_social_account_path(@social_account)
-\|
-= link_to 'Back', social_accounts_path
+- content_for :sidebar do
+  = render :partial => "dashboard/sidebar"

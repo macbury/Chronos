@@ -8,7 +8,7 @@ PROVIDERS_CONFIG = providers
 Rails.application.config.middleware.use OmniAuth::Builder do
   providers.each do |provider_name, config|
     if provider_name.to_sym == :facebook
-      provider provider_name.to_sym, config['app_id'], config['secret'], { :scope => "manage_pages, offline_access, publish_stream" }
+      provider provider_name.to_sym, config['app_id'], config['secret'], { :scope => "manage_pages, offline_access, publish_stream, create_event" }
     else
       provider provider_name.to_sym, config['app_id'], config['secret']
     end

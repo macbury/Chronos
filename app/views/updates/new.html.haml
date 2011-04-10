@@ -1,5 +1,6 @@
-%h1 New update
-
-= render 'form'
-
-= link_to 'Back', updates_path
+.block
+  %h2 Nowe zgłoszenie
+  = form_for @update, :html => { :class => :form } do |f|
+    = render :partial => "form", :locals => {:f => f}
+- content_for :sidebar do
+  = render :partial => "dashboard/sidebar"
