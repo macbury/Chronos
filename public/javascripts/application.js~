@@ -10,7 +10,9 @@ function showTooltip(x, y, contents) {
 }
 var client = null;
 var auth_token = 0;
-$(document).ready(function(){ 
-  client = new Faye.Client('http://0.0.0.0:9292/realtime');
+$(document).ready(function(){
+  client = new Faye.Client($('meta[name=notifications_server]').attr('content')+"realtime",{
+    timeout: 60
+  });
   DashboardController.init();
 });

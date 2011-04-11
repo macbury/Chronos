@@ -1,0 +1,580 @@
+body
+  background-color: #151515
+  background-image: url(/images/tlo.png)
+  background-position: 50% 0%
+  background-repeat: repeat-x
+  color: #D7D7D7
+  font-family: Arial
+  font-size: 10pt
+  margin: 0px
+.wrapper
+  width: 978px
+  margin: 0 auto
+  .content.full
+    width: 978px
+    float: none
+  .content
+    float: left
+    width: 700px
+  .sidebar
+    float: left
+    width: 268px
+    margin-left: 10px
+
+.block.center
+  margin: 10px auto
+  width: 500px
+
+.block
+  padding: 10px 15px
+  margin-bottom: 10px
+  background: #0f0e0e
+  border-radius: 7px
+  -webkit-border-radius: 7px
+  -moz-border-radius: 7px
+  h3, h2
+    margin: 0
+    border-bottom: 2px dotted #3b3434
+    padding-bottom: 2px
+    margin-bottom: 2px
+  h2
+    margin-bottom: 10px
+a
+  text-decoration: none
+  color: #fff
+  img
+    border: 0px
+.clear
+  clear: both  
+.logo 
+  background: transparent url(/images/logo.png) no-repeat
+  height: 130px
+  margin-top: 160px
+  margin-bottom: 10px
+  text-indent: -9999px
+  display: block
+  h1
+    margin: 0px
+    a
+      text-indent: -9999px
+      width: 978px
+      height: 300px
+      display: block
+    
+.menu
+  float: right
+  text-transform: uppercase
+  font-size: 15px
+  font-weight: 600
+  text-align: center
+  letter-spacing: -1
+  text-shadow: 0 -1px 0 #3A3C44
+  list-style: none
+  margin: 0
+  margin-top: 22px
+  padding: 0
+  li
+    display: inline
+    float: left
+    margin-right: 10px
+  li:last-child
+    margin-right: 0
+  a
+    color: #9FA5B6
+  a:hover
+    color: #fff
+    
+.sites
+  list-style: none
+  margin: 0
+  padding: 0
+  float: right
+  margin-top: 25px
+  a
+    width: 274px
+    height: 44px
+    text-indent: -9999px
+    display: block
+  .rockroad
+    background-image: url('/images/rockroad.png')
+  .terrametallum
+    background-image: url('/images/terametalllum.png')
+  .forum
+    background-image: url('/images/forum.png')
+
+.box
+  background: #242424
+  padding: 5px 6px
+  text-align: center
+  border-radius: 7px
+  -webkit-border-radius: 7px
+  -moz-border-radius: 7px  
+.register
+  width: 500px
+  margin: 60px auto
+.login
+  width: 320px
+  margin: 60px auto
+  input[type="text"], input[type="password"]
+    width: 310px
+
+.profile
+  width: 400px
+  margin: 60px auto
+  input[type="text"], input[type="password"]
+    width: 310px
+.login.mini
+  float: left
+  margin-top: 0px
+  margin-left: 150px
+.redirect
+  width: 500px
+  margin: 60px auto
+  text-align: center
+
+select
+  border-radius: 3px !important
+  -webkit-border-radius: 3px !important
+  -moz-border-radius: 3px !important
+  border: 1px solid #202020 !important
+  padding: 0px 5px !important
+  height: 23px
+  
+  background: #242424 !important
+  color: #fff
+  font-weight: bold
+
+input[type="text"], input[type="password"], input[type="email"], textarea
+  border-radius: 3px !important
+  -webkit-border-radius: 3px !important
+  -moz-border-radius: 3px !important
+  border: 1px solid #202020 !important
+  padding: 8px 5px !important
+  background: #242424 !important
+  color: #fff !important
+
+textarea
+  width: 660px
+  height: 70px
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus
+  background: #2b2b2b !important
+
+input[type="button"], input[type="submit"], .button
+  background: #242424
+  padding: 4px 5px !important
+  color: #fff
+  border: 0px
+  border-radius: 3px
+  font-weight: bold
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  cursor: pointer
+
+label 
+  margin-top: 5px !important
+  
+input[type="button"]:active, input[type="submit"]:active, .button:active
+  background: #2b2b2b
+  
+.fblogin img
+  margin-bottom: -6px
+form.formtastic fieldset > ol > li.error
+  overflow: visible !important
+  
+.navigation
+  list-style: none
+  padding: 0
+  margin: 0
+  margin-top: 10px
+  .alt
+    background-color: rgba(0,0,0,0.2)
+  li
+    margin-bottom: 5px
+    padding: 2px
+    .badge
+      float: right
+      min-width: 28px
+      background: rgba(255,255,255, 0.1)
+      text-align: center
+      border-radius: 13px
+      -webkit-border-radius: 13px
+      -moz-border-radius: 13px
+      font-size: 10px
+      height: 16px
+      margin-top: 1px
+      font-weight: bold
+    .category_color
+      margin-top: 0px
+      margin-right: 5px
+      
+.colors
+  li
+    line-height: 18px
+.category_color 
+  width: 16px  
+  height: 16px  
+  border: 1px solid #000  
+  background: #fff  
+  float: left  
+  text-align: center
+  font-weight: bold
+  font-size: 12px
+  color: black
+.tabs
+  list-style: none
+  padding: 0
+  margin: 0 0 10px 0
+  li
+    a
+      display: block
+      font-weight: bold
+      padding: 5px 10px 5px 25px
+      margin-bottom: 10px
+      background: #0f0e0e url('/images/dashboard.png') 5px center no-repeat
+      border-radius: 7px
+      -webkit-border-radius: 7px
+      -moz-border-radius: 7px
+  a:hover
+    background-color: #242424
+  .stats a
+    background-image: url("/images/stats.png")
+  .accounts a
+    background-image: url("/images/accounts.png")
+  .payments a
+    background-image: url("/images/payments.png")
+  .active
+    a
+      background-color: #242424
+.error
+  color: red
+.notice
+  margin-bottom: 15px
+.list
+  list-style: none
+  padding: 0
+  margin: 0 0 10px 0
+  .notification
+    line-height: 16px
+    padding: 2px
+    color: #9FA5B6
+    a
+      font-weight: bold
+    img
+      width: 16px
+      height: 16px
+      margin-bottom: -4px
+  li
+    margin-bottom: 5px
+  .alt
+    background: rgba(0,0,0,0.2)    
+  .unread
+    border: 2px solid rgba(0, 0, 255, 0.3)
+  .post
+    padding: 5px
+    border-radius: 3px
+    -webkit-border-radius: 3px
+    -moz-border-radius: 3px
+    .body
+      margin: 5px 0
+      font-size: 12px
+    h4
+      margin: 0
+      font-size: 14px
+    .info
+      color: #9FA5B6
+      font-size: 11px
+      clear: both
+    span
+      border-radius: 4px
+      -webkit-border-radius: 4px
+      -moz-border-radius: 4px
+      font-weight: bold
+      color: #fff
+      padding: 3px
+      font-size: 14px
+      float: right
+      margin-top: 2px
+    .important
+      background: #ff5900
+    .reaction
+      background: #008300
+      margin-right: 5px
+    .body
+      display: none
+.group
+  margin-bottom: 5px
+  label
+    font-weight: bold
+  input[type="text"], textarea
+    width: 660px
+    margin-top: 15px
+
+.footer
+  margin: 10px 0
+  text-align: center
+  
+.tasks
+  input[type="text"]
+    width: 320px
+    
+ul.info
+  margin: 0px
+  list-style: none
+  padding: 0
+  border-top: 1px dashed #3b3434
+  padding-top: 2px
+  margin-top: 2px
+  li
+    margin-bottom: 4px
+    
+.comment_ajax_loader 
+  background: #0F0E0E url('/images/nuclear.gif') no-repeat center center
+  height: 152px
+  width: 680px
+  display: none
+  position: absolute
+  z-index: 10
+
+.task
+  line-height: 18px
+  padding: 2px
+  background: rgba(0,0,0,0.3)
+  margin: 5px 0
+  .description
+    font-weight: bold
+  a
+    color: #9FA5B6
+.task.done
+  .description
+    text-decoration: line-through
+    
+.grid
+  margin: 0px
+  list-style: none
+  padding: 0
+  .online
+    opacity: 1.0
+  .offline
+    opacity: 0.5
+  li
+    float: left
+    img
+      width: 32px
+      height: 32px
+      margin: 5px 5px 0px 0
+.move
+  cursor: move
+.email-notification
+  float: right
+
+.accounts
+  list-style: none
+  a
+    padding-left: 22px
+    line-height: 16px
+    height: 16px
+    display: block
+    font-weight: bold
+    background: transparent url("/images/rss.gif") left center no-repeat
+
+.accounts, .links, .features
+  .facebook
+    background-image: url("/images/socials/facebook16.png")
+  .twitter
+    background-image: url("/images/socials/twitter16.png")
+  .flaker
+    background-image: url("/images/socials/flaker16.png")
+  .myspace
+    background-image: url("/images/socials/myspace16.png")
+  .blip
+    background-image: url("/images/socials/blip16.png")
+
+.features
+  span
+    padding-left: 22px
+    line-height: 16px
+    height: 16px
+    display: block
+    font-weight: bold
+    margin-bottom: 5px
+    background: transparent url("/images/rss.gif") left center no-repeat
+  .add_feature, .edit_feature
+    float: right
+    width: 28px
+    height: 28px
+    display: block
+    margin-top: 3px
+    margin-right: 3px
+    text-indent: -99999px
+    background: transparent url("/images/add_social.png") center center no-repeat
+  .edit_feature
+    background-image: url('/images/settings.png')
+  .description
+    font-size: 10px
+#api_token
+  width: 660px
+  height: 35px
+.hidden
+  display: none
+.links
+  padding-left: 20px
+  .status_0 .pending
+    display: inline
+  .status_1 .working
+    display: inline
+  .status_2 .success
+    display: inline
+  .status_3 .error
+    display: inline
+  li
+    padding-left: 22px
+    line-height: 16px
+    height: 16px
+    display: block
+    font-weight: normal
+    font-size: 10px
+    background: transparent url("/images/rss.gif") left center no-repeat
+    a
+      font-weight: bold
+    img
+      margin-bottom: -4px
+    .status
+      display: none
+.actions
+  list-style: none inside
+  margin: 0
+  padding: 0
+  .right
+    float: right
+  li
+    float: left
+    a
+      width: 94px
+      height: 40px
+      padding: 10px 0 6px 0
+      background: #0f0e0e
+      text-align: center
+      border-radius: 7px
+      -webkit-border-radius: 7px
+      -moz-border-radius: 7px
+      margin-bottom: 10px
+      margin-right: 10px
+      display: block
+      font-size: 12px
+    a:hover
+      background: #242424
+    li:lasy-child
+      a
+        margin-right: 0px
+.unread
+  border: 2px solid rgba(0, 0, 255, 0.3)
+.update
+  padding: 5px
+  background: #0f0e0e
+  border-radius: 3px
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  h4
+    margin: 5px
+    font-size: 14px
+    .date
+      float: right
+      font-size: 10px
+      background: #0a0909 url("/images/clock.png") 3px center no-repeat
+      padding: 5px 10px 5px 20px
+      margin-top: -10px
+      margin-right: -10px
+      border-top-right-radius: 4px
+      -moz-border-radius-topright: 4px
+      -webkit-border-top-right-radius: 4px
+
+  .tags
+    font-size: 10px
+    font-weight: bold
+    display: block
+    margin-top: 13px
+    margin-right: -2px
+    float: right
+    .tag
+      padding: 3px 5px
+      color: #fff
+      background: #242424
+      border-radius: 3px
+      -webkit-border-radius: 3px
+      -moz-border-radius: 3px
+  .body
+    padding: 5px
+    color: #999999
+    line-height: 13px
+    font-size: 11px
+    border-left: 4px solid #202117
+  .views
+    list-style: none inside url()
+    padding: 0px
+    margin-top: 10px
+    margin-left: -5px
+    margin-bottom: -1px
+    li
+      float: left
+      margin-bottom: 0px
+      a
+        font-size: 10px
+        padding: 6px 10px 6px 25px
+        background: #0a0909 url('/images/urls.png') no-repeat 5px center
+        border-left: 1px #161414 solid !important
+      .selected, a:hover
+        background-color: #242424
+      .stats
+        background-image: url('/images/links.png')
+      .reactions
+        background-image: url('/images/reactions.png')
+    li:first-child
+      a
+        border-bottom-left-radius: 4px
+        -moz-border-radius-bottomleft: 4px
+        -webkit-border-bottom-left-radius: 4px
+        border-left: 0px !important
+    li:last-child
+      a
+        border-top-right-radius: 4px
+        -moz-border-radius-topright: 4px
+        -webkit-border-top-right-radius: 4px
+.list
+  li.button
+    margin: 5px 0
+    text-align: center
+    font-size: 10px
+    display: none
+
+.chart
+  margin-top: 10px
+  width: 700px
+  height: 210px
+  .content
+    width: 680px
+    margin: 0px 10px
+    height: 200px
+    
+.tooltip
+  background: #0a0909
+  border: 1px solid #0A0909
+  font-size: 12px
+  padding: 3px 4px
+  position: absolute
+  border-right-width: 2px
+  border-bottom-width: 2px
+.legendLabel
+  color: #fff
+
+.progressbar
+  border: 1px solid #202020
+  background: #242424
+  padding: 1px
+  width: 70px
+  float: right
+  .progress
+    width: 0%
+    height: 14px
+    background: #0a0909
+  

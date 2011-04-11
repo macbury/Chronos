@@ -1,12 +1,17 @@
 class StreamPublish < Struct.new(:link_id)
   def link
     @link ||= Link.find(link_id)
+    @link
   end
  
-  def status(type,text=nil)
-    link.update_attributes(:status_id => type, :status_message => text)
+  def status(new_type,text=nil)
+    link.status_type = new_type
+    link.status_message = text
+    link.save
+    
+    message = { :channel => "/#{link.owner.user.api_token}/notifications/links", :data => link.to_json }
     uri = URI.parse(RhCore::Config["faye_server"])
-    Net::HTTP.post_form(uri, :link => link.to_json)
+    Net::HTTP.post_form(uri, :message => message.to_json)
   end
 
   def before(job)

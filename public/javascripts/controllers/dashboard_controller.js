@@ -1,13 +1,17 @@
 var DashboardController = {
   init: function() {
     var self = this;
-    faye.subscribe("/"+auth_token+"/notifications/link", function(data) {
-      var data = jQuery.json(data);
+    client.subscribe("/"+$('meta[name=auth_token]').attr('content')+"/notifications/links", function(data) {
+      var data = jQuery.parseJSON(data);
       self.linkUpdateNotification(data);
     });
+    
+    this.bindCharts();
+    this.bindViews();
   },
   
   bindCharts: function() {
+    
     $('.view_tab').bind("chart", function(){
       var update_id = $(this).attr("data-id");
       var li = $(this);
@@ -87,9 +91,20 @@ var DashboardController = {
       
       return false;
     });
+    
+    $('.views:first .urls').click();
   },
   
   linkUpdateNotification: function(data) {
-    console.log(data);
+    var link = data.link;
+    var li = $("#link_"+link.id);
+    var description = li.find(".text");
+    if(li.size() == 0){
+      return false;
+    } else {
+      li.attr("class", [li.attr("data-type"), "status_"+link.status_type].join(" "));
+      
+      //description.text("Oczekuje na dodanie");
+    }
   },
 };

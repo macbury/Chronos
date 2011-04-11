@@ -1,9 +1,5 @@
 class Update < ActiveRecord::Base
-  include ActionController::UrlWriter
-  include ActionView::Helpers::TextHelper
-  include ActionView::Helpers::SanitizeHelper
-  default_url_options[:host] = RhCore::Config["host"]
-  
+
   belongs_to :user
   has_many :links, :dependent => :destroy
   
@@ -20,18 +16,18 @@ class Update < ActiveRecord::Base
   def short_url
     unless (url.nil? || url.empty?)
       short = user.short_links.find_or_create_by_url(url)
-      return short_link_url(:id => short.id.to_s(32))
+      return ModelHelper.short_link_url(:id => short.id.to_s(32))
     end
   end
 
   def to_twitter
     tags = self.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
-    [strip_tags(self.title), self.short_url, tags].compact.join(" ").strip
+    [ModelHelper.strip_tags(self.title), self.short_url, tags].compact.join(" ").strip
   end
   
   def to_flaker
     tags = self.tags.split(",").map { |tag| "#"+tag.strip }.join(", ")
-    [strip_tags(self.title), tags, truncate(strip_tags(self.body), :length => 255)].compact.join("\n").strip
+    [ModelHelper.strip_tags(self.title), tags, ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255)].compact.join("\n").strip
   end
   
   def image
@@ -42,11 +38,11 @@ class Update < ActiveRecord::Base
   
   def to_facebook
     out = {
-      :message => truncate(strip_tags(self.body), :length => 255),
+      :message => ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255),
       :link => self.short_url,
-      :caption => strip_tags(self.title),
-      :title => strip_tags(self.title),
-      :description => truncate(strip_tags(self.body), :length => 255)
+      :caption => ModelHelper.strip_tags(self.title),
+      :title => ModelHelper.strip_tags(self.title),
+      :description => ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255)
     }
     
     out[:picture] = self.image if self.image.present?

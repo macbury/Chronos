@@ -1,18 +1,21 @@
 .field
-  = f.label :title
+  = f.label :title, "Status:"
   %br/
-  = f.text_field :title
+  = f.text_area :title
 .field
-  = f.label :body
-  = f.text_area :body
-.field
-  = f.label :url
-  = f.text_field :url
-.field
-  = f.label :tags
+  = f.label :tags, "Tagi:"
   = f.text_field :tags
-.field
-  = f.label :publish_at
-  = f.datetime_select :publish_at
+
+
+.hidden
+  .field
+    = f.label :url, "Link:"
+    = f.text_field :url
+  .field
+    = f.label :body, "Opis:"
+    = f.text_area :body
+
 .actions
-  = f.submit 'Save'
+  = f.submit 'Publikuj'
+  = link_to "Anuluj", root_path, :class => "button"
+  = link_to "Dodaj link", "#", :class => "button"

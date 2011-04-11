@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110407114455) do
+ActiveRecord::Schema.define(:version => 20110411184330) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(:version => 20110407114455) do
   create_table "links", :force => true do |t|
     t.integer  "update_id"
     t.integer  "social_account_id"
-    t.integer  "uid"
+    t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status_type",       :default => 0
+    t.string   "status_message"
   end
 
   create_table "roles", :force => true do |t|

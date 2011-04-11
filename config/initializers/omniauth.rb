@@ -29,6 +29,11 @@ module Clients
     return access_token
   end
   
+  def self.myspace(token, secret)
+    consumer = OAuth::Consumer.new(PROVIDERS_CONFIG["myspace"]["app_id"], PROVIDERS_CONFIG["myspace"]["secret"], :site => "http://api.myspace.com" ) 
+    access_token = OAuth::AccessToken.new(consumer, token, secret)
+    return access_token
+  end
   
   def self.flaker(token, secret)
     consumer = OAuth::Consumer.new(PROVIDERS_CONFIG["flaker"]["app_id"], PROVIDERS_CONFIG["flaker"]["secret"], :site => "http://api.flaker.pl/" ) 

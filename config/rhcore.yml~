@@ -1,10 +1,10 @@
 development:
-  app_id: 8nugjyudlq1e730qm6hl9syup
-  secret: "$2a$10$glHY2CZLHIUAShzQ/Z2vuu7mWfOYxW9NJTNPfMGpRng8IrtlFQ5um"
-  site: "http://0.0.0.0:3000"
+  app_id: 76q6w2u2a9jiiipafu0kctmhj
+  secret: "$2a$10$5.NWr/4I840PyNpQ45LX4OAAz8/ez0M1bW.7/eVQRoqgiJ.tMO4h6"
+  site: "http://user.rhmusic.pl"
   base_site: "http://0.0.0.0:3001"
   host: "0.0.0.0:3001"
-  faye_server: "0.0.0.0:3001/realtime"
+  faye_server: "http://0.0.0.0:9292/"
   
 production:
   app_id: bpd1iyudoctgjochoj4pyhp8d

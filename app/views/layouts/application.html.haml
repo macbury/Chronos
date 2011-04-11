@@ -7,10 +7,13 @@
     - if self.access_token
       %meta{ :name => "rhCoreAccessToken", :content => self.access_token.token }/
     - if logged_in?
-      %meta{ :name => "auth_token", :content => self.current_user.id }/
+      %meta{ :name => "auth_token", :content => self.current_user.api_token }/
+      %meta{ :name => "notifications_server", :content => RhCore::Config["faye_server"] }/
+      
     = csrf_meta_tag
-    = javascript_include_tag "jquery.min.js", "jquery.flot.js", "application", "rails", "dashboard"
+    = javascript_include_tag "jquery.min.js", "jquery.flot.js", "application", "rails", "controllers/dashboard_controller"
     = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
+    = javascript_include_tag RhCore::Config["faye_server"]+".js"
   %body
     .wrapper
       %ul.menu

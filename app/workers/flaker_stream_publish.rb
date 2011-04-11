@@ -1,7 +1,7 @@
 class FlakerStreamPublish < StreamPublish
   def perform
     flaker = Clients.flaker(link.social_account.token, link.social_account.secret)
-    resp = flaker.post("/api/type:submit", :text => link.update.to_flaker, :link => link.update.short_url)
+    resp = flaker.post("/api/type:submit", :text => link.owner.to_flaker, :link => link.owner.short_url)
     
     resp = JSON.parse(resp.body)
     if resp["info"]

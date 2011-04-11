@@ -1,0 +1,19 @@
+.field
+  = f.label :title, "Status:"
+  %br/
+  = f.text_area :title
+.field
+  = f.label :tags, "Tagi:"
+  = f.text_field :tags
+
+= link_to "Dodaj link", "#"
+.hidden
+  .field
+    = f.label :url, "Link:"
+    = f.text_field :url
+  .field
+    = f.label :body, "Opis:"
+    = f.text_area :body
+
+.actions
+  = f.submit 'Publikuj'

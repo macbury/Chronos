@@ -1,5 +1,6 @@
 class UpdatesController < ApplicationController
   before_filter :authenticate_user!
+  set_tab :dashboard
   
   def chart
     out = []
@@ -80,7 +81,7 @@ class UpdatesController < ApplicationController
 
     respond_to do |format|
       if @update.save
-        format.html { redirect_to(@update, :notice => 'Update was successfully created.') }
+        format.html { redirect_to(root_path) }
         format.xml  { render :xml => @update, :status => :created, :location => @update }
         format.json  { render :json => @update, :status => :created, :location => @update }
       else
