@@ -1,33 +1,18 @@
+var previousPoint = null;
+
+function showTooltip(x, y, contents) {
+  $('<div id="tooltip" class="tooltip">' + contents + '</div>').css( {
+      position: 'absolute',
+      display: 'none',
+      top: y + 5,
+      left: x + 5,
+  }).appendTo("body").fadeIn(200);
+}
+var client = null;
+var auth_token = 0;
 $(document).ready(function(){ 
-  $('.views a').live("click", function(){
-    var links = $(this).parents(".views").find("a");
-    var update_id = $(this).parents(".views").attr("data-id");
-    links.removeClass("selected");
-    
-    $.each(links, function(){
-      var id = $(this).attr("href");
-      $(id).hide();
-    });
-    
-    $('#show_'+update_id).show();
-    $($(this).attr("href")).show();
-    
-    $(this).addClass("selected");
-    return false;
+  client = new Faye.Client('http://0.0.0.0:9292/realtime',{
+    timeout: 60
   });
-  
-  $('.show_button').live("click", function() {
-    var update_id = $(this).attr("data-id");
-    var links = $("#update_"+update_id).find(".views a");
-    links.removeClass("selected");
-    
-    $.each(links, function(){
-      var id = $(this).attr("href");
-      $(id).hide();
-    });
-    
-    $(this).hide();
-    
-    return false;
-  });
+  DashboardController.init();
 });

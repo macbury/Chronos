@@ -2,7 +2,11 @@ Chronos::Application.routes.draw do
   match '/r/:id' => "redirects#show", :as => :short_link
 
   resource :account, :controller => "account"
-  resources :updates
+  resources :updates do
+    member do
+     get :chart
+    end
+  end
   resources :social_accounts
   resource :facebook_page
   resource :session

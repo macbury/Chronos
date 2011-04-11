@@ -46,7 +46,7 @@
         %li= link_to "Reakcje", "#reactions_#{update.id}", :class => "reactions"
         %li= link_to "Statystyki", "#stats_#{update.id}", :class => "stats"
       .clear
-    %li.hidden{ :id => "links_#{update.id}" }
+    %li.view_tab.hidden{ :id => "links_#{update.id}", 'trigger:action' => 'links' }
       %ul.links
         - update.links.each do |link|
           %li{ :class => link.social_account.type_name }
@@ -57,10 +57,11 @@
             - else
               Oczekuje na dodanie do
               = link_to link.social_account.name, link.social_account
-    %li.hidden{ :id => "reactions_#{update.id}" }
+    %li.view_tab.hidden{ :id => "reactions_#{update.id}", 'trigger:action' => 'reactions' }
       %p Brak Reakcji
-    %li.hidden{ :id => "stats_#{update.id}" }
-      = image_tag "http://chart.apis.google.com/chart?chf=bg,s,151515&chxl=0:|Jan|Feb|Mar|Jun|Jul|Aug|1:|0|50|100&chxt=x,y&chs=700x150&cht=lc&chco=F8F7F5,FCFAF8&chd=t:0,0|0,29.508,62.295,72.131,88.525,100,96.721,78.689,83.607,75.41,65.574,78.689,68.852,81.967,73.77,62.295,44.262,29.508,16.393,0&chg=25,50,0,4&chls=0.75,-1,-1|2,4,1&chm=o,FF9900,1,-2,8|b,3399CC44,0,1,0"
+    %li.view_tab.hidden{ :id => "stats_#{update.id}", 'trigger:action' => 'chart', 'data-id' => update.id }
+      .chart
+        .content
     %li.show_button.button{ :id => "show_#{update.id}", "data-id" => update.id }= link_to "Schowaj", "#"
 - content_for :sidebar do
   = render :partial => "dashboard/sidebar"

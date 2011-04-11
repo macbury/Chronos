@@ -1,0 +1,5 @@
+class MyspaceStreamPublish < StreamPublish
+  def perform
+    rescue Error
+  end
+end

@@ -1,0 +1,11 @@
+class FacebookStreamPublish < StreamPublish
+  def perform
+    graph = Koala::Facebook::GraphAPI.new(self.social_account.token)
+      
+    resp = graph.put_object(self.social_account.uid, "feed", self.update.to_facebook)
+    if resp["id"]
+      link.uid = resp["id"].split("_").last
+      link.save
+    end
+  end
+end

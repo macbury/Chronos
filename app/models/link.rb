@@ -1,53 +1,29 @@
 class Link < ActiveRecord::Base
+  Pending = 0
+  Working = 1
+  Success = 2
+  Error = 3
+  Failure = 4
   
   belongs_to :update
   belongs_to :social_account
   
-  after_create :send_to
+  after_create :enqueue
 
   def published?
-    self.uid.present?
+    self.status_id == Link::Success
   end
-  
-  def send_to
+
+  def enqueue
     if self.social_account.social_type == SocialAccount::Facebook
-      graph = Koala::Facebook::GraphAPI.new(self.social_account.token)
-      
-      resp = graph.put_object(self.social_account.uid, "feed", self.update.to_facebook)
-      if resp["id"]
-        uid = resp["id"].split("_").last
-        
-        self.save
-      end
+      Delayed::Job.enqueue FacebookStreamPublish.new(self.id)
     elsif self.social_account.social_type == SocialAccount::Twitter
-      twitter = Clients.twitter(self.social_account.token, self.social_account.secret)
-      resp = twitter.post("/statuses/update.json", :status => self.update.to_twitter)
-      
-      resp = JSON.parse(resp.body)
-      if resp["id"]
-        uid = resp["id"]
-        self.save
-      end
+      Delayed::Job.enqueue TwitterStreamPublish.new(self.id)
     elsif self.social_account.social_type == SocialAccount::Blip
-      blip = Clients.blip(self.social_account.token, self.social_account.secret)
-      resp = blip.post("/updates.json", :body => self.update.to_twitter)
-      
-      resp = JSON.parse(resp.body)
-      if resp["id"]
-        uid = resp["id"]
-        self.save
-      end
+      Delayed::Job.enqueue BlipStreamPublish.new(self.id)
     elsif self.social_account.social_type == SocialAccount::Flaker
-      flaker = Clients.flaker(self.social_account.token, self.social_account.secret)
-      resp = flaker.post("/api/type:submit", :text => self.update.to_flaker, :link => self.update.short_url)
-      
-      resp = JSON.parse(resp.body)
-      if resp["info"]
-        uid = resp["info"].gsub(/[^0-9]/i, "")
-        self.save
-      end
+      Delayed::Job.enqueue FlakerStreamPublish.new(self.id)
     end
   end
-  handle_asynchronously :send_to
   
 end
