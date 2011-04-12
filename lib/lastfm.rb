@@ -21,6 +21,10 @@ class LastFm
     @logged_in = !profile_page.search("#idBadgerUser").empty?
   end
   
+  def publish_on_wall(band_url, content)
+    
+  end
+  
   def logged_in?
     @logged_in
   end

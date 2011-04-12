@@ -1,0 +1,5 @@
+class LastfmStreamPublish < StreamPublish
+  def perform
+    lastfm = LastFm.new(link.social_account.login, link.social_account.password)
+  end
+end

@@ -37,6 +37,8 @@ class Link < ActiveRecord::Base
       Delayed::Job.enqueue BlipStreamPublish.new(self.id), 1, 5.seconds.from_now
     elsif self.social_account.social_type == SocialAccount::Flaker
       Delayed::Job.enqueue FlakerStreamPublish.new(self.id), 1, 5.seconds.from_now
+    elsif self.social_account.social_type == SocialAccount::LastFm
+      Delayed::Job.enqueue LastfmStreamPublish.new(self.id), 1, 5.seconds.from_now
     end
   end
   

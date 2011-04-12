@@ -22,9 +22,9 @@ class Link < ActiveRecord::Base
     elsif self.social_account.social_type == SocialAccount::Twitter
       return "http://twitter.com/#{self.social_account.name}/status/#{self.uid}"
     elsif self.social_account.social_type == SocialAccount::Blip
-      Delayed::Job.enqueue BlipStreamPublish.new(self.id), 1, 5.seconds.from_now
+      return "http://blip.pl/s/#{self.uid}"
     elsif self.social_account.social_type == SocialAccount::Flaker
-      Delayed::Job.enqueue FlakerStreamPublish.new(self.id), 1, 5.seconds.from_now
+      return "http://flaker.pl/f/#{self.uid}"
     end
   end
   
