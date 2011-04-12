@@ -7,7 +7,14 @@ module OmniAuth
     class Flaker < OAuth
 
       def initialize(app, consumer_key = nil, consumer_secret = nil, options = {}, &block)
-        super(app, :flaker, consumer_key, consumer_secret, { :site => 'http://flaker.pl/' })
+        super(app, :flaker, consumer_key, consumer_secret, { 
+          :site => 'http://flaker.pl',
+          :signature_method   => 'PLAINTEXT',
+          :oauth_version => "1.0",
+          :http_method => :get,
+          :request_token_path => '/oauth/request_token',
+          :access_token_path => '/oauth/access_token',
+          :authorize_path => '/oauth/authorize' })
       end
 
       def auth_hash

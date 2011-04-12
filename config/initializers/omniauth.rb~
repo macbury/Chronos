@@ -7,6 +7,7 @@ PROVIDERS_CONFIG = providers
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   providers.each do |provider_name, config|
+    next if config.nil?
     if provider_name.to_sym == :facebook
       provider provider_name.to_sym, config['app_id'], config['secret'], { :scope => "manage_pages, offline_access, publish_stream, create_event" }
     else
@@ -30,7 +31,7 @@ module Clients
   end
   
   def self.myspace(token, secret)
-    consumer = OAuth::Consumer.new(PROVIDERS_CONFIG["myspace"]["app_id"], PROVIDERS_CONFIG["myspace"]["secret"], :site => "https://api.twitter.com" ) 
+    consumer = OAuth::Consumer.new(PROVIDERS_CONFIG["myspace"]["app_id"], PROVIDERS_CONFIG["myspace"]["secret"], :site => "http://api.myspace.com" ) 
     access_token = OAuth::AccessToken.new(consumer, token, secret)
     return access_token
   end

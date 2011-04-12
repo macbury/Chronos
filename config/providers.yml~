@@ -14,7 +14,7 @@ development:
   myspace:
     app_id: 3bd0eae2e4c9480fb47883ca97a6d521
     secret: dfa9ca5a306b48f384a290b47e8f47bbd1166d503ce146508f21352be2e29ac4
-  lastfm:
+
 production:
   twitter:
     app_id: rGS0J90IVVaAOk5Ey7tnA

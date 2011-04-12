@@ -102,7 +102,6 @@ var DashboardController = {
     if(li.size() == 0){
       return false;
     } else {
-      li.find(".status").hide();
       li.attr("class", [li.attr("data-type"), "status_"+link.status_type].join(" "));
       
       //description.text("Oczekuje na dodanie");

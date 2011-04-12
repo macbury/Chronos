@@ -1,6 +1,5 @@
 class Update < ActiveRecord::Base
 
-  
   belongs_to :user
   has_many :links, :dependent => :destroy
   
@@ -39,15 +38,17 @@ class Update < ActiveRecord::Base
   
   def to_facebook
     out = {
-      :message => ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255),
-      :link => self.short_url,
-      :caption => ModelHelper.strip_tags(self.title),
-      :title => ModelHelper.strip_tags(self.title),
-      :description => ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255)
+      :message => ModelHelper.truncate(ModelHelper.strip_tags(self.title), :length => 255)
     }
     
     out[:picture] = self.image if self.image.present?
     
+    if self.short_url
+      out[:link] = self.short_url
+      out[:caption] = ModelHelper.strip_tags(self.title)
+      out[:title] = ModelHelper.strip_tags(self.title)
+      out[:description] = ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255)
+    end
     return out
   end
   

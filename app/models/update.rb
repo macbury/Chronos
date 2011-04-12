@@ -37,16 +37,19 @@ class Update < ActiveRecord::Base
   end
   
   def to_facebook
+    content = self.body.present? ? self.body : self.title
     out = {
-      :message => ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255),
-      :link => self.short_url,
-      :caption => ModelHelper.strip_tags(self.title),
-      :title => ModelHelper.strip_tags(self.title),
-      :description => ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255)
+      :message => ModelHelper.truncate(ModelHelper.strip_tags(content), :length => 255)
     }
     
     out[:picture] = self.image if self.image.present?
     
+    if self.short_url
+      out[:link] = self.short_url
+      out[:caption] = ModelHelper.strip_tags(self.title)
+      out[:title] = ModelHelper.strip_tags(self.title)
+      out[:description] = ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255)
+    end
     return out
   end
   

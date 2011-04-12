@@ -1,0 +1,20 @@
+.block.center
+  %h2 Logowanie do Last.fm
+  %p Wpisz swoje hasło, login oraz nazwę zespołu do last.fm
+  = form_tag lastfm_path do
+    %p
+      = label_tag "band", "Nazwa zespołu"
+      %br/
+      = text_field_tag "band", ""
+    %p
+      = label_tag "login", "Login"
+      %br/
+      = text_field_tag "login", ""
+    %p
+      = label_tag "password", "Hasło"
+      %br/
+      = password_field_tag "password", ""
+
+    = submit_tag "Dalej"
+    albo
+    = link_to "Anuluj", social_accounts_path, :class => "button"

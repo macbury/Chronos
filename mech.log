@@ -1,0 +1,62 @@
+# Logfile created on Tue Apr 12 22:26:03 +0200 2011 by logger.rb/22285
+Net::HTTP::Get: /login?lang=pl&backto=http%3A%2F%2Fwww.lastfm.pl%2Flogin%2FsuccessCallback%3Furl%3Dhttp%253A%252F%252Fwww.lastfm.pl%252F%253Fsetlang%253Dpl&withsid&s=0&r=0&joinurl=http%3A%2F%2Fwww.lastfm.pl%2F%3Fsetlang%3Dpl
+request-header: accept-language => en-us,en;q=0.5
+request-header: accept => */*
+request-header: user-agent => Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; de-at) AppleWebKit/531.21.8 (KHTML, like Gecko) Version/4.0.4 Safari/531.21.10
+request-header: connection => keep-alive
+request-header: accept-encoding => gzip,identity
+request-header: host => www.last.fm
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: keep-alive => 300
+Read 3196 bytes
+Read 7292 bytes
+Read 9291 bytes
+response-header: p3p => CP="CAO DSP COR LAW CURa ADMa DEVa TAIa PSAa PSDa CONi OUR PUBo IND UNI COM NAV INT DEM PRE", policyref="http://www.last.fm/help/last.p3p"
+response-header: connection => keep-alive
+response-header: content-type => text/html; charset=utf-8
+response-header: x-web-node => www58
+response-header: date => Tue, 12 Apr 2011 20:26:03 GMT
+response-header: server => nginx/0.7.65
+response-header: content-encoding => gzip
+response-header: x-proxy-fix-up => headers fixed up
+response-header: set-cookie => AnonSession=6d041e3750036abb6a3a454b60714830-e87f2a64bf1051f0fa0c35e32c13fa8fdf4408fd9876adcc13263acfc2e0ff8b; expires=Sat, 13-Mar-2021 08:26:03 GMT; path=/; domain=.last.fm, AnonTrack=2b82f8437eb961ca85951a1930378a5c; expires=Fri, 06-Apr-2012 20:26:03 GMT; path=/; domain=.last.fm, wwwlang=deleted; expires=Mon, 12-Apr-2010 20:26:02 GMT; path=/; domain=.last.fm, wwwlang=pl; expires=Wed, 11-Apr-2012 20:26:03 GMT; path=/; domain=.last.fm
+response-header: vary => Cookie,X-Country-Code,Accept-Encoding
+response-header: transfer-encoding => chunked
+gunzip body
+saved cookie: AnonSession=6d041e3750036abb6a3a454b60714830-e87f2a64bf1051f0fa0c35e32c13fa8fdf4408fd9876adcc13263acfc2e0ff8b
+saved cookie: AnonTrack=2b82f8437eb961ca85951a1930378a5c
+saved cookie: wwwlang=deleted
+saved cookie: wwwlang=pl
+status: 200
+query: "refererKey=&withsid=1&backto=http%3A%2F%2Fwww.lastfm.pl%2Flogin%2FsuccessCallback%3Furl%3Dhttp%253A%252F%252Fwww.lastfm.pl%252F%253Fsetlang%253Dpl&username=&password="
+Net::HTTP::Post: /login/?lang=pl
+request-header: accept-language => en-us,en;q=0.5
+request-header: accept => */*
+request-header: content-type => application/x-www-form-urlencoded
+request-header: user-agent => Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; de-at) AppleWebKit/531.21.8 (KHTML, like Gecko) Version/4.0.4 Safari/531.21.10
+request-header: connection => keep-alive
+request-header: accept-encoding => gzip,identity
+request-header: content-length => 166
+request-header: referer => https://www.last.fm/login?lang=pl&backto=http%3A%2F%2Fwww.lastfm.pl%2Flogin%2FsuccessCallback%3Furl%3Dhttp%253A%252F%252Fwww.lastfm.pl%252F%253Fsetlang%253Dpl&withsid&s=0&r=0&joinurl=http%3A%2F%2Fwww.lastfm.pl%2F%3Fsetlang%3Dpl
+request-header: cookie => AnonTrack=2b82f8437eb961ca85951a1930378a5c; AnonSession=6d041e3750036abb6a3a454b60714830-e87f2a64bf1051f0fa0c35e32c13fa8fdf4408fd9876adcc13263acfc2e0ff8b; wwwlang=pl
+request-header: host => www.last.fm
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: keep-alive => 300
+Read 3502 bytes
+Read 7598 bytes
+Read 9184 bytes
+response-header: p3p => CP="CAO DSP COR LAW CURa ADMa DEVa TAIa PSAa PSDa CONi OUR PUBo IND UNI COM NAV INT DEM PRE", policyref="http://www.last.fm/help/last.p3p"
+response-header: connection => keep-alive
+response-header: content-type => text/html; charset=utf-8
+response-header: x-web-node => www119
+response-header: date => Tue, 12 Apr 2011 20:26:04 GMT
+response-header: server => nginx/0.7.65
+response-header: content-encoding => gzip
+response-header: x-proxy-fix-up => headers fixed up
+response-header: set-cookie => wwwlang=deleted; expires=Mon, 12-Apr-2010 20:26:03 GMT; path=/; domain=.last.fm, wwwlang=pl; expires=Wed, 11-Apr-2012 20:26:04 GMT; path=/; domain=.last.fm
+response-header: vary => Cookie,X-Country-Code,Accept-Encoding
+response-header: transfer-encoding => chunked
+gunzip body
+saved cookie: wwwlang=deleted
+saved cookie: wwwlang=pl
+status: 200

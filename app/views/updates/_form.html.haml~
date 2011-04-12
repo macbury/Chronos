@@ -6,7 +6,7 @@
   = f.label :tags, "Tagi:"
   = f.text_field :tags
 
-= link_to "Dodaj link", "#"
+
 .hidden
   .field
     = f.label :url, "Link:"
@@ -17,3 +17,5 @@
 
 .actions
   = f.submit 'Publikuj'
+  = link_to "Anuluj", root_path, :class => "button"
+  = link_to "Dodaj link", "#", :class => "button"

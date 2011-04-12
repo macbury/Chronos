@@ -46,7 +46,7 @@ var DashboardController = {
                     y = item.datapoint[1];
                 
                 showTooltip(item.pageX, item.pageY,
-                            item.series.label + ": " + y + " dla " + x);
+                            item.series.label + ": " + y);
               }
             } else {
               $("#tooltip").remove();

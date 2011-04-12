@@ -152,9 +152,12 @@ input[type="text"], input[type="password"], input[type="email"], textarea
   padding: 8px 5px !important
   background: #242424 !important
   color: #fff !important
+  width: 660px
+
+.block.center
+  width: 490px
 
 textarea
-  width: 660px
   height: 70px
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus
@@ -389,7 +392,8 @@ ul.info
     background-image: url("/images/socials/myspace16.png")
   .blip
     background-image: url("/images/socials/blip16.png")
-
+  .lastfm
+    background-image: url("/images/socials/lastfm.png")
 .features
   span
     padding-left: 22px

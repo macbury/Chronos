@@ -19,8 +19,7 @@ class OauthController < ApplicationController
     end
   end
   
-  def lastfm
+  def facebook
     
   end
-
 end

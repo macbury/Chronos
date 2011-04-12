@@ -15,4 +15,9 @@ $(document).ready(function(){
     timeout: 60
   });
   DashboardController.init();
+  
+  $(".toggle").live("click", function(){
+    $($(this).attr("href")).toggle("blind");
+    return false;
+  });
 });

@@ -1,12 +1,14 @@
 require File.join([Rails.root, '/lib', '/oa_blip.rb'])
 require File.join([Rails.root, '/lib', '/oa_flaker.rb'])
 require File.join([Rails.root, '/lib', '/oa_myspace.rb'])
+require File.join([Rails.root, '/lib', '/lastfm.rb'])
 providers = YAML.load_file(File.join([Rails.root, "config", "providers.yml"]))[Rails.env]
 
 PROVIDERS_CONFIG = providers
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   providers.each do |provider_name, config|
+    next if config.nil?
     if provider_name.to_sym == :facebook
       provider provider_name.to_sym, config['app_id'], config['secret'], { :scope => "manage_pages, offline_access, publish_stream, create_event" }
     else

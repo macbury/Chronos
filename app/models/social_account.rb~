@@ -29,10 +29,7 @@ class SocialAccount < ActiveRecord::Base
   def password
     p = read_attribute(:password)
     blowfish = Crypt::Blowfish.new(PASSWORD_TOKEN_HASH)
-    if p
-      3.times { p = blowfish.decrypt_string(p) }
-    end
-    p
+    blowfish.decrypt_string(p) if p
   end
   
   def self.findType(f_name)

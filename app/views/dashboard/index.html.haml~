@@ -37,7 +37,7 @@
       %h4
         .date
           Dodane:
-          = l(update.publish_at, :format => :long) if update.publish_at
+          = l(update.created_at, :format => :long)
         = link_to update.title, update
       .body= truncate(strip_tags(update.body), :length => 382)
       .tags= update.tags.split(",").map { |tag| content_tag(:span, "#"+h(tag.strip), :class => "tag") }.join(" ").html_safe
@@ -62,7 +62,7 @@
               Opublikowane na
               = link_to link.social_account.name, link.social_account
               , kliknij
-              %a{ :href => "#" } tutaj
+              = link_to "tutaj", link
               aby zobaczyć ten wpis
             .status.working
               .progressbar
