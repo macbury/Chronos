@@ -30,6 +30,10 @@ class Update < ActiveRecord::Base
     [ModelHelper.strip_tags(self.title), tags, ModelHelper.truncate(ModelHelper.strip_tags(self.body), :length => 255)].compact.join("\n").strip
   end
   
+  def to_lastfm
+    [ModelHelper.strip_tags(self.title), self.short_url].compact.join("\n").strip
+  end
+  
   def image
     if body =~ /(http:\/\/.+\.(png|gif|jpg|jpeg))/i
       return $1

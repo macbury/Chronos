@@ -21,8 +21,17 @@ class LastFm
     @logged_in = !profile_page.search("#idBadgerUser").empty?
   end
   
-  def publish_on_wall(band_url, content)
+  def publish_on_wall(band_name, content)
+    url = "http://www.lastfm.pl/music/#{CGI.escape(band_name)}"
+    page = @agent.get(url)
+    comment_form = page.form_with(:action => /\/music\/#{band_name}\/\+shoutbox\/add/i)
+    comment_form.field_with(:name => "message").value = content
     
+    @agent.submit(comment_form)
+  end
+  
+  def agent
+    @agent
   end
   
   def logged_in?

@@ -30,15 +30,15 @@ class Link < ActiveRecord::Base
   
   def enqueue
     if self.social_account.social_type == SocialAccount::Facebook
-      Delayed::Job.enqueue FacebookStreamPublish.new(self.id), 1, 5.seconds.from_now
+      Delayed::Job.enqueue FacebookStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
     elsif self.social_account.social_type == SocialAccount::Twitter
-      Delayed::Job.enqueue TwitterStreamPublish.new(self.id), 1, 5.seconds.from_now
+      Delayed::Job.enqueue TwitterStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
     elsif self.social_account.social_type == SocialAccount::Blip
-      Delayed::Job.enqueue BlipStreamPublish.new(self.id), 1, 5.seconds.from_now
+      Delayed::Job.enqueue BlipStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
     elsif self.social_account.social_type == SocialAccount::Flaker
-      Delayed::Job.enqueue FlakerStreamPublish.new(self.id), 1, 5.seconds.from_now
+      Delayed::Job.enqueue FlakerStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
     elsif self.social_account.social_type == SocialAccount::LastFm
-      Delayed::Job.enqueue LastfmStreamPublish.new(self.id), 1, 5.seconds.from_now
+      Delayed::Job.enqueue LastfmStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
     end
   end
   

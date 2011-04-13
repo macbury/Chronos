@@ -155,7 +155,8 @@ input[type="text"], input[type="password"], input[type="email"], textarea
   width: 660px
 
 .block.center
-  width: 490px
+  input[type="text"], input[type="password"]
+    width: 490px
 
 textarea
   height: 70px
@@ -581,4 +582,9 @@ ul.info
     width: 0%
     height: 14px
     background: #0a0909
-  
+.progress_status
+  text-align: center
+  .progressbar
+    display: none
+    width: 200px
+    margin: 5px auto

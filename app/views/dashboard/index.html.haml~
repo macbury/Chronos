@@ -38,8 +38,9 @@
         .date
           Dodane:
           = l(update.created_at, :format => :long)
-        = link_to update.title, update
-      .body= truncate(strip_tags(update.body), :length => 382)
+        = link_to "Wpis", update
+      - if update.body.present?
+        .body= truncate(strip_tags(update.title), :length => 382)
       .tags= update.tags.split(",").map { |tag| content_tag(:span, "#"+h(tag.strip), :class => "tag") }.join(" ").html_safe
       %ul.views{ 'data-id' => update.id }
         %li= link_to "Linki", "#links_#{update.id}", :class => "urls"

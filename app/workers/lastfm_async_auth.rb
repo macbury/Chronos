@@ -11,14 +11,14 @@ class LastfmAsyncAuth < Struct.new(:social_account_id)
   end
 
   def before(job)
-    status({ :status => "Łączenie z Last.fm" })
+    status({ :status => "Łączenie z Last.fm", :progress => 30 })
   end
 
   def perform
     @lastfm = LastFm.new(account.login, account.password)
     
     if @lastfm.logged_in?
-      status({ :success => "Konto zostało dodane! Zaraz nastąpi przekierowanie..." })
+      status({ :success => "Konto zostało dodane! Zaraz nastąpi przekierowanie...", :progress => 100 })
     else
       status({ :error => "Nieprawidłowy login lub hasło!" })
       account.destroy

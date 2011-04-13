@@ -13,15 +13,24 @@ var AuthController = {
   },
   
   process: function(data) {
+    $('.progress_status img').hide();
+    $('#auth_progress').show();
+    $('#auth_progress .progress').animate({
+      width: data.progress + "px"
+    });
     if(data["status"]) {
       $("#status_message").text(data["status"]);
     } else if(data["error"]) {
       $("#status_message").text(data["error"]);
-    } else if(data["success"]) {
-      $("#status_success").text(data["success"]);
+      $("#status_message").addClass("error");
       setTimeout(function(){
         window.location.href = $('#auth_process').attr("data-redirect_to");
-      });
+      }, 5000);
+    } else if(data["success"]) {
+      $("#status_message").text(data["success"]);
+      setTimeout(function(){
+        window.location.href = $('#auth_process').attr("data-redirect_to");
+      }, 5000);
     }
   }
 }

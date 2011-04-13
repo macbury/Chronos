@@ -5,13 +5,13 @@ class LastfmAsyncAuth < Struct.new(:social_account_id)
   end
   
   def status(stat)
-    message = { :channel => "/#{account.user.api_token}/#{account.id}/auth", :data => stat }
+    message = { :channel => "/#{account.user.api_token}/#{account.id}/auth", :data => stat.to_json }
     uri = URI.parse(RhCore::Config["faye_server"])
     Net::HTTP.post_form(uri, :message => message.to_json)
   end
 
   def before(job)
-    status({ :status => "Łączenie z Last.fm" })
+    status({ :status => "Łączenie z Last.fm", :progress => 30 })
   end
 
   def perform

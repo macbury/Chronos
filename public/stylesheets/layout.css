@@ -595,3 +595,11 @@ ul.info {
     width: 0%;
     height: 14px;
     background: #0a0909; }
+
+.progress_status {
+  text-align: center; }
+  .progress_status .progressbar {
+    display: none;
+    width: 200px;
+    margin: 5px auto;
+    float: none; }

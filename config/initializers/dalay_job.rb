@@ -6,4 +6,5 @@ Delayed::Worker.delay_jobs = !Rails.env.test?
 
 module TaskPriority
   Auth = 10
+  StatusPublish = 1
 end
