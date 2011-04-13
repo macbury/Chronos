@@ -7,7 +7,7 @@
     - if self.access_token
       %meta{ :name => "rhCoreAccessToken", :content => self.access_token.token }/
     - if logged_in?
-      %meta{ :name => "auth_token", :content => 1 }/
+      %meta{ :name => "auth_token", :content => self.current_user.api_token }/
       %meta{ :name => "notifications_server", :content => RhCore::Config["faye_server"] }/
       
     = csrf_meta_tag

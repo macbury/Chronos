@@ -1,4 +1,4 @@
-.block.center#auth_process{ 'data-redirect_to' => social_accounts_url, 'data-id' => @account.id }
+.block.center#auth_process{ 'data-redirect_to' => social_accounts_url, 'data-id' =>  }
   %h2 Logowanie do Last.fm
   %p#status_message Prosze czekać... Nie odświeżaj strony!!!!!!!!!!!
   = image_tag "big_ajax.gif"

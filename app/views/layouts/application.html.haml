@@ -11,7 +11,7 @@
       %meta{ :name => "notifications_server", :content => RhCore::Config["faye_server"] }/
       
     = csrf_meta_tag
-    = javascript_include_tag "jquery.min.js", "jquery.flot.js", "application", "rails", "controllers/dashboard_controller"
+    = javascript_include_tag "jquery.min.js", "jquery.flot.js", "application", "rails", "controllers/dashboard_controller", "controllers/auth_controller"
     = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
     = javascript_include_tag RhCore::Config["faye_server"]+".js"
   %body
