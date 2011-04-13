@@ -12,13 +12,14 @@ var client = null;
 var auth_token = 0;
 
 $(document).ready(function(){
-  if($('meta[name=notifications_server]').size() > 0)
-    client = new Faye.Client($('meta[name=notifications_server]').attr('content'),{
-      timeout: 60
-    });
-  }
+  client = new Faye.Client($('meta[name=notifications_server]').attr('content'),{
+    timeout: 60
+  });
   
-  new DashboardController();
+  for(key in App.Controllers) {
+    new App.Controllers[key]();
+  }
+
   Backbone.history.start();
   
   $(".toggle").live("click", function(){

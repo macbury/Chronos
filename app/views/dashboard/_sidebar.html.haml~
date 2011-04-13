@@ -4,7 +4,6 @@
   = sidebar_tab "Twoje serwisy", social_accounts_path, :accounts
   = sidebar_tab "Statystyki", dashboard_path, :stats
   = sidebar_tab "Płatności", dashboard_path, :payments
-  = sidebar_tab "Kompedium", dashboard_path, :compedium
 .block
   %h3 Twoje serwisy
   %ul.navigation.accounts

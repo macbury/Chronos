@@ -3,6 +3,6 @@ class DashboardController < ApplicationController
   set_tab :dashboard
 
   def index
-    @updates = self.current_user.updates.includes(:links).order("id DESC").all
+    
   end
 end

@@ -10,12 +10,18 @@ function showTooltip(x, y, contents) {
 }
 var client = null;
 var auth_token = 0;
+
 $(document).ready(function(){
   client = new Faye.Client($('meta[name=notifications_server]').attr('content'),{
     timeout: 60
   });
-  DashboardController.init();
-  AuthController.init();
+  
+  for(key in App.Controllers) {
+    new App.Controllers[key]();
+  }
+
+  Backbone.history.start("#dashboard/index");
+  
   $(".toggle").live("click", function(){
     $($(this).attr("href")).toggle("blind");
     return false;

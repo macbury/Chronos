@@ -2,7 +2,7 @@
 %html
   %head
     %title TZ
-    = stylesheet_link_tag "layout"
+    = stylesheet_link_tag "layout", "jquery-ui"
     %meta{ :name => "rhCoreRoot", :content => RhCore::Config["site"] }/
     - if self.access_token
       %meta{ :name => "rhCoreAccessToken", :content => self.access_token.token }/
@@ -11,23 +11,27 @@
       %meta{ :name => "notifications_server", :content => RhCore::Config["faye_server"] }/
       
     = csrf_meta_tag
-    = javascript_include_tag "jquery.min.js", "jquery.flot.js", "application", "rails", "controllers/dashboard_controller", "controllers/auth_controller"
-    = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
+    = javascript_include_tag "lib/jquery.min.js", "lib/jquery-ui.min.js", "lib/underscore", "lib/jquery.flot.js", "lib/backbone", "lib/rails", "lib/haml", "lib/constans"
+    = javascript_include_tag "controllers/dashboard_controller"
+    = javascript_include_tag "dispatch"
     = javascript_include_tag RhCore::Config["faye_server"]+".js"
+    = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
+    
   %body
-    .wrapper
-      %ul.menu
-        %li= link_to "Zgłoszenia", root_path
-      = link_to "Logo", root_path, :class => "logo"
-      .clear
-      - if flash[:notice]
-        .box.notice= notice
-      .clear
-      - unless yield(:sidebar).empty?
-        .content= yield
-        .sidebar= yield :sidebar
-      - else
-        .content.full= yield
-      .clear
-      .footer= "TZ 2010/#{Date.current.year} dla rhmusic.pl, Arkadiusz Buras"
+    .top_bg
+      .wrapper
+        %ul.menu
+          %li= link_to "Zgłoszenia", root_path
+        = link_to "Logo", root_path, :class => "logo"
+        .clear
+        - if flash[:notice]
+          .box.notice= notice
+        .clear
+        - unless yield(:sidebar).empty?
+          .content= yield
+          .sidebar= yield :sidebar
+        - else
+          .content.full= yield
+        .clear
+    .footer= "TZ 2010/#{Date.current.year} dla rhmusic.pl, Arkadiusz Buras"
         
