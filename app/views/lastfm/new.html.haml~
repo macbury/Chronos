@@ -3,6 +3,10 @@
   %p Wpisz swoje hasło, login oraz nazwę zespołu do last.fm
   = form_tag lastfm_path do
     %p
+      = label_tag "band", "Nazwa zespołu"
+      %br/
+      = text_field_tag "band", ""
+    %p
       = label_tag "login", "Login"
       %br/
       = text_field_tag "login", ""

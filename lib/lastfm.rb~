@@ -24,10 +24,20 @@ class LastFm
   def publish_on_wall(band_name, content)
     url = "http://www.lastfm.pl/music/#{CGI.escape(band_name)}"
     page = @agent.get(url)
-    comment_form = page.form_with(:id => "shoutPost")
+    comment_form = page.form_with(:action => /\/music\/#{band_name}\/\+shoutbox\/add/i)
     comment_form.field_with(:name => "message").value = content
     
     @agent.submit(comment_form)
+  end
+  
+  def get_band_name
+    page = @agent.get("http://musicmanager.last.fm/")
+    h1 = page.search("#welcome h1")
+    if h1.empty?
+      return nil
+    else
+      return h1.inner_text.split(",").last.strip
+    end
   end
   
   def agent

@@ -25,6 +25,8 @@ class Link < ActiveRecord::Base
       return "http://blip.pl/s/#{self.uid}"
     elsif self.social_account.social_type == SocialAccount::Flaker
       return "http://flaker.pl/f/#{self.uid}"
+    elsif self.social_account.social_type == SocialAccount::LastFm
+      return "http://www.lastfm.pl/music/#{CGI.escape(self.social_account.name)}#shoutboxContainer"
     end
   end
   

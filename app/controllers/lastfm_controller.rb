@@ -10,7 +10,8 @@ class LastfmController < ApplicationController
   end
   
   def create
-    @account = self.current_user.social_accounts.find_or_initialize_by_name_and_social_type(params[:band], SocialAccount::LastFm)
+    @account = self.current_user.social_accounts.new
+    @account.social_type = SocialAccount::LastFm
     @account.password = params[:password]
     @account.login = params[:login]
     @account.name = params[:band]

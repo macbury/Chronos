@@ -30,6 +30,17 @@ class LastFm
     @agent.submit(comment_form)
   end
   
+  def get_band_name
+    page = @agent.get("http://musicmanager.last.fm/")
+    h1 = page.search("#welcome h1")
+    if h1.empty?
+      return nil
+    else
+      band_name = h1.inner_text.split(",").last.strip
+      return band_name.empty? ? nil : band_name
+    end
+  end
+  
   def agent
     @agent
   end
