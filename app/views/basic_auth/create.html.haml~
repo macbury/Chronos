@@ -1,4 +1,4 @@
-.block.center#auth_process{ 'data-redirect_to' => social_accounts_url, 'data-id' => @account.id }
+.block.center#auth_process{ 'data-redirect_to' => social_accounts_url, 'data-id' => @account.id. :type => @account.type_name }
   %h2 Logowanie do Last.fm
   .progress_status
     %p#status_message Prosze czekać... Nie odświeżaj strony!!!!!!!!!!!

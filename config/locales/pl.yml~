@@ -13,7 +13,7 @@ pl:
       description: "To samo co twitter"
     flaker:
       description: "To samo co blip!"
-    lasfm:
+    lastfm:
       description: "Serwis muzyczny"
   notifications:
     new_comment:

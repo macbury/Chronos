@@ -12,7 +12,11 @@ Chronos::Application.routes.draw do
   resource :facebook_page
   resource :session
   
-  resource :lastfm, :controller => "lastfm", :scope => "/auth"
+  scope "auth" do
+    resource :lastfm, :controller => "basic_auth", :type => "lastfm"
+    resource :muzzo, :controller => "basic_auth", :type => "lastfm"
+  end
+  
   match '/oauth/' => "sessions#new", :as => :login
   match '/oauth/process' => "sessions#create", :as => :oauth_process
   match '/oauth/destroy' => 'sessions#destroy', :as => :logout

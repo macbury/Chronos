@@ -1,0 +1,3 @@
+class AsyncAuth < Struct.new(:social_account_id)
+
+end

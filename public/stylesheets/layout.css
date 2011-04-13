@@ -405,6 +405,8 @@ ul.info {
   background-image: url("/images/socials/blip16.png"); }
 .accounts .lastfm, .links .lastfm, .features .lastfm {
   background-image: url("/images/socials/lastfm.png"); }
+.accounts .muzzo, .links .muzzo, .features .muzzo {
+  background-image: url("/images/socials/muzzo.png"); }
 
 .features span {
   padding-left: 22px;

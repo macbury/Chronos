@@ -13,7 +13,8 @@ Chronos::Application.routes.draw do
   resource :session
   
   scope "auth" do
-    resource :lastfm, :controller => "lastfm"
+    resource :lastfm, :controller => "basic_auth", :type => "lastfm"
+    resource :muzzo, :controller => "basic_auth", :type => "muzzo"
   end
   
   match '/oauth/' => "sessions#new", :as => :login

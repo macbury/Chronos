@@ -1,11 +1,12 @@
-class LastfmAsyncAuth < AsyncAuth
+require "muzzo"
+class MuzzoAsyncAuth < AsyncAuth
 
   def perform
-    @lastfm = LastFm.new(account.login, account.password)
+    @muzzo = Muzzo.new(account.login, account.password)
     
-    if @lastfm.logged_in?
+    if @muzzo.logged_in?
       status({ :status => "Zalogowano, sprawdzanie czy konto jest przypisane do zespołu...", :progress => 70 })
-      band_name = @lastfm.get_band_name
+      band_name = @muzzo.get_band_name
       
       if band_name
         account.name = band_name

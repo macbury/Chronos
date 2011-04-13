@@ -1,0 +1,27 @@
+class BasicAuthController < ApplicationController
+  before_filter :authenticate_user!
+  
+  def show
+    redirect_to new_lastfm_path
+  end
+  
+  def new
+  
+  end
+  
+  def create
+    @account = self.current_user.social_accounts.new
+    @account.social_type = SocialAccount.findType(params[:type])
+    @account.password = params[:password]
+    @account.login = params[:login]
+    @account.save
+    
+    if @account.social_type == SocialAccount::LastFm
+      Delayed::Job.enqueue LastfmAsyncAuth.new(@account.id), TaskPriority::Auth, 5.seconds.from_now
+    elsif @account.social_type == SocialAccount::Muzzo
+      Delayed::Job.enqueue MuzzoAsyncAuth.new(@account.id), TaskPriority::Auth, 5.seconds.from_now
+    end
+    
+  end
+  
+end

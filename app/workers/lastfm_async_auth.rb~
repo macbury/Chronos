@@ -26,7 +26,7 @@ class LastfmAsyncAuth < Struct.new(:social_account_id)
         account.save
         status({ :success => "Konto zostało dodane! Zaraz nastąpi przekierowanie...", :progress => 100 })
       else
-        status({ :error => "Brak przypisanego zespołu" })
+        status({ :error => "Brak przypisanego zespołu!" })
         account.destroy
       end
     else

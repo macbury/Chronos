@@ -36,7 +36,8 @@ class LastFm
     if h1.empty?
       return nil
     else
-      return h1.inner_text.split(",").last.strip
+      band_name = h1.inner_text.split(",").last.strip
+      return band_name.empty? ? nil : band_name
     end
   end
   

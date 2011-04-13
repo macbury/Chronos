@@ -2,7 +2,7 @@ class LastfmController < ApplicationController
   before_filter :authenticate_user!
   
   def show
-    redirect_to new_lastfm_path
+    redirect_to [params[:type].to_sym]
   end
   
   def new
