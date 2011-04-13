@@ -15,6 +15,10 @@ pl:
       description: "To samo co blip!"
     lastfm:
       description: "Serwis muzyczny"
+    muzzo:
+      description: "Serwis muzyczny"
+    youTube:
+      description: "Serwis z filmami z sieci"
   notifications:
     new_comment:
       subject: "[CSK - RHmusic.pl] Nowy komentarz pod zgłoszeniem"

@@ -17,6 +17,8 @@ pl:
       description: "Serwis muzyczny"
     muzzo:
       description: "Serwis muzyczny"
+    you_tube:
+      description: "Serwis z filmami z sieci"
   notifications:
     new_comment:
       subject: "[CSK - RHmusic.pl] Nowy komentarz pod zgłoszeniem"

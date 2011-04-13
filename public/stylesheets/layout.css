@@ -407,6 +407,8 @@ ul.info {
   background-image: url("/images/socials/lastfm.png"); }
 .accounts .muzzo, .links .muzzo, .features .muzzo {
   background-image: url("/images/socials/muzzo.png"); }
+.accounts .you_tube, .links .you_tube, .features .you_tube {
+  background-image: url("/images/socials/youtube16.png"); }
 
 .features span {
   padding-left: 22px;

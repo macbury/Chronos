@@ -10,7 +10,8 @@ class SocialAccount < ActiveRecord::Base
   MySpace = 4
   LastFm = 5
   Muzzo = 6
-  Types = { SocialAccount::Facebook => :facebook, SocialAccount::Twitter => :twitter, SocialAccount::Blip => :blip, SocialAccount::Flaker => :flaker, SocialAccount::MySpace => :myspace, SocialAccount::LastFm => :lastfm, SocialAccount::Muzzo => :muzzo }
+  YouTube = 7
+  Types = { SocialAccount::Facebook => :facebook, SocialAccount::Twitter => :twitter, SocialAccount::Blip => :blip, SocialAccount::Flaker => :flaker, SocialAccount::MySpace => :myspace, SocialAccount::LastFm => :lastfm, SocialAccount::Muzzo => :muzzo, SocialAccount::YouTube => :you_tube }
   
   def facebook?
     self.social_type == SocialAccount::Facebook
