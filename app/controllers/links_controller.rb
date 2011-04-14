@@ -21,7 +21,7 @@ class LinksController < ApplicationController
   protected
     
     def preload_resource
-      @stream = self.curren_user.streams.find(params[:stream_id])
+      @stream = self.current_user.streams.find(params[:stream_id])
     end
 
 end

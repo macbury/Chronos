@@ -272,6 +272,11 @@ form.formtastic fieldset > ol > li.error {
   list-style: none;
   padding: 0;
   margin: 0 0 10px 0; }
+  .list .loading {
+    margin-top: 15px;
+    padding-top: 80px;
+    text-align: center;
+    background: transparent url("/images/gacie.gif") no-repeat center top; }
   .list .notification {
     line-height: 16px;
     padding: 2px;

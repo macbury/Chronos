@@ -3,7 +3,7 @@ Chronos::Application.routes.draw do
 
   match '/r/:id' => "redirects#show", :as => :short_link
   
-  resources :stream do
+  resources :streams do
     resources :links
   end
   

@@ -2,9 +2,24 @@ $(function(){
   App.Views.Stream = Backbone.View.extend({
     tagName:  "li",
     
+    events: {
+      "click .views": "onTabChange",
+    },
+    
     initialize: function() {
+      _.bindAll(this, 'render');
       this.model.bind('change', this.render);
       this.model.view = this;
+      
+    },
+    
+    onTabChange: function(e){
+      var a = $(e.target);
+      var links = $(this.el).find(".views").find("a");
+      links.removeClass("selected");
+      a.addClass("selected");
+      
+      return false;
     },
     
     render: function() {
@@ -14,16 +29,6 @@ $(function(){
       $(this.el).find("abbr").attr("title", this.model.get("created_at"));
       $(this.el).find("abbr").timeago();
       
-      $(this.el)
-      
-      $(this.el).find('.views a').live("click", function(){
-        var links = $(this).parents(".views").find("a");
-        var update_id = $(this).parents(".views").attr("data-id");
-        links.removeClass("selected");
-        
-        $(this).addClass("selected");
-        return false;
-      });
       return this;
     },
   });

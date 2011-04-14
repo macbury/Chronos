@@ -2,6 +2,7 @@ class LinksController < ApplicationController
   before_filter :authenticate_user!
   before_filter :preload_resource, :only => :index
   respond_to :json, :only => :index
+  
   def index
     @links = @stream.links.all
     respond_with @links

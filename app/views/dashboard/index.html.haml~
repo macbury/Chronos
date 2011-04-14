@@ -32,6 +32,5 @@
 .clear
 
 %ul.list#stream
-
 - content_for :sidebar do
   = render :partial => "dashboard/sidebar"
