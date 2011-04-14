@@ -1,3 +1,6 @@
-App.Collections.Stream = Backbone.Collection.extend({
-  model: App.Collections.Stream
+$(function(){
+  App.Collections.Stream = Backbone.Collection.extend({
+    model: App.Models.Stream,
+    url: '/dashboard'
+  });
 });

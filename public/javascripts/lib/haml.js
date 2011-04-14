@@ -497,10 +497,17 @@ var Haml;
   Haml.optimize = optimize;
   Haml.render = render;
   Haml.execute = execute;
-
+  
+  Haml.template = function(templateString) {
+  return function() {
+    var template = Haml(templateString);
+    return template(arguments[0]);
+  };
+};
 }());
 
 // Hook into module system
 if (typeof module !== 'undefined') {
   module.exports = Haml;
 }
+

@@ -1,6 +1,13 @@
 class LinksController < ApplicationController
   before_filter :authenticate_user!
-
+  before_filter :preload_resource, :only => :index
+  respond_to :json, :only => :index
+  
+  def index
+    @links = @stream.links.all
+    respond_with @links
+  end
+  
   def show
     @link = Link.joins(:owner => :user).where("users.id = ? AND links.id = ?", self.current_user.id, params[:id]).first
    
@@ -10,5 +17,11 @@ class LinksController < ApplicationController
       redirect_to root_path
     end
   end
+
+  protected
+    
+    def preload_resource
+      @stream = self.curren_user.streams.find(params[:stream_id])
+    end
 
 end

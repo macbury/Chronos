@@ -2,7 +2,6 @@
 %html
   %head
     %title TZ
-    = stylesheet_link_tag "layout", "jquery-ui"
     %meta{ :name => "rhCoreRoot", :content => RhCore::Config["site"] }/
     - if self.access_token
       %meta{ :name => "rhCoreAccessToken", :content => self.access_token.token }/
@@ -11,11 +10,8 @@
       %meta{ :name => "notifications_server", :content => RhCore::Config["faye_server"] }/
       
     = csrf_meta_tag
-    = javascript_include_tag "lib/jquery.min.js", "lib/jquery-ui.min.js", "lib/underscore", "lib/jquery.flot.js", "lib/backbone", "lib/rails", "lib/haml", "lib/constans"
-    = javascript_include_tag "controllers/dashboard_controller"
-    = javascript_include_tag "models/stream", "models/status"
-    = javascript_include_tag "collections/stream_collection"
-    = javascript_include_tag "dispatch"
+    = include_stylesheets :app, :media => 'all'
+    = include_javascripts :app
     = javascript_include_tag RhCore::Config["faye_server"]+".js"
     = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
     

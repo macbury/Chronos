@@ -504,19 +504,21 @@ ul.info {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px; }
-  .update h4 {
-    margin: 5px;
-    font-size: 14px; }
-    .update h4 .date {
-      float: right;
-      font-size: 10px;
-      background: #0a0909 url("/images/clock.png") 3px center no-repeat;
-      padding: 5px 10px 5px 20px;
-      margin-top: -10px;
-      margin-right: -10px;
-      border-top-right-radius: 4px;
-      -moz-border-radius-topright: 4px;
-      -webkit-border-top-right-radius: 4px; }
+  .update .progressbar {
+    float: right;
+    margin-top: 5px;
+    width: 100px;
+    display: none; }
+  .update .date {
+    float: right;
+    font-size: 10px;
+    background: #0a0909 url("/images/clock.png") 3px center no-repeat;
+    padding: 5px 10px 5px 20px;
+    margin-top: -5px;
+    margin-right: -5px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px; }
   .update .tags {
     font-size: 10px;
     font-weight: bold;

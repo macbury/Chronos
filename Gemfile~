@@ -8,13 +8,14 @@ gem 'rails', '3.0.3'
 gem 'mysql2'
 
 gem 'haml'
+gem 'jammit', :git => "https://github.com/documentcloud/jammit.git"
 gem 'will_paginate'
 gem 'oauth2'
 gem 'json'
 gem "haml-rails"
 gem 'omniauth'
 gem 'koala'
-
+gem 'crypt'
 gem 'mechanize'
 gem 'delayed_job', :git => "https://github.com/collectiveidea/delayed_job.git"
 gem "bartt-ssl_requirement", :require => "ssl_requirement"

@@ -1,3 +1,5 @@
-App.Models.Status = Backbone.Model.extend({
-  
+$(function(){
+  App.Models.Status = Backbone.Model.extend({
+    
+  });
 });

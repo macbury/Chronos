@@ -1,5 +1,11 @@
 Chronos::Application.routes.draw do
+  resources :statuses
+
   match '/r/:id' => "redirects#show", :as => :short_link
+  
+  resource :stream do
+    resources :links
+  end
   
   resources :links
   resource :account, :controller => "account"
@@ -14,7 +20,7 @@ Chronos::Application.routes.draw do
   
   scope "auth" do
     resource :lastfm, :controller => "basic_auth", :type => "lastfm"
-    resource :muzzo, :controller => "basic_auth", :type => "lastfm"
+    resource :muzzo, :controller => "basic_auth", :type => "muzzo"
   end
   
   match '/oauth/' => "sessions#new", :as => :login

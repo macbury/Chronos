@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render :json => self.current_user.streams.all.to_json(:include => :streamable) }
+      format.json { render :json => self.current_user.streams.includes(:streamable).order("created_at DESC").all.to_json(:include => :streamable) }
     end
     
   end

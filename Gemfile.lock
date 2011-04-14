@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/macbury/jammit.git
+  revision: aff2620ee90c19102db01c487b1859c45ce5a709
+  specs:
+    jammit (0.6.0)
+      yui-compressor (>= 0.9.3)
+
+GIT
   remote: https://github.com/collectiveidea/delayed_job.git
   revision: cdae1d256ed1fd206de1fb6ac86b838d93a4b883
   specs:
@@ -9,6 +16,10 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
     abstract (1.0.0)
     actionmailer (3.0.3)
       actionpack (= 3.0.3)
@@ -106,6 +117,7 @@ GEM
       oa-more (= 0.2.0)
       oa-oauth (= 0.2.0)
       oa-openid (= 0.2.0)
+    open4 (1.0.1)
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.2)
     rack (1.2.2)
@@ -141,6 +153,8 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.26)
     will_paginate (2.3.15)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
@@ -151,6 +165,7 @@ DEPENDENCIES
   delayed_job!
   haml
   haml-rails
+  jammit!
   json
   koala
   mechanize

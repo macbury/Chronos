@@ -1,0 +1,5 @@
+$(function(){
+  App.Collections.Link = Backbone.Collection.extend({
+    model: App.Models.Link
+  });
+});

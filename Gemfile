@@ -8,6 +8,7 @@ gem 'rails', '3.0.3'
 gem 'mysql2'
 
 gem 'haml'
+gem 'jammit', :git => "git://github.com/macbury/jammit.git"
 gem 'will_paginate'
 gem 'oauth2'
 gem 'json'
