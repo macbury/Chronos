@@ -1,0 +1,8 @@
+.field
+  = f.label :title, "Status:"
+  %br/
+  = f.text_area :title
+
+.actions
+  = f.submit 'Publikuj'
+  = link_to "Anuluj", root_path, :class => "button"

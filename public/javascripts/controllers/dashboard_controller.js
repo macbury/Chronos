@@ -1,5 +1,6 @@
 App.Controllers.Dashboard = Backbone.Controller.extend({
-
+  streams: null,
+  
   routes: {
     "#": "index",
   },
@@ -9,6 +10,8 @@ App.Controllers.Dashboard = Backbone.Controller.extend({
   },
 
   initialize: function() {
-    console.log("Initialize!");
+    console.log("Dashboard initialize");
+    this.streams = new App.Collections.Stream();
+    this.streams.fetch();
   }
 });

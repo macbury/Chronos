@@ -3,6 +3,11 @@ class DashboardController < ApplicationController
   set_tab :dashboard
 
   def index
-    @updates = self.current_user.updates.includes(:links).order("id DESC").all
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => self.current_user.streams.all.to_json(:include => :streamable) }
+    end
+    
   end
 end

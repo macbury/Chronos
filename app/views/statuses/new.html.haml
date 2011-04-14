@@ -1,0 +1,6 @@
+.block
+  %h2 Nowy Wpis
+  = form_for @status, :html => { :class => :form } do |f|
+    = render :partial => "form", :locals => {:f => f}
+- content_for :sidebar do
+  = render :partial => "dashboard/sidebar"

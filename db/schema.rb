@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110413085644) do
+ActiveRecord::Schema.define(:version => 20110414104659) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20110413085644) do
   end
 
   create_table "links", :force => true do |t|
-    t.integer  "update_id"
+    t.integer  "stream_id"
     t.integer  "social_account_id"
     t.string   "uid"
     t.datetime "created_at"
@@ -75,6 +75,20 @@ ActiveRecord::Schema.define(:version => 20110413085644) do
     t.string   "secret"
     t.string   "login"
     t.binary   "password"
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "streams", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "streamable_id"
+    t.string   "streamable_type"
   end
 
   create_table "updates", :force => true do |t|

@@ -13,12 +13,13 @@
     = csrf_meta_tag
     = javascript_include_tag "lib/jquery.min.js", "lib/jquery-ui.min.js", "lib/underscore", "lib/jquery.flot.js", "lib/backbone", "lib/rails", "lib/haml", "lib/constans"
     = javascript_include_tag "controllers/dashboard_controller"
+    = javascript_include_tag "models/stream", "models/status"
     = javascript_include_tag "dispatch"
     = javascript_include_tag RhCore::Config["faye_server"]+".js"
     = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
     
   %body
-    .content
+    .top_bg
       .wrapper
         %ul.menu
           %li= link_to "Zgłoszenia", root_path

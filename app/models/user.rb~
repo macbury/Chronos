@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   has_many :social_accounts, :dependent => :destroy
   has_many :updates, :dependent => :destroy
   has_many :short_links, :dependent => :destroy
-  has_many :streams, :dependent => :destroy
   
   def type?
     !self.user_type.nil?

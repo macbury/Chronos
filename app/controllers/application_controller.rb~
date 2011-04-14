@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     def authenticate_user!
       if request.format == Mime::XML || request.format == Mime::JSON
         @current_user = User.find_by_api_token(params[:api_key])
-        if !logged_in? || @current_user.nil?
+        if logged_in? || @current_user.nil?
           respond_to do |format|
             format.xml { render :xml => { :error => "Invalid Api Key!" }  }
             format.json { render :json => { :error => "Invalid Api Key!" }  }
