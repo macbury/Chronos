@@ -4,7 +4,8 @@ class LinksController < ApplicationController
   respond_to :json, :only => :index
   
   def index
-    @links = @stream.links.all
+    sleep(3)
+    @links = @stream.links.includes(:social_account).all
     respond_with @links
   end
   
@@ -21,7 +22,7 @@ class LinksController < ApplicationController
   protected
     
     def preload_resource
-      @stream = self.curren_user.streams.find(params[:stream_id])
+      @stream = self.current_user.streams.find(params[:stream_id])
     end
 
 end

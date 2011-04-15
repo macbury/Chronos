@@ -10,4 +10,8 @@ class Stream < ActiveRecord::Base
       self.links.create(:social_account_id => sa.id)
     end
   end
+  
+  def as_json(options = {})
+    serializable_hash(:include => [:streamable])
+  end
 end

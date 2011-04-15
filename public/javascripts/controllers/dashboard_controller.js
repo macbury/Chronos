@@ -1,6 +1,5 @@
 $(function(){
   App.Controllers.Dashboard = Backbone.Controller.extend({
-    streams: null,
     view: null,
     
     routes: {
@@ -11,8 +10,7 @@ $(function(){
       console.log("index");
       var self = this;
       var dashboardView = new App.Views.Dashboard();
-      this.streams.bind("refresh", function(){
-        dashboardView.streams = self.streams;
+      App.Storage.Streams.bind("refresh", function(){
         dashboardView.render();
       });
       dashboardView.render();
@@ -20,8 +18,8 @@ $(function(){
 
     initialize: function() {
       console.log("Dashboard initialize");
-      this.streams = new App.Collections.Stream();
-      this.streams.fetch();
+      App.Storage.Streams = new App.Collections.Stream();
+      App.Storage.Streams.fetch();
       window.location.hash = "#dashboard";
     }
   });

@@ -263,7 +263,7 @@ form.formtastic fieldset > ol > li.error
   padding: 0
   margin: 0 0 10px 0
   .loading
-    margin-top: 3px
+    margin-top: 15px
     padding-top: 80px
     text-align: center
     background: transparent url("/images/gacie.gif") no-repeat center top
@@ -435,29 +435,24 @@ ul.info
 .hidden
   display: none
 .links
-  padding-left: 20px
-  .status_0 .pending
-    display: inline
-  .status_1 .working
-    display: inline
-  .status_2 .success
-    display: inline
-  .status_3 .error
-    display: inline
+  .alt
+    background-color: #0d0b0b
+    background-repeat: no-repeat
+    background-position: 5px center
   li
-    padding-left: 22px
-    line-height: 16px
-    height: 16px
+    margin: 0px
+    padding-left: 28px
+    line-height: 22px
+    height: 22px
     display: block
     font-weight: normal
     font-size: 10px
-    background: transparent url("/images/rss.gif") left center no-repeat
+    background: transparent url("/images/rss.gif") 5px center no-repeat
     a
       font-weight: bold
     img
       margin-bottom: -4px
-    .status
-      display: none
+
 .actions
   list-style: none inside
   margin: 0
@@ -497,6 +492,15 @@ ul.info
     margin-top: 5px
     width: 100px
     display: none
+  .tab 
+    display: none
+    background: #0a0909
+    margin: 5px -5px -8px -5px
+    border-top: 1px #161414 solid !important
+    border-bottom: 1px #161414 solid !important
+    .links
+      margin-top: 0px
+      padding-left: 0px
   .date
     float: right
     font-size: 10px
@@ -525,9 +529,18 @@ ul.info
   .body
     padding: 5px
     color: #999999
-    line-height: 13px
-    font-size: 11px
+    line-height: 14px
+    font-size: 12px
     border-left: 4px solid #202117
+  .views.inTab
+    li:last-child
+      a
+        border-top-right-radius: 0px !important
+        -moz-border-radius-topright: 0px !important
+        -webkit-border-top-right-radius: 0px !important
+        border-bottom-right-radius: 4px !important
+        -moz-border-radius-bottomright: 4px !important
+        -webkit-border-bottom-right-radius: 4px !important
   .views
     list-style: none inside url()
     padding: 0px

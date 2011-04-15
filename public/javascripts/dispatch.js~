@@ -13,7 +13,7 @@ var auth_token = 0;
 
 $(document).ready(function(){
   if(Faye) {
-    client = new Faye.Client($('meta[name=notifications_server]').attr('content'),{
+    App.Faye = new Faye.Client($('meta[name=notifications_server]').attr('content'),{
       timeout: 60
     });
   } else {
@@ -26,9 +26,9 @@ $(document).ready(function(){
 
   Backbone.history.start();
   
-  Backbone.sync = function(method, model) {
-    console.log(method + ": " + model.url);
-  };
+  //Backbone.sync = function(method, model) {
+  //  console.log(method + ": " + model.url);
+  //};
   
   $(".toggle").live("click", function(){
     $($(this).attr("href")).toggle("blind");

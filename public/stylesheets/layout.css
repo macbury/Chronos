@@ -449,30 +449,24 @@ ul.info {
 .hidden {
   display: none; }
 
-.links {
-  padding-left: 20px; }
-  .links .status_0 .pending {
-    display: inline; }
-  .links .status_1 .working {
-    display: inline; }
-  .links .status_2 .success {
-    display: inline; }
-  .links .status_3 .error {
-    display: inline; }
-  .links li {
-    padding-left: 22px;
-    line-height: 16px;
-    height: 16px;
-    display: block;
-    font-weight: normal;
-    font-size: 10px;
-    background: transparent url("/images/rss.gif") left center no-repeat; }
-    .links li a {
-      font-weight: bold; }
-    .links li img {
-      margin-bottom: -4px; }
-    .links li .status {
-      display: none; }
+.links .alt {
+  background-color: #0d0b0b;
+  background-repeat: no-repeat;
+  background-position: 5px center; }
+.links li {
+  margin: 0px;
+  padding-left: 28px;
+  line-height: 22px;
+  height: 22px;
+  display: block;
+  font-weight: normal;
+  font-size: 10px;
+  background: transparent url("/images/rss.gif") 5px center no-repeat; }
+  .links li a {
+    font-weight: bold; }
+  .links li img {
+    margin-bottom: -5px;
+    margin-right: 5px; }
 
 .actions {
   list-style: none inside;
@@ -514,6 +508,15 @@ ul.info {
     margin-top: 5px;
     width: 100px;
     display: none; }
+  .update .tab {
+    display: none;
+    background: #0a0909;
+    margin: 5px -5px -8px -5px;
+    border-top: 1px #161414 solid !important;
+    border-bottom: 1px #161414 solid !important; }
+    .update .tab .links {
+      margin-top: 0px;
+      padding-left: 0px; }
   .update .date {
     float: right;
     font-size: 10px;
@@ -541,9 +544,16 @@ ul.info {
   .update .body {
     padding: 5px;
     color: #999999;
-    line-height: 13px;
-    font-size: 11px;
+    line-height: 14px;
+    font-size: 12px;
     border-left: 4px solid #202117; }
+  .update .views.inTab li:last-child a {
+    border-top-right-radius: 0px !important;
+    -moz-border-radius-topright: 0px !important;
+    -webkit-border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 4px !important;
+    -moz-border-radius-bottomright: 4px !important;
+    -webkit-border-bottom-right-radius: 4px !important; }
   .update .views {
     list-style: none inside url();
     padding: 0px;

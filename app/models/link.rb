@@ -15,6 +15,10 @@ class Link < ActiveRecord::Base
     self.status_type == Link::Success
   end
   
+  def as_json(options = {})
+    serializable_hash(:methods => [:social_account], :only => [:id, :status_type])
+  end
+  
   def social_url
     return unless published?
     if self.social_account.social_type == SocialAccount::Facebook

@@ -13,6 +13,10 @@ class SocialAccount < ActiveRecord::Base
   YouTube = 7
   Types = { SocialAccount::Facebook => :facebook, SocialAccount::Twitter => :twitter, SocialAccount::Blip => :blip, SocialAccount::Flaker => :flaker, SocialAccount::MySpace => :myspace, SocialAccount::LastFm => :lastfm, SocialAccount::Muzzo => :muzzo, SocialAccount::YouTube => :you_tube }
   
+  def as_json(options = {})
+    serializable_hash(:only => [:id, :social_type, :name], :methods => [:type_name])
+  end
+  
   def facebook?
     self.social_type == SocialAccount::Facebook
   end

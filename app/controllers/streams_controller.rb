@@ -3,7 +3,7 @@ class StreamsController < ApplicationController
   respond_to :json
 
   def index
-    @streams = self.current_user.streams.includes(:streamable).order("created_at DESC").all.to_json(:include => :streamable)
+    @streams = self.current_user.streams.includes(:streamable).order("created_at DESC").all
     respond_with(@streams)
   end
 

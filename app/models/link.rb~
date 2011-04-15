@@ -15,6 +15,10 @@ class Link < ActiveRecord::Base
     self.status_type == Link::Success
   end
   
+  def as_json(options = {})
+    serializable_hash(:include => [:social_account], :only => [:id, :status_type])
+  end
+  
   def social_url
     return unless published?
     if self.social_account.social_type == SocialAccount::Facebook
@@ -26,7 +30,7 @@ class Link < ActiveRecord::Base
     elsif self.social_account.social_type == SocialAccount::Flaker
       return "http://flaker.pl/f/#{self.uid}"
     elsif self.social_account.social_type == SocialAccount::LastFm
-      return "http://www.lastfm.pl/music/#{CGI.escpae(self.social_account.name)}#shoutboxContainer"
+      return "http://www.lastfm.pl/music/#{CGI.escape(self.social_account.name)}#shoutboxContainer"
     end
   end
   

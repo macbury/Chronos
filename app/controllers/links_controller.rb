@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   respond_to :json, :only => :index
   
   def index
-    @links = @stream.links.all
+    @links = @stream.links.includes(:social_account).all
     respond_with @links
   end
   

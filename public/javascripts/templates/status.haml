@@ -1,7 +1,9 @@
 .date
   Dodane: 
   %abbr
-.body= status.get("streamable")["body"].strip_tags().truncate(255)
+.body= status.get("streamable")["body"].strip_tags()
+.clear
+.tab
 .clear
 .progressbar
   .progress
@@ -12,4 +14,5 @@
     %a.reactions{ href: "#" } Reakcje
   %li
     %a.stats{ href: "#" } Statystyki
+
 .clear

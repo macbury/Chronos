@@ -16,7 +16,7 @@ $(function(){
       $(this.el).empty();
       if(App.Storage.Streams == null){
         $(this.el).append("<li class='loading'>Prosze czekać... Trwa wczytywanie danych...</li>");
-      } else if(App.Storage.Streams.lenght == 0) {
+      } else if(App.Storage.Streams.length == 0) {
         $(this.el).append("<li>Aktualnie nie masz dodanych żadnych wpisów!</li>");
       } else {
         App.Storage.Streams.each(this.addOne);

@@ -16,7 +16,7 @@ $(function(){
     
     selectedLinks: function() {
       if(this.model.links.length == 0){
-        this.linksView = new App.Views.Stream.Links({model: this.model});
+        this.linksView = new App.Views.Links({model: this.model});
         this.model.links.fetch();
       }
       
@@ -26,6 +26,7 @@ $(function(){
     onTabChange: function(e){
       var a = $(e.target);
       var links = $(this.el).find(".views").find("a");
+      $(this.el).find(".views").addClass("inTab");
       links.removeClass("selected");
       a.addClass("selected");
       

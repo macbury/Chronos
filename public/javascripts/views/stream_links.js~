@@ -1,0 +1,32 @@
+$(function(){
+  App.Views.Stream.Links = Backbone.View.extend({
+    tagName:  "ul",
+    
+    events: {
+      //"click .views": "onTabChange",
+    },
+    
+    initialize: function() {
+      _.bindAll(this, 'render');
+      this.model.links.bind('refresh', this.render);
+    },
+    
+    addOne: function(link) {
+      var linkView = new App.Views.Stream.Link({model: link});
+      $(this.el).append(streamView.render().el);
+    },
+    
+    render: function() {
+      $(this.el).addClass("links");
+      if(this.model.links == 0) {
+        $(this.el).html("<p>Wczytywanie danych...</p>");
+      } else {
+        this.model.links.each(this.addOne);
+        $(this.el).html(Haml.render(JST.stream_links, { locals: {links: this.model.links} }));
+        $(this.el).find("li:even").addClass("alt");
+      }
+      
+      return this;
+    },
+  });
+});

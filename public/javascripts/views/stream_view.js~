@@ -26,6 +26,7 @@ $(function(){
     onTabChange: function(e){
       var a = $(e.target);
       var links = $(this.el).find(".views").find("a");
+      $(this.el).find(".views").addClass("inTab");
       links.removeClass("selected");
       a.addClass("selected");
       
