@@ -24,6 +24,7 @@ $(function(){
     failure: function() {
       return this.type() == App.Models.Link.Failure;
     },
+    
   });
   
   App.Models.Link.Pending = 0;

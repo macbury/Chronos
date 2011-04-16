@@ -1,5 +1,5 @@
 $(function(){
-  App.Views.Stream.Link = Backbone.View.extend({
+  App.Views.Link = Backbone.View.extend({
     tagName:  "li",
     
     events: {
@@ -9,6 +9,11 @@ $(function(){
     initialize: function() {
       _.bindAll(this, 'render');
       this.model.bind('refresh', this.render);
+      this.model.bind('change', this.refresh);
+    },
+    
+    refresh: function() {
+      $(this.el).html(Haml.render(JST.stream_links, { locals: {link: this.model} }));
     },
     
     render: function() {

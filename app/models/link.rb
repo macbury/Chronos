@@ -5,7 +5,7 @@ class Link < ActiveRecord::Base
   Error = 3
   Failure = 4
   
-  belongs_to :owner, :foreign_key => "update_id", :class_name => "Update"
+  belongs_to :stream
   #belongs_to :update
   belongs_to :social_account
   
@@ -16,7 +16,7 @@ class Link < ActiveRecord::Base
   end
   
   def as_json(options = {})
-    serializable_hash(:methods => [:social_account], :only => [:id, :status_type])
+    serializable_hash(:methods => [:social_account], :only => [:id, :status_type, :stream_id])
   end
   
   def social_url

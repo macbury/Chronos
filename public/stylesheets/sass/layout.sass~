@@ -451,7 +451,8 @@ ul.info
     a
       font-weight: bold
     img
-      margin-bottom: -4px
+      margin-bottom: -5px
+      margin-right: 5px
 
 .actions
   list-style: none inside
@@ -492,6 +493,8 @@ ul.info
     margin-top: 5px
     width: 100px
     display: none
+    .progress
+      height: 10px
   .tab 
     display: none
     background: #0a0909

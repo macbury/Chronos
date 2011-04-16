@@ -7,8 +7,13 @@ $(function(){
     },
     
     initialize: function() {
-      _.bindAll(this, 'render');
+      _.bindAll(this, 'render', "refresh");
       this.model.bind('refresh', this.render);
+      this.model.bind('change', this.refresh);
+    },
+    
+    refresh: function() {
+      $(this.el).html(Haml.render(JST.stream_links, { locals: {link: this.model} }));
     },
     
     render: function() {

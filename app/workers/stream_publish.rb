@@ -9,7 +9,7 @@ class StreamPublish < Struct.new(:link_id)
     link.status_message = text
     link.save
     
-    message = { :channel => "/#{link.owner.user.api_token}/notifications/links", :data => link.to_json }
+    message = { :channel => "/#{link.stream.user.api_token}/notifications/links", :data => link.to_json }
     uri = URI.parse(RhCore::Config["faye_server"])
     Net::HTTP.post_form(uri, :message => message.to_json)
   end

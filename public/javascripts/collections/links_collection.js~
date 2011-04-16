@@ -1,5 +1,13 @@
 $(function(){
-  App.Collections.Link = Backbone.Collection.extend({
-    model: App.Models.Link
+  App.Collections.Links = Backbone.Collection.extend({
+    model: App.Models.Link,
+
+    done: function() {
+      return this.filter(function(link){ return link.success(); });
+    },
+    
+    remaining: function() {
+      return this.without.apply(this, this.done());
+    },
   });
 });

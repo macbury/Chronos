@@ -505,15 +505,20 @@ ul.info {
   -moz-border-radius: 3px; }
   .update .progressbar {
     float: right;
-    margin-top: 5px;
+    margin-top: 11px;
     width: 100px;
     display: none; }
+    .update .progressbar .progress {
+      height: 10px; }
   .update .tab {
     display: none;
     background: #0a0909;
     margin: 5px -5px -8px -5px;
     border-top: 1px #161414 solid !important;
     border-bottom: 1px #161414 solid !important; }
+    .update .tab li.please_wait {
+      text-align: center;
+      margin-top: 7px; }
     .update .tab .links {
       margin-top: 0px;
       padding-left: 0px; }

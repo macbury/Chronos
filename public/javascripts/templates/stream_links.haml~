@@ -1,15 +1,15 @@
 :if link.pending()
   .status.pending
-    %img{ src: "pending.png" }
+    %img{ src: "/images/pending.png" }
     Oczekuje na dodanie do 
     %a{ href: "/social_accounts/"+link.get("social_account").id }= link.get("social_account").name
 :if link.error()
   .status.error
-  %img{ src: "error.png" }
+  %img{ src: "/images/error.png" }
   Nie można opublikować statusu... Ponowna próba będzie za chwile...
 :if link.success()
   .status.success
-    %img{ src: "success.png" }
+    %img{ src: "/images/success.png" }
     Opublikowane na
     %a{ href: "/social_accounts/"+link.get("social_account").id }= link.get("social_account").name, link.social_account
     , kliknij 
@@ -19,5 +19,5 @@
   .status.working
     .progressbar
       .progress
-    %img{ src: "ajax.gif" }
+    %img{ src: "/images/ajax.gif" }
     Proszę czekać... Traw wysyłanie...

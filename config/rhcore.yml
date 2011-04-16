@@ -2,7 +2,7 @@ development:
   app_id: 76q6w2u2a9jiiipafu0kctmhj
   secret: "$2a$10$5.NWr/4I840PyNpQ45LX4OAAz8/ez0M1bW.7/eVQRoqgiJ.tMO4h6"
   site: "http://user.rhmusic.pl"
-  base_site: "http://0.0.0.0:3001"
+  base_site: "http://chronos.local"
   host: "0.0.0.0:3001"
   faye_server: "http://0.0.0.0:9292/realtime"
   

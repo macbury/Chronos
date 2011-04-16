@@ -6,11 +6,11 @@ development:
     app_id: 101637799920855
     secret: dd224dc3ee5d4f26ce26014d7eb2cec4
   blip:
-    app_id: yDssIgI3ubvmc7HFS4IL
+    app_id: g1zWOe2yW1s9IIo8jTZx
     secret: bAYij962gqw0rYJTLnmcDg1QqrnHv5fiuHPfVyzf
   flaker:
-    app_id: 955fcb7b57897607a4ed665db73ab07f04d9c37ab
-    secret: d008e4e611c88ef25b1d6b540bc6e25b
+    app_id: 47d55a3dbe7c5e01bf4e1bff29c2807d04da9e722
+    secret: 15b1b57b138a79aadc2ed600f20f18a6
   myspace:
     app_id: 3bd0eae2e4c9480fb47883ca97a6d521
     secret: dfa9ca5a306b48f384a290b47e8f47bbd1166d503ce146508f21352be2e29ac4

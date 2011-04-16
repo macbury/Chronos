@@ -1,25 +1,33 @@
 $(function(){
   App.Models.Link = Backbone.Model.extend({
     
+    type: function() {
+      return parseInt(this.get("status_type"));
+    },
+    
     pending: function(){
-      return this.get("status_type") == App.Models.Link.Pending;
+      return this.type() == App.Models.Link.Pending;
     },
     
     working: function() {
-      return this.get("status_type") == App.Models.Link.Working;
+      return this.type() == App.Models.Link.Working;
     },
     
     success: function() {
-      return this.get("status_type") == App.Models.Link.Success;
+      return this.type() == App.Models.Link.Success;
     },
     
     error: function() {
-      return this.get("status_type") == App.Models.Link.Error;
+      return this.type() == App.Models.Link.Error;
     },
     
     failure: function() {
-      return this.get("status_type") == App.Models.Link.Failure;
+      return this.type() == App.Models.Link.Failure;
     },
+    
+    progress: function() {
+      return this.links.done().length * 100 / this.links.remaining().length();
+    }
   });
   
   App.Models.Link.Pending = 0;

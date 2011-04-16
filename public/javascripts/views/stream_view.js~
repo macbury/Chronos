@@ -6,23 +6,51 @@ $(function(){
     events: {
       "click .views": "onTabChange",
       "click .urls": "selectedLinks",
+      "click .reactions": "selectedReactions"
     },
     
     initialize: function() {
-      _.bindAll(this, 'render', 'selectedLinks');
-      this.model.bind('change', this.render);
+      _.bindAll(this, 'render', 'selectedLinks', "refresh");
+      this.model.bind('change', this.refresh);
+      this.model.links.bind('change', this.refresh);
+      this.model.links.bind('refresh', this.refresh);
       this.model.view = this;
     },
     
+    refresh: function() {
+      if(this.el == null) {
+        this.render();
+      }
+      
+      if(this.model.links.done().length == this.model.links.length) {
+        $(this.el).find('.progressbar').fadeOut();
+      } else {
+        $(this.el).find('.progressbar').fadeIn();
+      }
+      
+      $(this.el).find('.progressbar .progress').animate({
+        width: this.model.progress() + "%"
+      });
+    },
+    
     selectedLinks: function() {
-      if(this.model.links.length == 0){
-        this.linksView = new App.Views.Stream.Links({model: this.model});
+      if(this.linksView == null){
+        this.linksView = new App.Views.Links({model: this.model});
         this.model.links.fetch();
       }
       
       $(this.el).find(".tab").empty().append(this.linksView.el).show();
     },
     
+    selectedReactions: function() {
+      if(this.reactionsView == null){
+        this.reactionsView = new App.Views.Reactions({model: this.model});
+        //this.model.links.fetch();
+      }
+      
+      $(this.el).find(".tab").empty().append(this.reactionsView.el).show();
+    },
+
     onTabChange: function(e){
       var a = $(e.target);
       var links = $(this.el).find(".views").find("a");
