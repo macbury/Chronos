@@ -1,40 +1,28 @@
 $(function(){
   App.Views.Dashboard = Backbone.View.extend({
-    tagName:  "ul",
-    
+    el: "#workspace",
+    streamListView: null,
+
+    events: {
+      "click .actions .new_status": "newStatus",
+    },
+
+    newStatus: function() {
+      var statusView = new App.Views.NewStatus({ model: new App.Models.Status() });
+      statusView.render();
+
+      return false;
+    },
+
     initialize: function(){
-      _.bindAll(this, 'addOne', 'render');
-      
-      App.Faye.subscribe("/"+$('meta[name=auth_token]').attr('content')+"/notifications/links", function(data) {
-        var data = jQuery.parseJSON(data);
-        var streamRecord = App.Storage.Streams.get(data["stream_id"]);
-        if(streamRecord != null) {
-          if (streamRecord.links.length == 0) {
-            streamRecord.links.download();
-          } else {
-            streamRecord.links.get(data["id"]).set(data);
-          }
-        }
-      });
+      _.bindAll(this, 'render', 'newStatus');
+      this.streamListView = new App.Views.StreamList();
     },
-    
-    addOne: function(stream){
-      var streamView = new App.Views.Stream({model: stream});
-      $(this.el).append(streamView.render().el);
-    },
-    
+
     render: function() {
-      $(this.el).addClass("list");
-      $(this.el).empty();
-      if(App.Storage.Streams == null){
-        $(this.el).append("<li class='loading'>Prosze czekać... Trwa wczytywanie danych...</li>");
-      } else if(App.Storage.Streams.length == 0) {
-        $(this.el).append("<li>Aktualnie nie masz dodanych żadnych wpisów!</li>");
-      } else {
-        App.Storage.Streams.each(this.addOne);
-      }
-      
-      $(this.el).appendTo("#workspace");
+      $(this.el).find("#stream").html(this.streamListView.render().el);
+      return this;
     },
   });
 });
+

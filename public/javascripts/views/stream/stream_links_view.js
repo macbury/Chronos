@@ -19,11 +19,12 @@ $(function(){
 
     render: function() {
       $(this.el).empty();
-      $(this.el).addClass("links");
       if(this.model.links.length > 0) {
+        $(this.el).addClass("links").removeClass("list");
         this.model.links.each(this.addOne);
         $(this.el).find("li:even").addClass("alt");
       } else {
+        $(this.el).addClass("list");
         $(this.el).html("<li class='please_wait'>Wczytywanie danych...</li>");
       }
       return this;

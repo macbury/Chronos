@@ -19,7 +19,7 @@ javascripts:
     - public/javascripts/controllers/*.js
     - public/javascripts/helpers/*.js
     - public/javascripts/templates/**/*.haml
-    - public/javascripts/views/*.js
+    - public/javascripts/views/**/*.js
     - public/javascripts/dispatch.js
 
 stylesheets:

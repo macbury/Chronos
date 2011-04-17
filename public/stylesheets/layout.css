@@ -456,8 +456,8 @@ ul.info {
 .links li {
   margin: 0px;
   padding-left: 28px;
-  line-height: 22px;
-  height: 22px;
+  line-height: 26px;
+  height: 26px;
   display: block;
   font-weight: normal;
   font-size: 10px;
@@ -522,6 +522,11 @@ ul.info {
     .update .tab .links {
       margin-top: 0px;
       padding-left: 0px; }
+  .update h3 {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 11px;
+    background: transparent url("/images/post_small.png") no-repeat left center; }
   .update .date {
     float: right;
     font-size: 10px;
@@ -549,8 +554,8 @@ ul.info {
   .update .body {
     padding: 5px;
     color: #999999;
-    line-height: 14px;
-    font-size: 12px;
+    line-height: 16px;
+    font-size: 14px;
     border-left: 4px solid #202117; }
   .update .views.inTab li:last-child a {
     border-top-right-radius: 0px !important;
@@ -634,3 +639,13 @@ ul.info {
     width: 200px;
     margin: 5px auto;
     float: none; }
+
+form .status_body {
+  width: 452px;
+  height: 56px; }
+
+.chars_count {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px; }

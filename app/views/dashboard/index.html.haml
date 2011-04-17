@@ -1,37 +1,39 @@
-%ul.actions
-  %li
-    = link_to new_update_path do
-      = image_tag "post.png"
-      %br/
-      Wpis
-  %li
-    = link_to new_update_path do
-      = image_tag "photos.png"
-      %br/
-      Zdjęcia
-  %li
-    = link_to new_update_path do
-      = image_tag "movie.png"
-      %br/
-      Wideo
-  %li
-    = link_to new_update_path do
-      = image_tag "event.png"
-      %br/
-      Wydarzenie
-  %li
-    = link_to new_update_path do
-      = image_tag "news.png"
-      %br/
-      Aktualność
-  %li
-    = link_to new_update_path do
-      = image_tag "mp3.png"
-      %br/
-      Piosenke
-.clear
-
 #workspace
+  %ul.actions
+    %li
+      = link_to "#", :class => "new_status" do
+        = image_tag "post.png"
+        %br/
+        Wpis
+    %li
+      = link_to new_update_path do
+        = image_tag "photos.png"
+        %br/
+        Zdjęcia
+    %li
+      = link_to new_update_path do
+        = image_tag "movie.png"
+        %br/
+        Wideo
+    %li
+      = link_to new_update_path do
+        = image_tag "event.png"
+        %br/
+        Wydarzenie
+    %li
+      = link_to new_update_path do
+        = image_tag "news.png"
+        %br/
+        Aktualność
+    %li
+      = link_to new_update_path do
+        = image_tag "mp3.png"
+        %br/
+        Piosenke
+  .clear
+
+  #stream
 
 - content_for :sidebar do
   = render :partial => "dashboard/sidebar"
+

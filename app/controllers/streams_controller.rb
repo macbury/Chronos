@@ -7,4 +7,6 @@ class StreamsController < ApplicationController
     respond_with(@streams)
   end
 
+
 end
+
