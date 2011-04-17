@@ -1,7 +1,7 @@
 :if link.pending()
   .status.pending
     %img{ src: "/images/pending.png" }
-    Oczekuje na dodanie do 
+    Oczekuje na dodanie do&nbsp;
     %a{ href: "/social_accounts/"+link.get("social_account").id }= link.get("social_account").name
 :if link.error()
   .status.error
@@ -10,12 +10,13 @@
 :if link.success()
   .status.success
     %img{ src: "/images/success.png" }
-    Opublikowane na
-    %a{ href: "/social_accounts/"+link.get("social_account").id }= link.get("social_account").name, link.social_account
-    , kliknij 
-    %a{ href: "/links/"+link.get("id")} tutaj
+    Opublikowane na&nbsp;
+    %a{ href: "/social_accounts/"+link.get("social_account").id }= link.get("social_account").name
+    , kliknij&nbsp;
+    %a{ href: "/links/"+link.get("id")} tutaj&nbsp;
     aby zobaczyć ten wpis
 :if link.working()
   .status.working
     %img{ src: "/images/ajax.gif" }
     Proszę czekać... Traw wysyłanie...
+

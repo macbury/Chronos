@@ -21,12 +21,17 @@ $(function(){
     },
 
     add: function() {
+      var self = this;
       var valid = this.model.set({
         body: $(this.el).find(".status_body").val()
       });
 
       if(valid) {
-        this.model.save();
+        this.model.save({}, {
+          success: function() {
+            App.Storage.Streams.add([self.model.attributes]);
+          },
+        });
         $(this.el).dialog("close");
       }
     },

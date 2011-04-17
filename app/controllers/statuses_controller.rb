@@ -7,10 +7,11 @@ class StatusesController < ApplicationController
     @status = Status.new(:body => params[:body])
 
     if @status.save
-      self.current_user.streams.create(:streamable => @status)
+      @stream = self.current_user.streams.create(:streamable => @status)
+      respond_with(@stream)
+    else
+      respond_with(@status)
     end
-
-    respond_with(@status)
   end
 
   # DELETE /statuses/1

@@ -3,10 +3,11 @@ $(function(){
     tagName: "ul",
 
     initialize: function(){
-      _.bindAll(this, 'addOne', 'render');
-
+      _.bindAll(this, 'addOne', 'addNew', 'render');
+      App.Storage.Streams.bind("add", this.addNew)
       App.Faye.subscribe("/"+$('meta[name=auth_token]').attr('content')+"/notifications/links", function(data) {
         var data = jQuery.parseJSON(data);
+        console.log(data);
         var streamRecord = App.Storage.Streams.get(data["stream_id"]);
         if(streamRecord != null) {
           if (streamRecord.links.length == 0) {
@@ -16,6 +17,13 @@ $(function(){
           }
         }
       });
+    },
+
+    addNew: function(stream) {
+      var streamView = new App.Views.Stream({model: stream});
+      $(this.el).prepend(streamView.render().el);
+      $(this.el).find("li").removeClass("alt");
+      $(this.el).find("li:even").addClass("alt");
     },
 
     addOne: function(stream){
@@ -33,7 +41,8 @@ $(function(){
       } else {
         App.Storage.Streams.each(this.addOne);
       }
-
+      $(this.el).find("li").removeClass("alt");
+      $(this.el).find("li:even").addClass("alt");
       return this;
     },
   });
