@@ -5,6 +5,9 @@ Chronos::Application.routes.draw do
 
   resources :streams do
     resources :links
+    member do
+     get :chart
+    end
   end
 
   resources :links

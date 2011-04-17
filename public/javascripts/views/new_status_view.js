@@ -16,20 +16,24 @@ $(function(){
         $(self.el).dialog("close");
         error("Nie można dodać wpisu!", error_msg, function() {
           $(self.el).dialog("open");
+          self.startTimer();
         });
       });
     },
 
     add: function() {
       var self = this;
-      var valid = this.model.set({
+      var form = {
         body: $(this.el).find(".status_body").val()
-      });
+      };
+      var valid = this.model.set(form);
 
       if(valid) {
-        this.model.save({}, {
+        this.model.save(form, {
           success: function() {
-            App.Storage.Streams.add([self.model.attributes]);
+            var raw_obj = self.model.attributes.stream;
+            raw_obj["streamable"] = self.model.attributes;
+            App.Storage.Streams.add([raw_obj]);
           },
         });
         $(this.el).dialog("close");

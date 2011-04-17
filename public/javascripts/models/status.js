@@ -1,13 +1,18 @@
 $(function(){
   App.Models.Status = Backbone.Model.extend({
     url: "/statuses",
+    body: "",
 
     validate: function(attrs) {
-      if (attrs.body && attrs.body.length > App.Models.Status.MaxMessageLength) {
+      if (attrs.body == null) {
+        return "Treść wpisu musi być podana!";
+      }
+
+      if (attrs.body.length > App.Models.Status.MaxMessageLength) {
         return "Treść wpisu nie może być większe od "+App.Models.Status.MaxMessageLength + " znaków!";
       }
 
-      if (attrs.body && attrs.body.length < 5) {
+      if (attrs.body.length < 5) {
         return "Treść wpisu nie może być mniejsza niż 5 znaków!";
       }
     }

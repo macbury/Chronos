@@ -8,13 +8,14 @@ $(function(){
         this.fetch();
       }
     },
-    
+
     done: function() {
       return this.filter(function(link){ return link.success(); });
     },
-    
+
     remaining: function() {
       return this.without.apply(this, this.done());
     },
   });
 });
+

@@ -38,3 +38,4 @@ production:
   password: 2c7ZU1Jw
   host: localhost
   socket: /tmp/mysql.sock
+

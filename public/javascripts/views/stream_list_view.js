@@ -22,8 +22,8 @@ $(function(){
     addNew: function(stream) {
       var streamView = new App.Views.Stream({model: stream});
       $(this.el).prepend(streamView.render().el);
-      $(this.el).find("li").removeClass("alt");
-      $(this.el).find("li:even").addClass("alt");
+      $(this.el).find(".update").removeClass("alt");
+      $(this.el).find(".update:even").addClass("alt");
     },
 
     addOne: function(stream){
@@ -41,8 +41,8 @@ $(function(){
       } else {
         App.Storage.Streams.each(this.addOne);
       }
-      $(this.el).find("li").removeClass("alt");
-      $(this.el).find("li:even").addClass("alt");
+      $(this.el).find(".update").removeClass("alt");
+      $(this.el).find(".update:even").addClass("alt");
       return this;
     },
   });

@@ -7,8 +7,10 @@
   = sidebar_tab "Kompedium", dashboard_path, :compedium
 .block
   %h3 Twoje serwisy
-  %ul.navigation.accounts
+  %ul.navigation.features
     - self.current_user.social_accounts.all.each do |account|
       %li{ :class => cycle("alt", "normal") }
-        = link_to account.name, account, :class => account.type_name
-        .clear
+        = link_to "Usuń serwis", account, :class => "edit_feature"
+        %span{ :class => account.type_name }= account.name
+        .description= account.type_name.to_s.classify
+
