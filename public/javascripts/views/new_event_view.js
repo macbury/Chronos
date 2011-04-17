@@ -46,13 +46,13 @@ $(function(){
 
     render: function() {
       $(this.el).empty();
-      $(this.el).html(Haml.render(JST.new_event, { locals: {} }));
+      $(this.el).html(Haml.render(JST.new_event, { locals: { event: this.model } }));
       $(this.el).dialog({
         title: "Nowe wydarzenie",
         autoOpen: false,
         show: "fade",
         hide: "fade",
-        width: 300,
+        width: 600,
         resizable: false,
         modal: true,
         close: this.remove,

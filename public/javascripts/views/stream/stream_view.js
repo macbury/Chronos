@@ -13,7 +13,7 @@ $(function(){
     },
 
     initialize: function() {
-      _.bindAll(this, 'render', 'selectedLinks', "refresh");
+      _.bindAll(this, 'render', 'selectedLinks', "refresh", "template");
       this.model.bind('change', this.refresh);
       this.model.links.bind('change', this.refresh);
       this.model.links.bind('refresh', this.refresh);
@@ -73,10 +73,16 @@ $(function(){
       return false;
     },
 
+    template: function() {
+      var key = "stream_"+this.model.get("streamable_type").toLowerCase();
+      return JST[key];
+    },
+
     render: function() {
       $(this.el).addClass("update")
+                .addClass(this.model.get("streamable_type").toLowerCase())
                 .attr("id", "stream_"+this.model.get("id"))
-                .html(Haml.render(JST.status, { locals: {status: this.model} }));
+                .html(Haml.render(this.template(), { locals: {stream: this.model} }));
       $(this.el).find("abbr").attr("title", this.model.get("created_at"));
       $(this.el).find("abbr").timeago();
 

@@ -16,7 +16,7 @@ $(function(){
     },
 
     newEvent: function() {
-      var eventView = new App.Views.NewEvent({ model: new App.Models.Status() });
+      var eventView = new App.Views.NewEvent({ model: new App.Models.Event() });
       eventView.render();
 
       return false;

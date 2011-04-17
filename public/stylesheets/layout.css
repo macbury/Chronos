@@ -652,3 +652,14 @@ form .status_body {
 
 .new_event input, .new_event textarea {
   width: 260px; }
+.new_event textarea {
+  height: 230px; }
+.new_event .column {
+  float: left; }
+  .new_event .column.left {
+    width: 274px;
+    padding-right: 10px;
+    border-right: 1px dotted #0a0909; }
+  .new_event .column.right {
+    width: 275px;
+    padding-left: 11px; }
