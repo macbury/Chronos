@@ -19,3 +19,4 @@ gem 'crypt'
 gem 'mechanize'
 gem 'delayed_job', :git => "https://github.com/collectiveidea/delayed_job.git"
 gem "bartt-ssl_requirement", :require => "ssl_requirement"
+

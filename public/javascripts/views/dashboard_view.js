@@ -5,6 +5,7 @@ $(function(){
 
     events: {
       "click .actions .new_status": "newStatus",
+      "click .actions .new_event": "newEvent",
     },
 
     newStatus: function() {
@@ -14,8 +15,15 @@ $(function(){
       return false;
     },
 
+    newEvent: function() {
+      var eventView = new App.Views.NewEvent({ model: new App.Models.Status() });
+      eventView.render();
+
+      return false;
+    },
+
     initialize: function(){
-      _.bindAll(this, 'render', 'newStatus');
+      _.bindAll(this, 'render', 'newStatus', 'newEvent');
 
       App.Storage.Streams = new App.Collections.Stream();
       App.Storage.Streams.bind("refresh", this.render);

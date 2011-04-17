@@ -649,3 +649,6 @@ form .status_body {
   font-size: 20px;
   font-weight: bold;
   margin-left: 10px; }
+
+.new_event input, .new_event textarea {
+  width: 260px; }
