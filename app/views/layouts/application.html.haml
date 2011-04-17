@@ -8,18 +8,16 @@
     - if logged_in?
       %meta{ :name => "auth_token", :content => self.current_user.api_token }/
       %meta{ :name => "notifications_server", :content => RhCore::Config["faye_server"] }/
-      
+
     = csrf_meta_tag
     = include_stylesheets :app, :media => 'all'
     = include_javascripts :app
     = javascript_include_tag RhCore::Config["faye_server"]+".js"
     = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
-    
+
   %body
     .top_bg
       .wrapper
-        %ul.menu
-          %li= link_to "Zgłoszenia", root_path
         = link_to "Logo", root_path, :class => "logo"
         .clear
         - if flash[:notice]
@@ -32,4 +30,4 @@
           .content.full= yield
         .clear
     .footer= "TZ 2010/#{Date.current.year} dla rhmusic.pl, Arkadiusz Buras"
-        
+

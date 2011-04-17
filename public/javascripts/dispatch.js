@@ -19,15 +19,16 @@ $(document).ready(function(){
   } else {
     console.log("Faye server is off!");
   }
-  
-  for(key in App.Controllers) {
-    new App.Controllers[key]();
-  }
 
-  Backbone.history.start();
-  
+  //for(key in App.Controllers) {
+  //  new App.Controllers[key]();
+  //}
+
+  //Backbone.history.start();
+
   //Backbone.sync = function(method, model) {
   //  console.log(method + ": " + model.url);
   //};
 
 });
+

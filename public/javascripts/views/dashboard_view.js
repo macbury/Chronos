@@ -16,7 +16,12 @@ $(function(){
 
     initialize: function(){
       _.bindAll(this, 'render', 'newStatus');
+
+      App.Storage.Streams = new App.Collections.Stream();
+      App.Storage.Streams.bind("refresh", this.render);
+
       this.streamListView = new App.Views.StreamList();
+      App.Storage.Streams.fetch();
     },
 
     render: function() {

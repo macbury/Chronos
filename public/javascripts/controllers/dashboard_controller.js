@@ -15,7 +15,6 @@ $(function(){
     },
 
     initialize: function() {
-      console.log("Dashboard initialize");
       App.Storage.Streams = new App.Collections.Stream();
       App.Storage.Streams.fetch();
       if(window.location.hash == "")
