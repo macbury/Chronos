@@ -7,17 +7,22 @@ $(function(){
     description: "",
     where: "",
 
+    toJSON : function() {
+      return { event: _.clone(this.attributes) };
+    },
+
     validate: function(attrs) {
-      if (attrs.body == null) {
-        return "Treść wpisu musi być podana!";
+
+      if(!Validate.size(attrs.title, 5, 255)) {
+        return "Musisz podać nazwę wydarzenia, musi ona mieć minimalnie 5 znaków a maksymalnie 255";
       }
 
-      if (attrs.body.length > App.Models.Status.MaxMessageLength) {
-        return "Treść wpisu nie może być większe od "+App.Models.Status.MaxMessageLength + " znaków!";
+      if(!Validate.size(attrs.description, 5, 400)) {
+        return "Musisz podać opis wydarzenia, musi ona mieć minimalnie 5 znaków a maksymalnie 400";
       }
 
-      if (attrs.body.length < 5) {
-        return "Treść wpisu nie może być mniejsza niż 5 znaków!";
+      if(!Validate.size(attrs.where, 5, 255)) {
+        return "Musisz podać miejsce wydarzenia, musi ona mieć minimalnie 5 znaków a maksymalnie 255";
       }
     }
   });

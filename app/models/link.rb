@@ -35,6 +35,20 @@ class Link < ActiveRecord::Base
   end
 
   def enqueue
+    if stream.streamable_type == "Status"
+      enqueue_status
+    elsif stream.streamable_type == "Event"
+      enqueue_event
+    end
+  end
+
+  def enqueue_event
+    if self.social_account.social_type == SocialAccount::Facebook
+      Delayed::Job.enqueue FacebookEventPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
+    end
+  end
+
+  def enqueue_status
     if self.social_account.social_type == SocialAccount::Facebook
       Delayed::Job.enqueue FacebookStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
     elsif self.social_account.social_type == SocialAccount::Twitter
@@ -50,5 +64,6 @@ class Link < ActiveRecord::Base
     end
   end
 
+  #handle_asynchronously :enqueue
 end
 

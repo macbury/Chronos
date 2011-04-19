@@ -1,7 +1,13 @@
 class Status < ActiveRecord::Base
+  PublishTo = [SocialAccount::Facebook, SocialAccount::Twitter, SocialAccount::Blip, SocialAccount::Flaker, SocialAccount::MySpace, SocialAccount::LastFm]
+
   has_one :stream, :as => :streamable
 
   validates :body, :presence => true, :length => 5..140
+
+  def send_to
+    Status::PublishTo
+  end
 
   def as_json(options = {})
     serializable_hash(:include => [:stream])

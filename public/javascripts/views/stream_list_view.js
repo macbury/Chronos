@@ -7,7 +7,6 @@ $(function(){
       App.Storage.Streams.bind("add", this.addNew)
       App.Faye.subscribe("/"+$('meta[name=auth_token]').attr('content')+"/notifications/links", function(data) {
         var data = jQuery.parseJSON(data);
-        console.log(data);
         var streamRecord = App.Storage.Streams.get(data["stream_id"]);
         if(streamRecord != null) {
           if (streamRecord.links.length == 0) {

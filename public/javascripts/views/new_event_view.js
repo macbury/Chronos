@@ -16,7 +16,6 @@ $(function(){
         $(self.el).dialog("close");
         error("Nie można dodać wpisu!", error_msg, function() {
           $(self.el).dialog("open");
-          self.startTimer();
         });
       });
     },
@@ -24,7 +23,11 @@ $(function(){
     add: function() {
       var self = this;
       var form = {
-        body: $(this.el).find(".status_body").val()
+        title: $(this.el).find(".name").val(),
+        where: $(this.el).find(".where").val(),
+        start_date: $(this.el).find(".start_date").val(),
+        end_date: $(this.el).find(".end_date").val(),
+        description: $(this.el).find(".description").val(),
       };
       var valid = this.model.set(form);
 
@@ -62,6 +65,11 @@ $(function(){
             $(this).dialog("close");
           }
         }
+      });
+
+      $(this.el).find(".start_date, .end_date").datetimepicker({
+        //minDate: new Date(),
+        stepMinute: 30,
       });
 
       $(this.el).dialog("open");

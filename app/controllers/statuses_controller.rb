@@ -4,17 +4,8 @@ class StatusesController < ApplicationController
   respond_to :json
 
   def create
-    @status = Status.new(:body => params[:body])
+    @status = Status.new(params[:status])
     @stream = self.current_user.streams.create(:streamable => @status) if @status.save
-
-    respond_with(@status)
-  end
-
-  # DELETE /statuses/1
-  # DELETE /statuses/1.xml
-  def destroy
-    @status = Status.find(params[:id])
-    @status.destroy
 
     respond_with(@status)
   end

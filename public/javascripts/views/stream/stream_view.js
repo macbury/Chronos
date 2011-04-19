@@ -79,10 +79,11 @@ $(function(){
     },
 
     render: function() {
+      var partial = Haml.render(this.template(), { locals: {stream: this.model} });
       $(this.el).addClass("update")
                 .addClass(this.model.get("streamable_type").toLowerCase())
                 .attr("id", "stream_"+this.model.get("id"))
-                .html(Haml.render(this.template(), { locals: {stream: this.model} }));
+                .html(Haml.render(JST.stream, { locals: {stream_partial: partial} }));
       $(this.el).find("abbr").attr("title", this.model.get("created_at"));
       $(this.el).find("abbr").timeago();
 

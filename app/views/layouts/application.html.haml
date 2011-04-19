@@ -16,6 +16,8 @@
     = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
 
   %body
+    %ul.panel
+      %li= link_to "Powiadomienia", "#"
     .top_bg
       .wrapper
         = link_to "Logo", root_path, :class => "logo"

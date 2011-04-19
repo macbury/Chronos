@@ -1,4 +1,5 @@
 Chronos::Application.routes.draw do
+  resources :events
   resources :statuses
   resource :redirect
   match '/r/:id' => "redirects#show", :as => :short_link

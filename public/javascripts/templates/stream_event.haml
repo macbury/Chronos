@@ -1,0 +1,6 @@
+%h3
+  Wydarzenie:&nbsp
+  = stream.streamable.get("title")
+.clear
+.body= stream.streamable.escape("description").truncate(255)
+

@@ -3,6 +3,10 @@ $(function(){
     url: "/statuses",
     body: "",
 
+    toJSON : function() {
+      return { status: _.clone(this.attributes) };
+    },
+
     validate: function(attrs) {
       if (attrs.body == null) {
         return "Treść wpisu musi być podana!";
