@@ -3,56 +3,223 @@ body
   font-family: Arial
   font-size: 10pt
   margin: 0px
-  background: #0F0E0E
+  padding-top: 70px
+  background: #161515 url(/images/bottom_crowd.png) fixed repeat-x bottom center
 
-.top_bg
-  background-color: #151515
-  background-image: url(/images/tlo.png)
-  background-position: 50% 0%
-  background-repeat: repeat-x
-  border-bottom: 2px solid #0a0909
-  min-height: 400px
 .wrapper
   width: 978px
   margin: 0 auto
-  padding-top: 50px
-  .content.full
-    width: 978px
-    float: none
-  .content
-    float: left
-    width: 700px
-  .sidebar
-    float: left
-    width: 268px
-    margin-left: 10px
 
-.panel
+#workspace
+  #details
+    width: 484px
+    float: left
+    margin-left: 494px
+    min-height: 100px
+    position: fixed
+  .empty
+    min-height: 350px
+    text-align: center
+    padding-top: 200px
+    color: #242424
+    font-size: 40px
+    font-weight: bold
+    border: 4px dashed #242424
+    -webkit-border-radius: 5px
+    border-radius: 5px
+    -moz-border-radius: 5px
+    &.loading
+      background: transparent url("/images/big_ajax.gif") no-repeat center center
+  #stream
+    width: 484px
+    float: left
+    margin-right: 10px
+    min-height: 100px
+    ul
+      list-style: none
+      padding: 0px
+      margin: 0px
+      border-radius: 3px
+      -webkit-border-radius: 3px
+      -moz-border-radius: 3px
+      box-shadow: 0px 0px 3px #000
+      .update
+        padding: 5px
+        background: #0f0e0e
+        cursor: pointer
+        &:hover
+          background: #121212 !important
+        &.alt
+          background: #0c0c0c
+        .progressbar
+          float: right
+          margin-top: 11px
+          width: 100px
+          display: none
+          .progress
+            height: 10px
+        .tab
+          display: none
+          background: #0a0909
+          margin: 5px -5px -8px -5px
+          border-top: 1px #161414 solid !important
+          border-bottom: 1px #161414 solid !important
+          li.please_wait
+            text-align: center
+            margin-top: 7px
+          .links
+            margin-top: 0px
+            padding-left: 0px
+        &.event h3
+          background-image: url("/images/event_small.png")
+        h3
+          margin: 0
+          padding-left: 20px
+          font-size: 11px
+          background: transparent url("/images/post_small.png") no-repeat left center
+        .date
+          float: right
+          font-size: 10px
+          background: #0a0909 url("/images/clock.png") 3px center no-repeat
+          padding: 5px 10px 5px 20px
+          margin-top: -5px
+          margin-right: -5px
+
+        .tags
+          font-size: 10px
+          font-weight: bold
+          display: block
+          margin-top: 13px
+          margin-right: -2px
+          float: right
+          .tag
+            padding: 3px 5px
+            color: #fff
+            background: #242424
+            border-radius: 3px
+            -webkit-border-radius: 3px
+            -moz-border-radius: 3px
+        .body
+          padding: 5px
+          color: #999999
+          line-height: 16px
+          font-size: 14px
+          border-left: 4px solid #202117
+        .views.inTab
+          li:last-child
+            a
+              border-top-right-radius: 0px !important
+              -moz-border-radius-topright: 0px !important
+              -webkit-border-top-right-radius: 0px !important
+              border-bottom-right-radius: 4px !important
+              -moz-border-radius-bottomright: 4px !important
+              -webkit-border-bottom-right-radius: 4px !important
+        .views
+          list-style: none inside url()
+          padding: 0px
+          margin-top: 10px
+          margin-left: -5px
+          margin-bottom: -1px
+          li
+            float: left
+            margin-bottom: 0px
+            a
+              font-size: 10px
+              padding: 6px 10px 6px 25px
+              background: #0a0909 url('/images/urls.png') no-repeat 5px center
+              border-left: 1px #161414 solid !important
+            .selected, a:hover
+              background-color: #242424
+            .stats
+              background-image: url('/images/links.png')
+            .reactions
+              background-image: url('/images/reactions.png')
+          li:first-child
+            a
+              border-bottom-left-radius: 4px
+              -moz-border-radius-bottomleft: 4px
+              -webkit-border-bottom-left-radius: 4px
+              border-left: 0px !important
+          li:last-child
+            a
+              border-top-right-radius: 4px
+              -moz-border-radius-topright: 4px
+              -webkit-border-top-right-radius: 4px
+
+
+.menu
   position: fixed
-  bottom: 0px
+  top: 0px
   right: 0px
-  height: 20px
-  background: #0f0e0e
-  min-width: 32px
-  list-style: none inside url()
+  left: 0px
+  height: 40px
+  background: transparent url('/images/menu.png') repeat-x
   padding: 0px
   margin: 0
-  li
+  box-shadow: #000 0px 2px 5px
+  .logo
+    background: transparent url(/images/logo_mini.png) no-repeat center center
+    height: 32px
+    width: 233px
+    margin-top: 3px
+    text-indent: -9999px
+    display: inline-block
     float: left
-    margin-bottom: 0px
-    a
-      font-size: 10px
-      padding: 6px 10px 6px 25px
-      background: #0a0909 url('/images/urls.png') no-repeat 5px center
-      border-left: 1px #161414 solid !important
-    .selected, a:hover
-      background-color: #242424
-  li:first-child
-    a
-      border-top-left-radius: 4px
-      -moz-border-radius-topleft: 4px
-      -webkit-border-top-left-radius: 4px
-      border-left: 0px !important
+    margin-right: 15px
+  ul
+    display: inline-block
+    list-style: none
+    padding: 0
+    margin: 0
+    width: 730px
+    li
+      float: left
+      height: 40px
+      &:hover
+        background: #242424 url("/images/menu_active.png") repeat-x
+      &.active
+        background: #242424 url("/images/menu_selected.png") repeat-x
+      &.icon
+        float: right
+        &.settings a
+          width: 48px
+        a
+          padding: 0px
+          width: 40px
+          height: 40px
+          text-indent: -9999px
+          background-position: center center
+      a
+        line-height: 40px
+        display: block
+        height: 40px
+        padding-left: 36px
+        padding-right: 10px
+        background: transparent url('/images/dashboard.png') 5px center no-repeat
+      &.compedium a
+        background-image: url("/images/compedium.png")
+      &.accounts a
+        background-image: url("/images/accounts.png")
+      &.payments a
+        background-image: url("/images/payments.png")
+      &.notifications a
+        background-image: url("/images/notifications.png")
+      &.logout a
+        background-image: url("/images/logout.png")
+      &.settings a
+        background-image: url("/images/config.png")
+      &.status a
+        background-image: url("/images/post.png")
+      &.photo a
+        background-image: url("/images/photos.png")
+      &.video a
+        background-image: url("/images/movie.png")
+      &.event a
+        background-image: url("/images/event.png")
+      &.news a
+        background-image: url("/images/news.png")
+      &.song a
+        background-image: url("/images/mp3.png")
 .block.center
   margin: 10px auto
   width: 500px
@@ -78,42 +245,7 @@ a
     border: 0px
 .clear
   clear: both
-.logo
-  background: transparent url(/images/logo.png) no-repeat
-  height: 130px
-  margin-bottom: 10px
-  text-indent: -9999px
-  display: block
-  h1
-    margin: 0px
-    a
-      text-indent: -9999px
-      width: 978px
-      height: 300px
-      display: block
 
-.menu
-  float: right
-  text-transform: uppercase
-  font-size: 15px
-  font-weight: 600
-  text-align: center
-  letter-spacing: -1
-  text-shadow: 0 -1px 0 #3A3C44
-  list-style: none
-  margin: 0
-  margin-top: 22px
-  padding: 0
-  li
-    display: inline
-    float: left
-    margin-right: 10px
-  li:last-child
-    margin-right: 0
-  a
-    color: #9FA5B6
-  a:hover
-    color: #fff
 
 .sites
   list-style: none
@@ -243,44 +375,7 @@ form.formtastic fieldset > ol > li.error
       margin-top: 0px
       margin-right: 5px
 
-.colors
-  li
-    line-height: 18px
-.category_color
-  width: 16px
-  height: 16px
-  border: 1px solid #000
-  background: #fff
-  float: left
-  text-align: center
-  font-weight: bold
-  font-size: 12px
-  color: black
-.tabs
-  list-style: none
-  padding: 0
-  margin: 0 0 10px 0
-  li
-    a
-      display: block
-      font-weight: bold
-      padding: 5px 10px 5px 25px
-      margin-bottom: 10px
-      background: #0f0e0e url('/images/dashboard.png') 5px center no-repeat
-      border-radius: 7px
-      -webkit-border-radius: 7px
-      -moz-border-radius: 7px
-  a:hover
-    background-color: #242424
-  .stats a
-    background-image: url("/images/stats.png")
-  .accounts a
-    background-image: url("/images/accounts.png")
-  .payments a
-    background-image: url("/images/payments.png")
-  .active
-    a
-      background-color: #242424
+
 .error
   color: red
 .notice
@@ -509,109 +604,7 @@ ul.info
         margin-right: 0px
 .unread
   border: 2px solid rgba(0, 0, 255, 0.3)
-.update
-  padding: 5px
-  background: #0f0e0e
-  border-radius: 3px
-  -webkit-border-radius: 3px
-  -moz-border-radius: 3px
-  .progressbar
-    float: right
-    margin-top: 11px
-    width: 100px
-    display: none
-    .progress
-      height: 10px
-  .tab
-    display: none
-    background: #0a0909
-    margin: 5px -5px -8px -5px
-    border-top: 1px #161414 solid !important
-    border-bottom: 1px #161414 solid !important
-    li.please_wait
-      text-align: center
-      margin-top: 7px
-    .links
-      margin-top: 0px
-      padding-left: 0px
-  &.event h3
-    background-image: url("/images/event_small.png")
-  h3
-    margin: 0
-    padding-left: 20px
-    font-size: 11px
-    background: transparent url("/images/post_small.png") no-repeat left center
-  .date
-    float: right
-    font-size: 10px
-    background: #0a0909 url("/images/clock.png") 3px center no-repeat
-    padding: 5px 10px 5px 20px
-    margin-top: -5px
-    margin-right: -5px
-    border-top-right-radius: 4px
-    -moz-border-radius-topright: 4px
-    -webkit-border-top-right-radius: 4px
 
-  .tags
-    font-size: 10px
-    font-weight: bold
-    display: block
-    margin-top: 13px
-    margin-right: -2px
-    float: right
-    .tag
-      padding: 3px 5px
-      color: #fff
-      background: #242424
-      border-radius: 3px
-      -webkit-border-radius: 3px
-      -moz-border-radius: 3px
-  .body
-    padding: 5px
-    color: #999999
-    line-height: 16px
-    font-size: 14px
-    border-left: 4px solid #202117
-  .views.inTab
-    li:last-child
-      a
-        border-top-right-radius: 0px !important
-        -moz-border-radius-topright: 0px !important
-        -webkit-border-top-right-radius: 0px !important
-        border-bottom-right-radius: 4px !important
-        -moz-border-radius-bottomright: 4px !important
-        -webkit-border-bottom-right-radius: 4px !important
-  .views
-    list-style: none inside url()
-    padding: 0px
-    margin-top: 10px
-    margin-left: -5px
-    margin-bottom: -1px
-    li
-      float: left
-      margin-bottom: 0px
-      a
-        font-size: 10px
-        padding: 6px 10px 6px 25px
-        background: #0a0909 url('/images/urls.png') no-repeat 5px center
-        border-left: 1px #161414 solid !important
-      .selected, a:hover
-        background-color: #242424
-      .stats
-        background-image: url('/images/links.png')
-      .reactions
-        background-image: url('/images/reactions.png')
-    li:first-child
-      a
-        border-bottom-left-radius: 4px
-        -moz-border-radius-bottomleft: 4px
-        -webkit-border-bottom-left-radius: 4px
-        border-left: 0px !important
-    li:last-child
-      a
-        border-top-right-radius: 4px
-        -moz-border-radius-topright: 4px
-        -webkit-border-top-right-radius: 4px
 .list
   li.button
     margin: 5px 0

@@ -16,20 +16,14 @@
     = javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])
 
   %body
-    %ul.panel
-      %li= link_to "Powiadomienia", "#"
-    .top_bg
+    .menu
       .wrapper
         = link_to "Logo", root_path, :class => "logo"
-        .clear
-        - if flash[:notice]
-          .box.notice= notice
-        .clear
-        - unless yield(:sidebar).empty?
-          .content= yield
-          .sidebar= yield :sidebar
-        - else
-          .content.full= yield
-        .clear
-    .footer= "TZ 2010/#{Date.current.year} dla rhmusic.pl, Arkadiusz Buras"
+        = render "shared/menu"
+    .wrapper
+      .clear
+      - if flash[:notice]
+        .box.notice= notice
+      .clear
+      .content= yield
 

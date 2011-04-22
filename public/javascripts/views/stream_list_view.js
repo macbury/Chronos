@@ -23,6 +23,7 @@ $(function(){
       $(this.el).prepend(streamView.render().el);
       $(this.el).find(".update").removeClass("alt");
       $(this.el).find(".update:even").addClass("alt");
+      this.$(".empty").remove();
     },
 
     addOne: function(stream){
@@ -31,12 +32,11 @@ $(function(){
     },
 
     render: function() {
-      $(this.el).addClass("list");
       $(this.el).empty();
       if(App.Storage.Streams == null){
-        $(this.el).append("<li class='loading'>Prosze czekać... Trwa wczytywanie danych...</li>");
+        $(this.el).append("<li class='empty'>Prosze czekać... Trwa wczytywanie danych...</li>");
       } else if(App.Storage.Streams.length == 0) {
-        $(this.el).append("<li>Aktualnie nie masz dodanych żadnych wpisów!</li>");
+        $(this.el).append("<li class='empty'>Aktualnie nie masz dodanych żadnych wpisów!</li>");
       } else {
         App.Storage.Streams.each(this.addOne);
       }

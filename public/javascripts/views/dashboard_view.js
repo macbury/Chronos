@@ -1,11 +1,11 @@
 $(function(){
   App.Views.Dashboard = Backbone.View.extend({
-    el: "#workspace",
+    el: "body",
     streamListView: null,
 
     events: {
-      "click .actions .new_status": "newStatus",
-      "click .actions .new_event": "newEvent",
+      "click .menu .status": "newStatus",
+      "click .menu .event": "newEvent",
     },
 
     newStatus: function() {
