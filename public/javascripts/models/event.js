@@ -6,7 +6,14 @@ $(function(){
     title: "",
     description: "",
     where: "",
-
+    
+    start_date: function() {
+      var date = new Date(this.get("start_date"));
+      var dateString = $.datepicker.formatDate("d MM yy", date);
+      dateString += " "+ date.getHours() +":"+date.getMinutes();
+      return dateString;
+    },
+    
     toJSON : function() {
       return { event: _.clone(this.attributes) };
     },

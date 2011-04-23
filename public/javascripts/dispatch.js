@@ -12,23 +12,15 @@ var client = null;
 var auth_token = 0;
 
 $(document).ready(function(){
-  if(Faye) {
+  App.Router = new Router();
+  
+  if(window["Faye"]) {
     App.Faye = new Faye.Client($('meta[name=notifications_server]').attr('content'),{
       timeout: 60
     });
   } else {
     console.log("Faye server is off!");
   }
-
-  //for(key in App.Controllers) {
-  //  new App.Controllers[key]();
-  //}
-
-  //Backbone.history.start();
-
-  //Backbone.sync = function(method, model) {
-  //  console.log(method + ": " + model.url);
-  //};
 
 });
 

@@ -2,12 +2,13 @@ $(function(){
   App.Views.Dashboard = Backbone.View.extend({
     el: "body",
     streamListView: null,
-
+    detailsView: null,
+    selectedStream: null,
     events: {
       "click .menu .status": "newStatus",
       "click .menu .event": "newEvent",
     },
-
+    
     newStatus: function() {
       var statusView = new App.Views.NewStatus({ model: new App.Models.Status() });
       statusView.render();
@@ -24,16 +25,16 @@ $(function(){
 
     initialize: function(){
       _.bindAll(this, 'render', 'newStatus', 'newEvent');
-
-      App.Storage.Streams = new App.Collections.Stream();
       App.Storage.Streams.bind("refresh", this.render);
-
+      var self = this;
+      
       this.streamListView = new App.Views.StreamList();
-      App.Storage.Streams.fetch();
+      this.detailsView = new App.Views.StreamDetails();
     },
 
     render: function() {
       $(this.el).find("#stream").html(this.streamListView.render().el);
+      $(this.el).find("#details").html(this.detailsView.render().el);
       return this;
     },
   });

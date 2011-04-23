@@ -3,7 +3,7 @@ body
   font-family: Arial
   font-size: 10pt
   margin: 0px
-  padding-top: 70px
+  padding: 70px 0 10px 0
   background: #161515 url(/images/bottom_crowd.png) fixed repeat-x bottom center
 
 .wrapper
@@ -18,9 +18,8 @@ body
     min-height: 100px
     position: fixed
   .empty
-    min-height: 350px
     text-align: center
-    padding-top: 200px
+    vertical-align:text-middle
     color: #242424
     font-size: 40px
     font-weight: bold
@@ -43,109 +42,59 @@ body
       -webkit-border-radius: 3px
       -moz-border-radius: 3px
       box-shadow: 0px 0px 3px #000
-      .update
-        padding: 5px
-        background: #0f0e0e
-        cursor: pointer
-        &:hover
-          background: #121212 !important
-        &.alt
-          background: #0c0c0c
-        .progressbar
-          float: right
-          margin-top: 11px
-          width: 100px
-          display: none
-          .progress
-            height: 10px
-        .tab
-          display: none
-          background: #0a0909
-          margin: 5px -5px -8px -5px
-          border-top: 1px #161414 solid !important
-          border-bottom: 1px #161414 solid !important
-          li.please_wait
-            text-align: center
-            margin-top: 7px
-          .links
-            margin-top: 0px
-            padding-left: 0px
-        &.event h3
-          background-image: url("/images/event_small.png")
-        h3
-          margin: 0
-          padding-left: 20px
-          font-size: 11px
-          background: transparent url("/images/post_small.png") no-repeat left center
-        .date
-          float: right
-          font-size: 10px
-          background: #0a0909 url("/images/clock.png") 3px center no-repeat
-          padding: 5px 10px 5px 20px
-          margin-top: -5px
-          margin-right: -5px
 
-        .tags
-          font-size: 10px
-          font-weight: bold
-          display: block
-          margin-top: 13px
-          margin-right: -2px
-          float: right
-          .tag
-            padding: 3px 5px
-            color: #fff
-            background: #242424
-            border-radius: 3px
-            -webkit-border-radius: 3px
-            -moz-border-radius: 3px
-        .body
-          padding: 5px
-          color: #999999
-          line-height: 16px
-          font-size: 14px
-          border-left: 4px solid #202117
-        .views.inTab
-          li:last-child
-            a
-              border-top-right-radius: 0px !important
-              -moz-border-radius-topright: 0px !important
-              -webkit-border-top-right-radius: 0px !important
-              border-bottom-right-radius: 4px !important
-              -moz-border-radius-bottomright: 4px !important
-              -webkit-border-bottom-right-radius: 4px !important
-        .views
-          list-style: none inside url()
-          padding: 0px
-          margin-top: 10px
-          margin-left: -5px
-          margin-bottom: -1px
-          li
-            float: left
-            margin-bottom: 0px
-            a
-              font-size: 10px
-              padding: 6px 10px 6px 25px
-              background: #0a0909 url('/images/urls.png') no-repeat 5px center
-              border-left: 1px #161414 solid !important
-            .selected, a:hover
-              background-color: #242424
-            .stats
-              background-image: url('/images/links.png')
-            .reactions
-              background-image: url('/images/reactions.png')
-          li:first-child
-            a
-              border-bottom-left-radius: 4px
-              -moz-border-radius-bottomleft: 4px
-              -webkit-border-bottom-left-radius: 4px
-              border-left: 0px !important
-          li:last-child
-            a
-              border-top-right-radius: 4px
-              -moz-border-radius-topright: 4px
-              -webkit-border-top-right-radius: 4px
+.update
+  padding: 5px
+  background: #0f0e0e
+  &:hover
+    background: #121212 !important
+    cursor: pointer
+    .date
+      background-color: #0f0e0e
+  &.alt
+    background: #0c0c0c
+  .progressbar
+    float: right
+    margin-top: 11px
+    width: 100px
+    display: none
+    .progress
+      height: 10px
 
+  &.event 
+    h3
+      background-image: url("/images/event_small.png")
+    .description
+      height: 60px
+      .flyaer
+        width: 60px
+        text-align: center
+        position: absolute
+      .content
+        margin-left: 85px
+        span
+          font-size: 10px
+          color: #999
+      
+  h3
+    margin: 0
+    padding-left: 20px
+    font-size: 11px
+    border: 0 !important
+    background: transparent url("/images/post_small.png") no-repeat left center
+  .date
+    float: right
+    font-size: 10px
+    background: #0a0909 url("/images/clock.png") 3px center no-repeat
+    padding: 5px 10px 5px 20px
+    margin-top: -5px
+    margin-right: -5px
+  .body
+    padding: 5px
+    color: #999999
+    line-height: 16px
+    font-size: 14px
+    border-left: 4px solid #202117
 
 .menu
   position: fixed
@@ -156,6 +105,7 @@ body
   background: transparent url('/images/menu.png') repeat-x
   padding: 0px
   margin: 0
+  z-index: 10
   box-shadow: #000 0px 2px 5px
   .logo
     background: transparent url(/images/logo_mini.png) no-repeat center center
@@ -375,6 +325,11 @@ form.formtastic fieldset > ol > li.error
       margin-top: 0px
       margin-right: 5px
 
+.unread, .selected
+  border: 2px solid #0000ff
+  -webkit-border-radius: 4px
+  border-radius: 4px
+  -moz-border-radius: 4px
 
 .error
   color: red
@@ -403,8 +358,6 @@ form.formtastic fieldset > ol > li.error
     margin-bottom: 5px
   .alt
     background: rgba(0,0,0,0.2)
-  .unread
-    border: 2px solid rgba(0, 0, 255, 0.3)
   .post
     padding: 5px
     border-radius: 3px
@@ -674,4 +627,70 @@ form
     &.right
       width: 275px
       padding-left: 11px
+
+.details 
+  overflow-y: hidden
+  overflow-x: hidden
+  padding: 0px
+  box-shadow: 0px 0px 3px #000
+  .header
+    hr
+      margin: 3px 5px
+      border: 0px
+      border-bottom: 2px dotted #3b3434
+    .date
+      float: right
+      font-size: 10px
+      background: #0a0909 url("/images/clock.png") 3px center no-repeat
+      padding: 6px 10px 6px 20px
+      margin-top: -2px
+    .views
+      list-style: none inside url()
+      padding: 0px
+      margin: 2px 0 0 0
+      li
+        float: left
+        margin-bottom: 0px
+        a
+          font-size: 10px
+          padding: 6px 10px 6px 25px
+          background: #0a0909 url('/images/urls.png') no-repeat 5px center
+          border-left: 1px #161414 solid !important
+        .active, a:hover
+          background-color: #242424
+          border: 0
+        .stats
+          background-image: url('/images/links.png')
+        .reactions
+          background-image: url('/images/reactions.png')
+      li:first-child
+        a
+          border-top-left-radius: 6px
+          -moz-border-radius-topleft: 6px
+          -webkit-border-top-left-radius: 6px
+          border-left: 0px !important
+  & > .content
+    margin: 2px
+    padding: 5px 10px
+    overflow-y: visible
+    overflow-x: hidden
+  
+    &::-webkit-scrollbar
+      width: 13px
+      height: 13px
+
+    &::-webkit-scrollbar-button:start:decrement,
+    &::-webkit-scrollbar-button:end:increment 
+      display: none
+
+    &::-webkit-scrollbar-button:vertical:start:increment,
+    &::-webkit-scrollbar-button:vertical:end:decrement 
+      display: none
+
+    &::-webkit-scrollbar-track-piece 
+      background-color: transparent
+
+    &::-webkit-scrollbar-thumb:vertical 
+      background-color: #242424
+      -webkit-border-radius: 6px
 

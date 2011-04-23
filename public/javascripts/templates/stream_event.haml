@@ -1,6 +1,18 @@
 %h3
-  Wydarzenie:&nbsp
-  = stream.streamable.get("title")
+  Wydarzenie
 .clear
-.body= stream.streamable.escape("description").truncate(255)
+.description
+  .flyaer
+    %img{ src: "/images/empty_flyaer.png" }
+  .content
+    %strong= stream.streamable.escape("title")
+    %br/
+    %span
+      %strong Miejsce:&nbsp;
+      = stream.streamable.escape("where")
+    %br/
+    %span
+      %strong Godzina:&nbsp;
+      = stream.streamable.start_date()
+    %br/
 

@@ -1,16 +1,27 @@
-SocialAccount
+        .tab
+          display: none
+          background: #0a0909
+          margin: 5px -5px -8px -5px
+          border-top: 1px #161414 solid !important
+          border-bottom: 1px #161414 solid !important
+          li.please_wait
+            text-align: center
+            margin-top: 7px
+          .links
+            margin-top: 0px
+            padding-left: 0px
 
-application_id:integer
-token:string
-uid:bigint
-type:integer
-name:string
-
-SocialAccount
-  Facebook = 0
-  Twitter = 1
-  Blip = 2
-  Flaker = 3
-  MySpace = 4
-  
-  Type => { Facebook => "Facebook", Twitter => "Twitter", Blip => "Blip.pl", Flaker => "Flaker.pl", MySpace => "MySpace" }
+        .tags
+          font-size: 10px
+          font-weight: bold
+          display: block
+          margin-top: 13px
+          margin-right: -2px
+          float: right
+          .tag
+            padding: 3px 5px
+            color: #fff
+            background: #242424
+            border-radius: 3px
+            -webkit-border-radius: 3px
+            -moz-border-radius: 3px

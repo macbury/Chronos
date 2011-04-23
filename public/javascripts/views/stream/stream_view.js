@@ -83,7 +83,7 @@ $(function(){
       $(this.el).addClass("update")
                 .addClass(this.model.get("streamable_type").toLowerCase())
                 .attr("id", "stream_"+this.model.get("id"))
-                .html(Haml.render(JST.stream, { locals: {stream_partial: partial} }));
+                .html(Haml.render(JST.stream, { locals: {stream_partial: partial, stream: this.model} }));
       $(this.el).find("abbr").attr("title", this.model.get("created_at"));
       $(this.el).find("abbr").timeago();
 

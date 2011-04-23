@@ -6,7 +6,12 @@ class StreamsController < ApplicationController
     @streams = self.current_user.streams.includes(:streamable).order("created_at DESC").limit(10).all
     respond_with(@streams)
   end
-
+  
+  def show
+    @stream = self.current_user.streams.includes(:streamable).find(params[:id])
+    respond_with(@stream)
+  end
+  
   def chart
     @stream = self.current_user.streams.find(params[:id])
     out = []

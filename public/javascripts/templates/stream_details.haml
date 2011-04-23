@@ -1,0 +1,19 @@
+.block.details
+  .header
+    %ul.views
+      %li.urls
+        %a.active{ href:"#" } Linki
+      %li.reactions 
+        %a{ href:"#" } Reakcje
+      %li.stats
+        %a{ href:"#" } Statystyki
+    .date
+      Dodany&nbsp
+      %abbr
+    .clear
+    .update{ class: stream.get("streamable_type").toLowerCase() }
+      = stream_partial
+    %hr/
+    
+  .content
+

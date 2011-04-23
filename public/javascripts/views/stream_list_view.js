@@ -1,21 +1,11 @@
 $(function(){
   App.Views.StreamList = Backbone.View.extend({
     tagName: "ul",
-
+    selectedStream: null,
+    
     initialize: function(){
-      _.bindAll(this, 'addOne', 'addNew', 'render');
-      App.Storage.Streams.bind("add", this.addNew)
-      App.Faye.subscribe("/"+$('meta[name=auth_token]').attr('content')+"/notifications/links", function(data) {
-        var data = jQuery.parseJSON(data);
-        var streamRecord = App.Storage.Streams.get(data["stream_id"]);
-        if(streamRecord != null) {
-          if (streamRecord.links.length == 0) {
-            streamRecord.links.download();
-          } else {
-            streamRecord.links.get(data["id"]).set(data);
-          }
-        }
-      });
+      _.bindAll(this, 'addOne', 'addNew', 'render', 'selectStream');
+      App.Storage.Streams.bind("add", this.addNew);
     },
 
     addNew: function(stream) {
@@ -28,9 +18,21 @@ $(function(){
 
     addOne: function(stream){
       var streamView = new App.Views.Stream({model: stream});
-      $(this.el).append(streamView.render().el);
+      var li = $(streamView.render().el);
+      
+      if(this.selectedStream && this.selectedStream.get("id") == stream.get("id")) {
+        li.addClass("selected");
+      }
+      
+      $(this.el).append(li);
     },
-
+    
+    selectStream: function(model) {
+      this.selectedStream = model;
+      this.$(".update").removeClass("selected");
+      this.$("#stream_"+model.get("id")).addClass("selected");
+    },
+    
     render: function() {
       $(this.el).empty();
       if(App.Storage.Streams == null){

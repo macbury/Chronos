@@ -10,6 +10,7 @@ javascripts:
     - public/javascripts/lib/underscore.js
     - public/javascripts/lib/jquery.flot.js
     - public/javascripts/lib/backbone.js
+    - public/javascripts/lib/router.js
     - public/javascripts/lib/jquery.timeago.js
     - public/javascripts/lib/validator.js
     - public/javascripts/lib/rails.js

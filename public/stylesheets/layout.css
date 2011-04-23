@@ -3,7 +3,7 @@ body {
   font-family: Arial;
   font-size: 10pt;
   margin: 0px;
-  padding-top: 70px;
+  padding: 70px 0 10px 0;
   background: #161515 url(/images/bottom_crowd.png) fixed repeat-x bottom center; }
 
 .wrapper {
@@ -17,9 +17,7 @@ body {
   min-height: 100px;
   position: fixed; }
 #workspace .empty {
-  min-height: 350px;
   text-align: center;
-  padding-top: 200px;
   color: #242424;
   font-size: 40px;
   font-weight: bold;
@@ -42,103 +40,56 @@ body {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     box-shadow: 0px 0px 3px black; }
-    #workspace #stream ul .update {
-      padding: 5px;
-      background: #0f0e0e;
-      cursor: pointer; }
-      #workspace #stream ul .update:hover {
-        background: #121212 !important; }
-      #workspace #stream ul .update.alt {
-        background: #0c0c0c; }
-      #workspace #stream ul .update .progressbar {
-        float: right;
-        margin-top: 11px;
-        width: 100px;
-        display: none; }
-        #workspace #stream ul .update .progressbar .progress {
-          height: 10px; }
-      #workspace #stream ul .update .tab {
-        display: none;
-        background: #0a0909;
-        margin: 5px -5px -8px -5px;
-        border-top: 1px #161414 solid !important;
-        border-bottom: 1px #161414 solid !important; }
-        #workspace #stream ul .update .tab li.please_wait {
-          text-align: center;
-          margin-top: 7px; }
-        #workspace #stream ul .update .tab .links {
-          margin-top: 0px;
-          padding-left: 0px; }
-      #workspace #stream ul .update.event h3 {
-        background-image: url("/images/event_small.png"); }
-      #workspace #stream ul .update h3 {
-        margin: 0;
-        padding-left: 20px;
-        font-size: 11px;
-        background: transparent url("/images/post_small.png") no-repeat left center; }
-      #workspace #stream ul .update .date {
-        float: right;
+
+.update {
+  padding: 5px;
+  background: #0f0e0e; }
+  .update:hover {
+    background: #121212 !important;
+    cursor: pointer; }
+    .update:hover .date {
+      background-color: #0f0e0e; }
+  .update.alt {
+    background: #0c0c0c; }
+  .update .progressbar {
+    float: right;
+    margin-top: 11px;
+    width: 100px;
+    display: none; }
+    .update .progressbar .progress {
+      height: 10px; }
+  .update.event h3 {
+    background-image: url("/images/event_small.png"); }
+  .update.event .description {
+    height: 60px; }
+    .update.event .description .flyaer {
+      width: 60px;
+      text-align: center;
+      position: absolute; }
+    .update.event .description .content {
+      margin-left: 85px; }
+      .update.event .description .content span {
         font-size: 10px;
-        background: #0a0909 url("/images/clock.png") 3px center no-repeat;
-        padding: 5px 10px 5px 20px;
-        margin-top: -5px;
-        margin-right: -5px; }
-      #workspace #stream ul .update .tags {
-        font-size: 10px;
-        font-weight: bold;
-        display: block;
-        margin-top: 13px;
-        margin-right: -2px;
-        float: right; }
-        #workspace #stream ul .update .tags .tag {
-          padding: 3px 5px;
-          color: white;
-          background: #242424;
-          border-radius: 3px;
-          -webkit-border-radius: 3px;
-          -moz-border-radius: 3px; }
-      #workspace #stream ul .update .body {
-        padding: 5px;
-        color: #999999;
-        line-height: 16px;
-        font-size: 14px;
-        border-left: 4px solid #202117; }
-      #workspace #stream ul .update .views.inTab li:last-child a {
-        border-top-right-radius: 0px !important;
-        -moz-border-radius-topright: 0px !important;
-        -webkit-border-top-right-radius: 0px !important;
-        border-bottom-right-radius: 4px !important;
-        -moz-border-radius-bottomright: 4px !important;
-        -webkit-border-bottom-right-radius: 4px !important; }
-      #workspace #stream ul .update .views {
-        list-style: none inside url();
-        padding: 0px;
-        margin-top: 10px;
-        margin-left: -5px;
-        margin-bottom: -1px; }
-        #workspace #stream ul .update .views li {
-          float: left;
-          margin-bottom: 0px; }
-          #workspace #stream ul .update .views li a {
-            font-size: 10px;
-            padding: 6px 10px 6px 25px;
-            background: #0a0909 url("/images/urls.png") no-repeat 5px center;
-            border-left: 1px #161414 solid !important; }
-          #workspace #stream ul .update .views li .selected, #workspace #stream ul .update .views li a:hover {
-            background-color: #242424; }
-          #workspace #stream ul .update .views li .stats {
-            background-image: url("/images/links.png"); }
-          #workspace #stream ul .update .views li .reactions {
-            background-image: url("/images/reactions.png"); }
-        #workspace #stream ul .update .views li:first-child a {
-          border-bottom-left-radius: 4px;
-          -moz-border-radius-bottomleft: 4px;
-          -webkit-border-bottom-left-radius: 4px;
-          border-left: 0px !important; }
-        #workspace #stream ul .update .views li:last-child a {
-          border-top-right-radius: 4px;
-          -moz-border-radius-topright: 4px;
-          -webkit-border-top-right-radius: 4px; }
+        color: #999999; }
+  .update h3 {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 11px;
+    border: 0 !important;
+    background: transparent url("/images/post_small.png") no-repeat left center; }
+  .update .date {
+    float: right;
+    font-size: 10px;
+    background: #0a0909 url("/images/clock.png") 3px center no-repeat;
+    padding: 5px 10px 5px 20px;
+    margin-top: -5px;
+    margin-right: -5px; }
+  .update .body {
+    padding: 5px;
+    color: #999999;
+    line-height: 16px;
+    font-size: 14px;
+    border-left: 4px solid #202117; }
 
 .menu {
   position: fixed;
@@ -149,6 +100,7 @@ body {
   background: transparent url("/images/menu.png") repeat-x;
   padding: 0px;
   margin: 0;
+  z-index: 10;
   box-shadow: black 0px 2px 5px; }
   .menu .logo {
     background: transparent url(/images/logo_mini.png) no-repeat center center;
@@ -373,6 +325,12 @@ form.formtastic fieldset > ol > li.error {
       margin-top: 0px;
       margin-right: 5px; }
 
+.unread, .selected {
+  border: 2px solid blue;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-border-radius: 4px; }
+
 .error {
   color: red; }
 
@@ -402,8 +360,6 @@ form.formtastic fieldset > ol > li.error {
     margin-bottom: 5px; }
   .list .alt {
     background: rgba(0, 0, 0, 0.2); }
-  .list .unread {
-    border: 2px solid rgba(0, 0, 255, 0.3); }
   .list .post {
     padding: 5px;
     border-radius: 3px;
@@ -677,3 +633,60 @@ form .status_body {
   .new_event .column.right {
     width: 275px;
     padding-left: 11px; }
+
+.details {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0px;
+  box-shadow: 0px 0px 3px black; }
+  .details .header hr {
+    margin: 3px 5px;
+    border: 0px;
+    border-bottom: 2px dotted #3b3434; }
+  .details .header .date {
+    float: right;
+    font-size: 10px;
+    background: #0a0909 url("/images/clock.png") 3px center no-repeat;
+    padding: 6px 10px 6px 20px;
+    margin-top: -2px; }
+  .details .header .views {
+    list-style: none inside url();
+    padding: 0px;
+    margin: 2px 0 0 0; }
+    .details .header .views li {
+      float: left;
+      margin-bottom: 0px; }
+      .details .header .views li a {
+        font-size: 10px;
+        padding: 6px 10px 6px 25px;
+        background: #0a0909 url("/images/urls.png") no-repeat 5px center;
+        border-left: 1px #161414 solid !important; }
+      .details .header .views li .active, .details .header .views li a:hover {
+        background-color: #242424;
+        border: 0; }
+      .details .header .views li .stats {
+        background-image: url("/images/links.png"); }
+      .details .header .views li .reactions {
+        background-image: url("/images/reactions.png"); }
+    .details .header .views li:first-child a {
+      border-top-left-radius: 6px;
+      -moz-border-radius-topleft: 6px;
+      -webkit-border-top-left-radius: 6px;
+      border-left: 0px !important; }
+  .details > .content {
+    margin: 2px;
+    padding: 5px 10px;
+    overflow-y: visible;
+    overflow-x: hidden; }
+    .details > .content::-webkit-scrollbar {
+      width: 13px;
+      height: 13px; }
+    .details > .content::-webkit-scrollbar-button:start:decrement, .details > .content::-webkit-scrollbar-button:end:increment {
+      display: none; }
+    .details > .content::-webkit-scrollbar-button:vertical:start:increment, .details > .content::-webkit-scrollbar-button:vertical:end:decrement {
+      display: none; }
+    .details > .content::-webkit-scrollbar-track-piece {
+      background-color: transparent; }
+    .details > .content::-webkit-scrollbar-thumb:vertical {
+      background-color: #242424;
+      -webkit-border-radius: 6px; }

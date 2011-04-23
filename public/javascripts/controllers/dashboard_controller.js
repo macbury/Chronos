@@ -1,24 +1,36 @@
 $(function(){
   App.Controllers.Dashboard = Backbone.Controller.extend({
-    view: null,
-
-    routes: {
-      "/dashboard": "index",
+    dashboardView: null,
+    
+    view: function() {
+      if(this.dashboardView == null){
+        this.dashboardView = new App.Views.Dashboard();
+      }
+      return this.dashboardView;
     },
-
+    
+    show: function() {
+      this.view().detailsView.selectStream();
+      this.view().streamListView.selectStream(this.view().detailsView.model);
+    },
+    
     index: function() {
-      var self = this;
-      var dashboardView = new App.Views.Dashboard();
-      App.Storage.Streams.bind("refresh", function(){
-        dashboardView.render();
-      });
+      this.view().render();
     },
 
     initialize: function() {
+      _.bindAll(this, 'index', 'view', 'show');
       App.Storage.Streams = new App.Collections.Stream();
       App.Storage.Streams.fetch();
-      if(window.location.hash == "")
-        window.location.hash = "#/dashboard";
+      
+      App.Router.match("/streams/:id", {
+        as: "stream",
+        callback: this.show
+      });
+      
+      App.Router.root(this.index);
+      
+      App.Router.run();
     }
   });
 })
