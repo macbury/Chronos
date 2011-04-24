@@ -67,7 +67,7 @@ body {
       text-align: center;
       position: absolute; }
     .update.event .description .content {
-      margin-left: 85px; }
+      margin-left: 65px; }
       .update.event .description .content span {
         font-size: 10px;
         color: #999999; }
@@ -276,8 +276,9 @@ textarea {
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
   background: #2b2b2b !important; }
 
-input[type="button"], input[type="submit"], .button {
+input[type="button"], input[type="submit"], .button, .ui-button {
   background: #242424;
+  border: 1px solid #0a0909;
   padding: 4px 5px !important;
   color: white;
   border: 0px;
@@ -286,6 +287,8 @@ input[type="button"], input[type="submit"], .button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   cursor: pointer; }
+  input[type="button"] .ui-button-text, input[type="submit"] .ui-button-text, .button .ui-button-text, .ui-button .ui-button-text {
+    padding: 0 !important; }
 
 label {
   margin-top: 5px !important; }
@@ -470,21 +473,21 @@ ul.info {
     font-weight: bold;
     background: transparent url("/images/rss.gif") left center no-repeat; }
 
-.accounts .facebook, .links .facebook, .features .facebook {
+.accounts .facebook, .features .facebook {
   background-image: url("/images/socials/facebook16.png"); }
-.accounts .twitter, .links .twitter, .features .twitter {
+.accounts .twitter, .features .twitter {
   background-image: url("/images/socials/twitter16.png"); }
-.accounts .flaker, .links .flaker, .features .flaker {
+.accounts .flaker, .features .flaker {
   background-image: url("/images/socials/flaker16.png"); }
-.accounts .myspace, .links .myspace, .features .myspace {
+.accounts .myspace, .features .myspace {
   background-image: url("/images/socials/myspace16.png"); }
-.accounts .blip, .links .blip, .features .blip {
+.accounts .blip, .features .blip {
   background-image: url("/images/socials/blip16.png"); }
-.accounts .lastfm, .links .lastfm, .features .lastfm {
+.accounts .lastfm, .features .lastfm {
   background-image: url("/images/socials/lastfm.png"); }
-.accounts .muzzo, .links .muzzo, .features .muzzo {
+.accounts .muzzo, .features .muzzo {
   background-image: url("/images/socials/muzzo.png"); }
-.accounts .you_tube, .links .you_tube, .features .you_tube {
+.accounts .you_tube, .features .you_tube {
   background-image: url("/images/socials/youtube16.png"); }
 
 .features span {
@@ -516,24 +519,36 @@ ul.info {
 .hidden {
   display: none; }
 
-.links .alt {
-  background-color: #0d0b0b;
-  background-repeat: no-repeat;
-  background-position: 5px center; }
-.links li {
-  margin: 0px;
-  padding-left: 28px;
-  line-height: 26px;
-  height: 26px;
-  display: block;
-  font-weight: normal;
-  font-size: 10px;
-  background: transparent url("/images/rss.gif") 5px center no-repeat; }
-  .links li a {
-    font-weight: bold; }
-  .links li img {
-    margin-bottom: -5px;
-    margin-right: 5px; }
+.links .facebook {
+  background-image: url("/images/socials/facebook32.png"); }
+.links .myspace {
+  background-image: url("/images/socials/myspace32.png"); }
+.links .twitter {
+  background-image: url("/images/socials/twitter32.png"); }
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .links li {
+    -webkit-border-radius: 5px;
+    margin: 0 0 5px 0;
+    padding-left: 42px;
+    height: 40px;
+    display: block;
+    font-weight: normal;
+    font-size: 10px;
+    background: #0d0b0b url("/images/rss.gif") 5px center no-repeat; }
+    .links li .account {
+      padding: 4px 0px;
+      display: block; }
+    .links li .description {
+      color: #999999; }
+    .links li a {
+      font-weight: bold; }
+    .links li img {
+      margin-bottom: -5px;
+      margin-right: 5px; }
 
 .actions {
   list-style: none inside;
@@ -572,12 +587,12 @@ ul.info {
 
 .chart {
   margin-top: 10px;
-  width: 700px;
-  height: 210px; }
+  width: 466px;
+  height: 320px; }
   .chart .content {
-    width: 680px;
+    width: 436px;
     margin: 0px 10px;
-    height: 200px; }
+    height: 320px; }
 
 .tooltip {
   background: #0a0909;
@@ -624,14 +639,37 @@ form .status_body {
   width: 260px; }
 .new_event textarea {
   height: 230px; }
+.new_event .flyaer {
+  background: transparent url("/images/flyear_medium.png") no-repeat center center;
+  padding-top: 50px;
+  height: 247px; }
+  .new_event .flyaer .upload {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 10px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: pointer;
+    width: 120px;
+    font-weight: bold;
+    color: white;
+    margin: 0px auto; }
+    .new_event .flyaer .upload input {
+      cursor: pointer !important; }
 .new_event .column {
   float: left; }
   .new_event .column.left {
     width: 274px;
     padding-right: 10px;
     border-right: 1px dotted #0a0909; }
-  .new_event .column.right {
+  .new_event .column.middle {
     width: 275px;
+    padding-left: 11px;
+    padding-right: 10px;
+    border-right: 1px dotted #0a0909; }
+  .new_event .column.right {
+    width: 244px;
     padding-left: 11px; }
 
 .details {
@@ -673,20 +711,20 @@ form .status_body {
       -moz-border-radius-topleft: 6px;
       -webkit-border-top-left-radius: 6px;
       border-left: 0px !important; }
-  .details > .content {
+  .details > .scroller {
     margin: 2px;
     padding: 5px 10px;
     overflow-y: visible;
     overflow-x: hidden; }
-    .details > .content::-webkit-scrollbar {
+    .details > .scroller::-webkit-scrollbar {
       width: 13px;
       height: 13px; }
-    .details > .content::-webkit-scrollbar-button:start:decrement, .details > .content::-webkit-scrollbar-button:end:increment {
+    .details > .scroller::-webkit-scrollbar-button:start:decrement, .details > .scroller::-webkit-scrollbar-button:end:increment {
       display: none; }
-    .details > .content::-webkit-scrollbar-button:vertical:start:increment, .details > .content::-webkit-scrollbar-button:vertical:end:decrement {
+    .details > .scroller::-webkit-scrollbar-button:vertical:start:increment, .details > .scroller::-webkit-scrollbar-button:vertical:end:decrement {
       display: none; }
-    .details > .content::-webkit-scrollbar-track-piece {
+    .details > .scroller::-webkit-scrollbar-track-piece {
       background-color: transparent; }
-    .details > .content::-webkit-scrollbar-thumb:vertical {
+    .details > .scroller::-webkit-scrollbar-thumb:vertical {
       background-color: #242424;
       -webkit-border-radius: 6px; }

@@ -5,15 +5,9 @@ $(function(){
     reactionsView: null,
     statsView: null,
 
-    events: {
-      "click .views": "onTabChange",
-      "click .urls": "selectedLinks",
-      "click .reactions": "selectedReactions",
-      "click .stats": "selectedStats"
-    },
 
     initialize: function() {
-      _.bindAll(this, 'render', 'selectedLinks', "refresh", "template");
+      _.bindAll(this, 'render', "refresh", "template");
       this.model.bind('change', this.refresh);
       this.model.links.bind('change', this.refresh);
       this.model.links.bind('refresh', this.refresh);
@@ -24,16 +18,6 @@ $(function(){
       if(this.el == null) {
         this.render();
       }
-
-      if(this.model.links.done().length == this.model.links.length) {
-        $(this.el).find('.progressbar').fadeOut();
-      } else {
-        $(this.el).find('.progressbar').fadeIn();
-      }
-
-      $(this.el).find('.progressbar .progress').animate({
-        width: this.model.progress() + "%"
-      });
     },
 
     selectedLinks: function() {

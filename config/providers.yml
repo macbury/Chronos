@@ -7,7 +7,7 @@ development:
     secret: dd224dc3ee5d4f26ce26014d7eb2cec4
   blip:
     app_id: g1zWOe2yW1s9IIo8jTZx
-    secret: bAYij962gqw0rYJTLnmcDg1QqrnHv5fiuHPfVyzf
+    secret: 8ewNxwnEsRAoYERjMaGGA5oNyBspKbzZPPJXPov3
   flaker:
     app_id: 47d55a3dbe7c5e01bf4e1bff29c2807d04da9e722
     secret: 15b1b57b138a79aadc2ed600f20f18a6

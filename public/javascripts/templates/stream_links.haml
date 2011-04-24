@@ -1,22 +1,18 @@
-:if link.pending()
-  .status.pending
-    %img{ src: "/images/pending.png" }
-    Oczekuje na dodanie do&nbsp;
-    %a{ href: "/social_accounts/"+link.get("social_account").id }= link.get("social_account").name
-:if link.error()
-  .status.error
-  %img{ src: "/images/error.png" }
-  Nie można opublikować statusu... Ponowna próba będzie za chwile...
-:if link.success()
-  .status.success
-    %img{ src: "/images/success.png" }
-    Opublikowane na&nbsp;
-    %a{ href: "/social_accounts/"+link.get("social_account").id }= link.get("social_account").name
-    , kliknij&nbsp;
-    %a{ href: "/links/"+link.get("id")} tutaj&nbsp;
-    aby zobaczyć ten wpis
-:if link.working()
-  .status.working
-    %img{ src: "/images/ajax.gif" }
-    Proszę czekać... Traw wysyłanie...
+.status
+  %a.account{ href: social_account_path({ id: link.get('social_account').id }) }= link.get("social_account").name
+  .description
+    :if link.pending()
+        %img{ src: "/images/pending.png" }
+        %strong Oczekuje na dodanie
+    :if link.error()
+      %img{ src: "/images/error.png" }
+      %span.error Nie można opublikować statusu... Ponowna próba będzie za chwile...
+    :if link.success()
+      %img{ src: "/images/success.png" }
+      Opublikowano, kliknij&nbsp;
+      %a{ href: "/links/"+link.get("id")} tutaj&nbsp;
+      aby zobaczyć ten wpis
+    :if link.working()
+      %img{ src: "/images/ajax.gif" }
+      Proszę czekać... Traw wysyłanie...
 

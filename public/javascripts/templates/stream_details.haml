@@ -2,11 +2,11 @@
   .header
     %ul.views
       %li.urls
-        %a.active{ href:"#" } Linki
+        %a{ href: stream_path({ id: stream.get("id"), tab: "links" }), class: tabClass(tab, "links") } Linki
       %li.reactions 
-        %a{ href:"#" } Reakcje
+        %a{ href: stream_path({ id: stream.get("id"), tab: "reactions"}), class: tabClass(tab, "reactions") } Reakcje
       %li.stats
-        %a{ href:"#" } Statystyki
+        %a{ href: stream_path({ id: stream.get("id"), tab: "stats"}), class: tabClass(tab, "stats") } Statystyki
     .date
       Dodany&nbsp
       %abbr
@@ -15,5 +15,5 @@
       = stream_partial
     %hr/
     
-  .content
+  .scroller
 

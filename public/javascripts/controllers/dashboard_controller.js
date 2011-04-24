@@ -28,6 +28,11 @@ $(function(){
         callback: this.show
       });
       
+      App.Router.match("/accounts/:id", {
+        as: "social_account",
+        callback: this.show
+      });
+      
       App.Router.root(this.index);
       
       App.Router.run();

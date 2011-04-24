@@ -55,7 +55,7 @@ $(function(){
         autoOpen: false,
         show: "fade",
         hide: "fade",
-        width: 600,
+        width: 870,
         resizable: false,
         modal: true,
         close: this.remove,
@@ -71,7 +71,14 @@ $(function(){
         //minDate: new Date(),
         stepMinute: 30,
       });
-
+      
+      var uploader = new qq.FileUploaderBasic({
+        button: this.$('#flayer_upload')[0],
+        multiple: false,
+        debug: true,
+        action: '/events/upload'
+      });
+      
       $(this.el).dialog("open");
       return this;
     },
