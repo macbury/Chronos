@@ -1,11 +1,12 @@
 $(function(){
   App.Controllers.SocialAccounts = Backbone.Controller.extend({
+    social_accounts_view: null,
     
     view: function() {
-      if(this.dashboardView == null){
-        this.dashboardView = new App.Views.Dashboard();
+      if(this.social_accounts_view == null){
+        this.social_accounts_view = new App.Views.SocialAccounts();
       }
-      return this.dashboardView;
+      return this.social_accounts_view ;
     },
     
     show: function() {
@@ -16,7 +17,7 @@ $(function(){
     
     index: function() {
       //this.preload();
-      //this.view().render();
+      this.view().render();
     },
 
     initialize: function() {

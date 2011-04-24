@@ -3,11 +3,7 @@ $(function(){
     dashboardView: null,
     
     preload: function() {
-      if(App.Storage.Streams == null) {
-        App.Storage.Streams = new App.Collections.Stream();
-        App.Storage.comparator = function(stream) {
-          return new Date(stream.get("created_at"));
-        };
+      if(App.Storage.Streams.length == 0) {
         App.Storage.Streams.fetch();
       }
     },
@@ -21,6 +17,7 @@ $(function(){
     
     show: function() {
       this.preload();
+      this.view().render();
       this.view().detailsView.selectStream();
       this.view().streamListView.selectStream(this.view().detailsView.model);
     },
@@ -32,7 +29,10 @@ $(function(){
 
     initialize: function() {
       _.bindAll(this, 'index', 'view', 'show', 'preload');
-      
+      App.Storage.Streams = new App.Collections.Stream();
+      App.Storage.comparator = function(stream) {
+        return new Date(stream.get("created_at"));
+      };
       App.Router.match("/streams/:id", {
         as: "stream",
         callback: this.show
