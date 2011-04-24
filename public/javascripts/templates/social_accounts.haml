@@ -4,7 +4,7 @@
   %ul.navigation.features#providers
     :each provider in providers
       %li
-        %a.add_feature{ href: provider.url } Dodaj serwis
+        %a.add_feature{ href: provider.url, data-basic_auth: provider.basic_auth, data-provider: provider.class } Dodaj serwis
         %span{ class: provider.class }= provider.name 
         .description= provider.description
   .clear

@@ -19,9 +19,13 @@ $(function(){
       //this.preload();
       this.view().render();
     },
-
+    
+    basic_auth: function() {
+    
+    },
+    
     initialize: function() {
-      _.bindAll(this, 'index', 'view', 'show');
+      _.bindAll(this, 'index', 'view', 'show', "basic_auth");
       App.Storage.SocialAccounts = new App.Collections.SocialAccounts();
       
       App.Router.match("/accounts", {
@@ -32,6 +36,11 @@ $(function(){
       App.Router.match("/accounts/:id", {
         as: "social_account",
         callback: this.index
+      });
+      
+      App.Router.match("/accounts/auth/:provider", {
+        as: "basic_auth",
+        callback: this.basic_auth
       });
       
       App.Router.match("/accounts/facebook", {

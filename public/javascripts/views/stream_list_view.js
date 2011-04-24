@@ -41,9 +41,14 @@ $(function(){
         $(this.el).append("<li class='empty'>Aktualnie nie masz dodanych żadnych wpisów!</li>");
       } else {
         App.Storage.Streams.each(this.addOne);
+        $(this.el).find(".update").removeClass("alt");
+        $(this.el).find(".update:even").addClass("alt");
+        
+        if(App.Storage.Streams.length > 19) {
+          $(this.el).append("<li class='loading'><button class='button'>Wczytaj więcej</button></li>");
+        }
       }
-      $(this.el).find(".update").removeClass("alt");
-      $(this.el).find(".update:even").addClass("alt");
+
       return this;
     },
   });
