@@ -242,11 +242,11 @@ a {
   width: 500px;
   margin: 60px auto; }
 
-.login {
-  width: 320px;
-  margin: 60px auto; }
-  .login input[type="text"], .login input[type="password"] {
-    width: 310px; }
+.login_box input[type="text"], .login_box input[type="password"] {
+  width: 440px; }
+
+#auth_process, #auth_process .button {
+  display: none; }
 
 .profile {
   width: 400px;

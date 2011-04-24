@@ -13,7 +13,8 @@ $(function(){
       
       this.$("#providers a").click(function(){
         if($(this).attr("data-basic_auth") == "true") {
-          redirect_to(basic_auth_path({ provider: $(this).attr("data-provider") }));
+          view = new App.Views.BasicAuth();
+          view.render();
           return false;
         }
       });

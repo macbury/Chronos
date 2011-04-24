@@ -1,0 +1,23 @@
+%form.login_box
+  %p
+    %label Login
+    %br/
+    %input#login{ type: "text", name: "login" }
+  %p
+    %label Hasło
+    %br/
+    %input#password{ type: "password", name: "password" }
+  %p
+    %button.button.submit Zaloguj się
+    albo
+    %a.button.close Anuluj
+
+#auth_process
+  .progress_status
+    %p#status_message Prosze czekać... Nie odświeżaj strony!!!!!!!!!!!
+    %img{ src: "/images/big_ajax.gif" }
+    .clear
+    .progressbar
+      .progress
+    %button.button.close Zamknij
+

@@ -1,5 +1,6 @@
 class BasicAuthController < ApplicationController
   before_filter :authenticate_user!
+  respond_to :json, :html
   
   def show
     redirect_to [:new, params[:type].to_sym]
@@ -22,6 +23,7 @@ class BasicAuthController < ApplicationController
       Delayed::Job.enqueue MuzzoAsyncAuth.new(@account.id), TaskPriority::Auth, 5.seconds.from_now
     end
     
+    respond_with @account
   end
   
 end
