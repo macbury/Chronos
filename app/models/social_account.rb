@@ -16,7 +16,11 @@ class SocialAccount < ActiveRecord::Base
   scope :for_types, lambda { |*args| where("social_accounts.social_type IN (?)", args.first) }
 
   def as_json(options = {})
-    serializable_hash(:only => [:id, :social_type, :name], :methods => [:type_name])
+    serializable_hash(:only => [:id, :social_type, :name], :methods => [:type_name, :class_name])
+  end
+
+  def class_name
+    type_name.to_s.classify
   end
 
   def facebook?

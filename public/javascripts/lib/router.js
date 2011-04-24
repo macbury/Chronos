@@ -133,7 +133,7 @@ Router.prototype.onError404 = function () {
 }
 
 Router.prototype.update = function () {
-  var current_url = window.location.hash;
+  var current_url = decodeURIComponent(window.location.hash);
   if (current_url != this.last_url) {
     this.last_url = current_url;
     this.refresh();

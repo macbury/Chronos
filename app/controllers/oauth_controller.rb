@@ -9,13 +9,13 @@ class OauthController < ApplicationController
     @account.secret = omniauth['credentials']['secret']
     
     if @account.facebook?
-      redirect_to new_facebook_page_path(:token => omniauth['credentials']['token'])
+      redirect_to new_facebook_page_path(:token => omniauth['credentials']['token'], :anchor => "!/accounts/facebook")
     else
       Rails.logger.info omniauth.to_yaml
       @account.name = omniauth["user_info"].nil? ? omniauth.user_info['nickname'] : omniauth["user_info"]["nickname"]
       @account.save
       
-      redirect_to social_accounts_path
+      redirect_to root_path(:anchor => "!/accounts")
     end
   end
   

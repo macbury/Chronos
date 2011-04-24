@@ -33,6 +33,11 @@ $(function(){
         as: "social_account",
         callback: this.index
       });
+      
+      App.Router.match("/accounts/facebook", {
+        as: "facebook_social_account",
+        callback: function() {}
+      });
     }
   });
 })

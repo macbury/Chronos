@@ -6,4 +6,4 @@
     = select "page", "id", @pages.map { |c| [c["name"], c["id"]] }, :include_blank => "[ Wybierz strone ]"
     = submit_tag "Dalej"
     albo
-    = link_to "Anuluj", social_accounts_path, :class => "button"
+    = link_to "Anuluj", root_path(:anchor => "!/accounts"), :class => "button"

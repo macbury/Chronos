@@ -34,6 +34,7 @@ $(function(){
       var valid = this.model.set(form);
 
       if(valid) {
+        App.Storage.Streams.fetchOnce();
         this.model.save(form, {
           success: function() {
             var raw_obj = self.model.attributes.stream;

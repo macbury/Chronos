@@ -20,7 +20,7 @@ class FacebookPagesController < ApplicationController
       end
       
       
-      redirect_to social_accounts_path
+      redirect_to root_path(:anchor => "!/accounts")
     else
       render :action => 'new'
     end

@@ -1,15 +1,21 @@
 .block
   %h2 Z których serwisów korzystasz?
   %p Dodaj serwisy na których mają być dodawane wpisy
-  %ul.navigation.features
-
+  %ul.navigation.features#providers
+    :each provider in providers
+      %li
+        %a.add_feature{ href: provider.url } Dodaj serwis
+        %span{ class: provider.class }= provider.name 
+        .description= provider.description
   .clear
-.block
-  %h2 Twój serwis
-  %p Token do wprowadzenia w twoim serwise wraz ze skryptem
-  .token
 .block
   %h2 Dodane serwisy
   %ul.navigation.features
-
+    :if accounts.length == 0
+      %li Brak powiązanych serwisów
+    :each account in accounts
+      %li
+        %a.edit_feature{ href: social_account_path({ id: account.get("id") }) } Usuń serwis
+        %span{ class: account.get("type_name") }= account.escape("name")
+        .description= account.get("class_name")
   .clear

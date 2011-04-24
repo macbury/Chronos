@@ -1,5 +1,6 @@
 <script type='text/javascript'> 
   $(document).ready(function(){
     App.Storage.SocialAccounts.refresh(<%= @accounts.to_json.html_safe %>);
+    App.Storage.Providers = <%= PROVIDERS_CONFIG.map{ |name,c| { :name => name.classify, :url => "/auth/#{name}", :description => t("socials.#{name}.description"), :class => name } }.to_json.html_safe %>;
   });
 </script>
