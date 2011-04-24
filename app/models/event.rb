@@ -2,11 +2,28 @@ class Event < ActiveRecord::Base
   PublishTo = [SocialAccount::Facebook, SocialAccount::MySpace, SocialAccount::LastFm, SocialAccount::Muzzo]
 
   has_one :stream, :as => :streamable
+  
+  attr_accessor :image
+  before_create :assign_image
+  
+  has_attached_file :flayer, :styles => { :original => "620x440>", :thumb => "43x60>" }
+  validates_attachment_size :flayer, :less_than => 5.megabytes
+  validates_attachment_content_type :flayer, :content_type => ['image/jpeg', 'image/png', 'image/jpg']
 
-  def as_json(options = {})
-    serializable_hash(:include => [:stream])
+  def serializable_hash(options = {})
+    defaults = { :methods => [:thumb], :only => [:title, :description, :start_date, :end_date, :where, :id] }
+    if options.nil?
+      options = defaults
+    else
+      options.merge!(defaults)
+    end
+    super(options)
   end
-
+  
+  def thumb
+    flayer.url(:thumb)
+  end
+  
   def send_to
     Event::PublishTo
   end
@@ -25,6 +42,16 @@ class Event < ActiveRecord::Base
 
   def self.prepareFBTime(time)
     time + 7.hours
+  end
+  
+  def assign_image
+    begin
+      Rails.logger.info "Setting file for flayer: #{self.image}"
+      file = File.open("r", File.join([Rails.root, "tmp/uploads/"+self.image]))
+      self.flayer = file
+    rescue Exception => e
+      Rails.logger.info e.to_s
+    end
   end
 end
 

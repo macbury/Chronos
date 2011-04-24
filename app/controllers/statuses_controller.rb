@@ -7,7 +7,7 @@ class StatusesController < ApplicationController
     @status = Status.new(params[:status])
     @stream = self.current_user.streams.create(:streamable => @status) if @status.save
 
-    respond_with(@status)
+    respond_with(@status, :include => [:stream])
   end
 
 end

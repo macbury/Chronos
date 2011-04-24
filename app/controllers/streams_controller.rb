@@ -4,12 +4,12 @@ class StreamsController < ApplicationController
 
   def index
     @streams = self.current_user.streams.includes(:streamable).order("created_at DESC").limit(10).all
-    respond_with(@streams)
+    respond_with(@streams, :include => [:streamable])
   end
   
   def show
     @stream = self.current_user.streams.includes(:streamable).find(params[:id])
-    respond_with(@stream)
+    respond_with(@stream, :include => [:streamable])
   end
   
   def chart

@@ -9,8 +9,14 @@ class Status < ActiveRecord::Base
     Status::PublishTo
   end
 
-  def as_json(options = {})
-    serializable_hash(:include => [:stream])
+  def serializable_hash(options = {})
+    defaults = {:only => [:id, :body, :created_at]}
+    if options.nil?
+      options = defaults
+    else
+      options.merge!(defaults)
+    end
+    super(options)
   end
 
   def to_twitter

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110417163907) do
+ActiveRecord::Schema.define(:version => 20110424141939) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(:version => 20110417163907) do
     t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "flayer_file_name"
+    t.string   "flayer_content_type"
+    t.integer  "flayer_file_size"
+    t.datetime "flayer_updated_at"
   end
 
   create_table "hits", :force => true do |t|

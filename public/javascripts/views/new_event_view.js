@@ -28,7 +28,9 @@ $(function(){
         start_date: $(this.el).find(".start_date").val(),
         end_date: $(this.el).find(".end_date").val(),
         description: $(this.el).find(".description").val(),
+        image: $(this.el).find("#flyaer_image_input").val(),
       };
+
       var valid = this.model.set(form);
 
       if(valid) {

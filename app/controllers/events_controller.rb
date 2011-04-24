@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @stream = self.current_user.streams.create(:streamable => @event) if @event.save
 
-    respond_with(@event)
+    respond_with(@event, :include => [:stream])
   end
   
   def upload

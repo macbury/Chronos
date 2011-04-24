@@ -11,8 +11,14 @@ class Stream < ActiveRecord::Base
     end
   end
 
-  def as_json(options = {})
-    serializable_hash(:include => [:streamable])
+  def serializable_hash(options = {})
+    defaults = {:only => [:id, :streamable_type, :streamable, :streamable_id, :created_at]}
+    if options.nil?
+      options = defaults
+    else
+      options.merge!(defaults)
+    end
+    super(options)
   end
 end
 
