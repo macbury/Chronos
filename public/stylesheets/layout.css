@@ -44,6 +44,11 @@ body {
 .update {
   padding: 5px;
   background: #0f0e0e; }
+  .update.unread, .update.selected {
+    border: 2px solid blue;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px; }
   .update:hover {
     background: #121212 !important;
     cursor: pointer; }
@@ -120,15 +125,25 @@ body {
     .menu ul li {
       float: left;
       height: 40px; }
+      .menu ul li .selected {
+        background-color: #0d0b0b;
+        border: 2px solid #0a0909;
+        border-top-left-radius: 4px;
+        -moz-border-radius-topleft: 4px;
+        -webkit-border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        -moz-border-radius-topright: 4px;
+        -webkit-border-top-right-radius: 4px;
+        border-bottom: 0px; }
       .menu ul li:hover {
         background: #242424 url("/images/menu_active.png") repeat-x; }
       .menu ul li.active {
         background: #242424 url("/images/menu_selected.png") repeat-x; }
       .menu ul li.icon {
         float: right; }
-        .menu ul li.icon.settings a {
+        .menu ul li.icon.settings > a {
           width: 48px; }
-        .menu ul li.icon a {
+        .menu ul li.icon > a {
           padding: 0px;
           width: 40px;
           height: 40px;
@@ -140,30 +155,21 @@ body {
         height: 40px;
         padding-left: 36px;
         padding-right: 10px;
+        displa: block;
         background: transparent url("/images/dashboard.png") 5px center no-repeat; }
-      .menu ul li.compedium a {
-        background-image: url("/images/compedium.png"); }
-      .menu ul li.accounts a {
-        background-image: url("/images/accounts.png"); }
-      .menu ul li.payments a {
-        background-image: url("/images/payments.png"); }
-      .menu ul li.notifications a {
-        background-image: url("/images/notifications.png"); }
-      .menu ul li.logout a {
-        background-image: url("/images/logout.png"); }
-      .menu ul li.settings a {
+      .menu ul li.settings > a {
         background-image: url("/images/config.png"); }
-      .menu ul li.status a {
+      .menu ul li.status > a {
         background-image: url("/images/post.png"); }
-      .menu ul li.photo a {
+      .menu ul li.photo > a {
         background-image: url("/images/photos.png"); }
-      .menu ul li.video a {
+      .menu ul li.video > a {
         background-image: url("/images/movie.png"); }
-      .menu ul li.event a {
+      .menu ul li.event > a {
         background-image: url("/images/event.png"); }
-      .menu ul li.news a {
+      .menu ul li.news > a {
         background-image: url("/images/news.png"); }
-      .menu ul li.song a {
+      .menu ul li.song > a {
         background-image: url("/images/mp3.png"); }
 
 .block.center {
@@ -327,12 +333,6 @@ form.formtastic fieldset > ol > li.error {
     .navigation li .category_color {
       margin-top: 0px;
       margin-right: 5px; }
-
-.unread, .selected {
-  border: 2px solid blue;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -moz-border-radius: 4px; }
 
 .error {
   color: red; }
@@ -737,3 +737,33 @@ form .status_body {
     .details > .scroller::-webkit-scrollbar-thumb:vertical {
       background-color: #242424;
       -webkit-border-radius: 6px; }
+
+.dropdown_menu {
+  position: absolute;
+  display: none;
+  width: 240px;
+  margin-left: -192px;
+  background-color: #0d0b0b;
+  border: 2px solid #0a0909;
+  border-top: 0px;
+  box-shadow: black 0px 2px 5px;
+  -webkit-box-shadow: black 0px 2px 5px;
+  -moz-box-shadow: black 0px 2px 5px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px; }
+  .dropdown_menu .compedium {
+    background-image: url("/images/compedium.png"); }
+  .dropdown_menu .accounts {
+    background-image: url("/images/accounts.png"); }
+  .dropdown_menu .payments {
+    background-image: url("/images/payments.png"); }
+  .dropdown_menu .notifications {
+    background-image: url("/images/notifications.png"); }
+  .dropdown_menu .logout {
+    background-image: url("/images/logout.png"); }
+  .dropdown_menu a:hover {
+    background-color: #121212; }

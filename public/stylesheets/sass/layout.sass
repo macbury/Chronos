@@ -46,6 +46,11 @@ body
 .update
   padding: 5px
   background: #0f0e0e
+  &.unread, &.selected
+    border: 2px solid #0000ff
+    -webkit-border-radius: 4px
+    border-radius: 4px
+    -moz-border-radius: 4px
   &:hover
     background: #121212 !important
     cursor: pointer
@@ -125,15 +130,25 @@ body
     li
       float: left
       height: 40px
+      .selected
+        background-color: #0D0B0B
+        border: 2px solid #0A0909
+        border-top-left-radius: 4px
+        -moz-border-radius-topleft: 4px
+        -webkit-border-top-left-radius: 4px
+        border-top-right-radius: 4px
+        -moz-border-radius-topright: 4px
+        -webkit-border-top-right-radius: 4px
+        border-bottom: 0px
       &:hover
         background: #242424 url("/images/menu_active.png") repeat-x
       &.active
         background: #242424 url("/images/menu_selected.png") repeat-x
       &.icon
         float: right
-        &.settings a
+        &.settings > a
           width: 48px
-        a
+        & > a
           padding: 0px
           width: 40px
           height: 40px
@@ -145,30 +160,21 @@ body
         height: 40px
         padding-left: 36px
         padding-right: 10px
+        displa: block
         background: transparent url('/images/dashboard.png') 5px center no-repeat
-      &.compedium a
-        background-image: url("/images/compedium.png")
-      &.accounts a
-        background-image: url("/images/accounts.png")
-      &.payments a
-        background-image: url("/images/payments.png")
-      &.notifications a
-        background-image: url("/images/notifications.png")
-      &.logout a
-        background-image: url("/images/logout.png")
-      &.settings a
+      &.settings > a
         background-image: url("/images/config.png")
-      &.status a
+      &.status > a
         background-image: url("/images/post.png")
-      &.photo a
+      &.photo > a
         background-image: url("/images/photos.png")
-      &.video a
+      &.video > a
         background-image: url("/images/movie.png")
-      &.event a
+      &.event > a
         background-image: url("/images/event.png")
-      &.news a
+      &.news > a
         background-image: url("/images/news.png")
-      &.song a
+      &.song > a
         background-image: url("/images/mp3.png")
 .block.center
   margin: 10px auto
@@ -327,12 +333,6 @@ form.formtastic fieldset > ol > li.error
     .category_color
       margin-top: 0px
       margin-right: 5px
-
-.unread, .selected
-  border: 2px solid #0000ff
-  -webkit-border-radius: 4px
-  border-radius: 4px
-  -moz-border-radius: 4px
 
 .error
   color: red
@@ -742,3 +742,32 @@ form
       background-color: #242424
       -webkit-border-radius: 6px
 
+.dropdown_menu
+  position: absolute
+  display: none
+  width: 240px
+  margin-left: -192px
+  background-color: #0D0B0B
+  border: 2px solid #0A0909
+  border-top: 0px
+  box-shadow: black 0px 2px 5px
+  -webkit-box-shadow: black 0px 2px 5px
+  -moz-box-shadow: black 0px 2px 5px
+  border-bottom-left-radius: 4px
+  -moz-border-radius-bottomleft: 4px
+  -webkit-border-bottom-left-radius: 4px
+  border-bottom-right-radius: 4px
+  -moz-border-radius-bottomright: 4px
+  -webkit-border-bottom-right-radius: 4px
+  .compedium
+    background-image: url("/images/compedium.png")
+  .accounts
+    background-image: url("/images/accounts.png")
+  .payments
+    background-image: url("/images/payments.png")
+  .notifications
+    background-image: url("/images/notifications.png")
+  .logout
+    background-image: url("/images/logout.png")
+  a:hover
+    background-color: #121212

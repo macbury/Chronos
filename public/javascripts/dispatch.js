@@ -21,6 +21,13 @@ $(document).ready(function(){
   } else {
     console.log("Faye server is off!");
   }
-
+  
+  for(var controller_name in App.Controllers) {
+    window[controller_name] = new App.Controllers[controller_name]();
+  }
+  
+  window.menuView = new App.Views.Menu();
+  
+  App.Router.run();
 });
 

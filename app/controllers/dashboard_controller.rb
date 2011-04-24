@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   #ssl_required :all
 
   def index
-
+    @accounts = self.current_user.social_accounts.all
   end
 end
 

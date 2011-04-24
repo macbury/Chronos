@@ -7,6 +7,11 @@
   %li.song= link_to "Piosenke", new_update_path
       
   %li.icon.settings
-    = link_to "Ustawienia", "#"
+    = link_to "Ustawienia", "#", :class => "dropdown"
+    .dropdown_menu
+      = link_to "Twoje serwisy", "#!/accounts", :class => "accounts"
+      = link_to "Płatności", dashboard_path, :class => "payments"
+      = link_to "Kompedium", dashboard_path, :class => "compedium"
+      = link_to "Wyloguj się", logout_path, :class => "logout"
   %li.icon.notifications
     = link_to "Powiadomienia", logout_path

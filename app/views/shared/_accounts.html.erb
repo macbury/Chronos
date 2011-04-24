@@ -1,0 +1,5 @@
+<script type='text/javascript'> 
+  $(document).ready(function(){
+    App.Storage.SocialAccounts.refresh(<%= @accounts.to_json.html_safe %>);
+  });
+</script>

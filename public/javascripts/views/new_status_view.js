@@ -34,6 +34,8 @@ $(function(){
             var raw_obj = self.model.attributes.stream;
             raw_obj["streamable"] = self.model.attributes;
             App.Storage.Streams.add([raw_obj]);
+            
+            redirect_to(stream_path({ id: raw_obj.id }));
           },
         });
         $(this.el).dialog("close");
