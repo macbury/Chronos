@@ -14,7 +14,7 @@ gem 'oauth2'
 gem 'json'
 gem "haml-rails"
 gem 'omniauth'
-gem 'koala'
+gem 'koala', :git => "https://github.com/arsduo/koala.git"
 gem 'crypt'
 gem 'mechanize'
 gem 'delayed_job', :git => "https://github.com/collectiveidea/delayed_job.git"

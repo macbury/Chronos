@@ -36,7 +36,12 @@ class Event < ActiveRecord::Base
       :end_time => Event.prepareFBTime(end_date).to_time.xmlschema,
       :location => self.where,
     }
-
+    
+    unless self.flayer.path(:original).nil? 
+      picture = Koala::UploadableIO.new(self.flayer.path(:original))
+      out[:picture] = picture
+    end
+    
     return out
   end
 
@@ -47,7 +52,7 @@ class Event < ActiveRecord::Base
   def assign_image
     begin
       Rails.logger.info "Setting file for flayer: #{self.image}"
-      file = File.open("r", File.join([Rails.root, "tmp/uploads/"+self.image]))
+      file = File.open(File.join([Rails.root, "tmp/uploads/"+self.image]), "r")
       self.flayer = file
     rescue Exception => e
       Rails.logger.info e.to_s

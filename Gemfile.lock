@@ -13,6 +13,14 @@ GIT
       json
 
 GIT
+  remote: https://github.com/arsduo/koala.git
+  revision: 00ab469e7b8fe560ffcb23445b4c80faa356fa4a
+  specs:
+    koala (1.0.0.rc)
+      json (~> 1.0)
+      multipart-post (~> 1.0)
+
+GIT
   remote: https://github.com/collectiveidea/delayed_job.git
   revision: cdae1d256ed1fd206de1fb6ac86b838d93a4b883
   specs:
@@ -74,8 +82,6 @@ GEM
       railties (~> 3.0)
     i18n (0.5.0)
     json (1.5.1)
-    koala (0.10.0)
-      json (>= 1.0)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -177,7 +183,7 @@ DEPENDENCIES
   haml-rails
   jammit!
   json
-  koala
+  koala!
   mechanize
   mysql2
   oauth2
