@@ -521,7 +521,8 @@ ul.info
     background-image: url("/images/socials/myspace32.png")
   .twitter
     background-image: url("/images/socials/twitter32.png")
-    
+  .blip
+    background-image: url("/images/socials/blip32.png")
 .links
   list-style: none
   padding: 0
@@ -636,9 +637,13 @@ form
   textarea
     height: 230px
   .flyaer
-    background: transparent url('/images/flyear_medium.png') no-repeat center center
-    padding-top: 50px
-    height: 247px
+    text-align: center
+    height: 297px
+    overflow: hidden
+    img
+      max-height: 240px
+      max-width: 220px 
+      margin: 10px auto 5px auto
     .upload
       background: rgba(0, 0,0, 0.4)
       padding: 5px 10px
@@ -646,13 +651,16 @@ form
       -webkit-border-radius: 5px
       border-radius: 5px
       -moz-border-radius: 5px
-      cursor: pointer
       width: 120px
       font-weight: bold
       color: #fff
+      font-size: 10px
       margin: 0px auto
       & input
         cursor: pointer !important
+      .progressbar
+        width: 118px
+        float: none
   .column
     float: left
     &.left

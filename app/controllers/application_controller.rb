@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  
+  
   #protect_from_forgery
   include ::SslRequirement
   helper_method :logged_in?, :current_user, :access_token

@@ -8,6 +8,7 @@ javascripts:
     - public/javascripts/lib/jquery.min.js
     - public/javascripts/lib/jquery-ui.min.js
     - public/javascripts/lib/underscore.js
+    - public/javascripts/lib/fileuploader.js
     - public/javascripts/lib/jquery.flot.js
     - public/javascripts/lib/backbone.js
     - public/javascripts/lib/router.js

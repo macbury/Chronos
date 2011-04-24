@@ -23,6 +23,11 @@
       %textarea.description{ type: "text" }
   .column.right
     .flyaer
+      %input{ type: "hidden", name: "image", id: "flyaer_image_input" }
+      %img{ src: "/images/flyear_medium.png" }
       .upload#flayer_upload Zmień zdjęcie dla wydarzenia
+      .upload#flayer_progress
+        .progressbar
+          .progress
   .clear
 

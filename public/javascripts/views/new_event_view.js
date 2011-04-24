@@ -48,6 +48,7 @@ $(function(){
     },
 
     render: function() {
+      var self = this;
       $(this.el).empty();
       $(this.el).html(Haml.render(JST.new_event, { locals: { event: this.model } }));
       $(this.el).dialog({
@@ -71,12 +72,29 @@ $(function(){
         //minDate: new Date(),
         stepMinute: 30,
       });
-      
+      self.$('#flayer_progress').hide();
+      self.$('#flayer_upload').show();
       var uploader = new qq.FileUploaderBasic({
         button: this.$('#flayer_upload')[0],
         multiple: false,
         debug: true,
-        action: '/events/upload'
+        action: '/events/upload',
+        onSubmit: function(id, fileName){
+          self.$('#flayer_upload').hide();
+          self.$('#flayer_progress').show();
+        },
+        onProgress: function(id, fileName, loaded, total){
+          var done = Math.round(loaded * 100 / total);
+          self.$('#flayer_progress .progressbar .progress').animate({
+            width: done + "%"
+          });
+        },
+        onComplete: function(id, fileName, resp){
+          self.$('#flayer_progress').hide();
+          self.$('#flayer_upload').show();
+          self.$(".flyaer img").attr("src", resp["file"]);
+          self.$('#flyaer_image_input').val(resp["file_name"]);
+        },
       });
       
       $(this.el).dialog("open");

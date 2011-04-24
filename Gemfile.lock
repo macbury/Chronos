@@ -6,6 +6,13 @@ GIT
       yui-compressor (>= 0.9.3)
 
 GIT
+  remote: git://github.com/newbamboo/rack-raw-upload.git
+  revision: 579da84ed6c91f06599f6d3ea2310b7cf5d6ceee
+  specs:
+    rack-raw-upload (0.1.1)
+      json
+
+GIT
   remote: https://github.com/collectiveidea/delayed_job.git
   revision: cdae1d256ed1fd206de1fb6ac86b838d93a4b883
   specs:
@@ -172,5 +179,6 @@ DEPENDENCIES
   mysql2
   oauth2
   omniauth
+  rack-raw-upload!
   rails (= 3.0.3)
   will_paginate

@@ -525,6 +525,8 @@ ul.info {
   background-image: url("/images/socials/myspace32.png"); }
 .links .twitter {
   background-image: url("/images/socials/twitter32.png"); }
+.links .blip {
+  background-image: url("/images/socials/blip32.png"); }
 
 .links {
   list-style: none;
@@ -640,9 +642,13 @@ form .status_body {
 .new_event textarea {
   height: 230px; }
 .new_event .flyaer {
-  background: transparent url("/images/flyear_medium.png") no-repeat center center;
-  padding-top: 50px;
-  height: 247px; }
+  text-align: center;
+  height: 297px;
+  overflow: hidden; }
+  .new_event .flyaer img {
+    max-height: 240px;
+    max-width: 220px;
+    margin: 10px auto 5px auto; }
   .new_event .flyaer .upload {
     background: rgba(0, 0, 0, 0.4);
     padding: 5px 10px;
@@ -650,13 +656,16 @@ form .status_body {
     -webkit-border-radius: 5px;
     border-radius: 5px;
     -moz-border-radius: 5px;
-    cursor: pointer;
     width: 120px;
     font-weight: bold;
     color: white;
+    font-size: 10px;
     margin: 0px auto; }
     .new_event .flyaer .upload input {
       cursor: pointer !important; }
+    .new_event .flyaer .upload .progressbar {
+      width: 118px;
+      float: none; }
 .new_event .column {
   float: left; }
   .new_event .column.left {
