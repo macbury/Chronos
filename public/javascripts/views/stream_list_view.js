@@ -2,12 +2,28 @@ $(function(){
   App.Views.StreamList = Backbone.View.extend({
     tagName: "ul",
     selectedStream: null,
+    currentPage: 1,
+    
+    events: {
+      'click .button': 'nextPage'
+    },
     
     initialize: function(){
-      _.bindAll(this, 'addOne', 'addNew', 'render', 'selectStream');
-      App.Storage.Streams.bind("add", this.addNew);
+      _.bindAll(this, 'addOne', 'addNew', 'render', 'selectStream', 'nextPage');
+      //App.Storage.Streams.bind("add", this.addNew);
+      App.Storage.Streams.bind("refresh", this.render);
+      App.Storage.Streams.bind("add", this.render);
     },
-
+    
+    nextPage: function() {
+      this.currentPage++;
+      $.getJSON("/streams?page="+this.currentPage, function(data){
+        App.Storage.Streams.add(data);
+      });
+      console.log(this.currentPage);
+      return false;
+    },
+    
     addNew: function(stream) {
       var streamView = new App.Views.Stream({model: stream});
       $(this.el).prepend(streamView.render().el);
@@ -44,9 +60,11 @@ $(function(){
         $(this.el).find(".update").removeClass("alt");
         $(this.el).find(".update:even").addClass("alt");
         
-        if(App.Storage.Streams.length > 19) {
-          $(this.el).append("<li class='loading'><button class='button'>Wczytaj więcej</button></li>");
+        if(App.Storage.Streams.length >= 10) {
+          $(this.el).append("<li class='loading'><button class='button load_more'>Wczytaj więcej</button></li>");
         }
+        
+        $(this.el).find(".load_more").click(this.nextPage);
       }
 
       return this;
