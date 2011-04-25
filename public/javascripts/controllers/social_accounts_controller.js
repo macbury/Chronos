@@ -10,9 +10,14 @@ $(function(){
     },
     
     show: function() {
-      this.preload();
-      this.view().detailsView.selectStream();
-      this.view().streamListView.selectStream(this.view().detailsView.model);
+      var social_account = App.Storage.SocialAccounts.get(params['id'])
+      
+      if(social_account) {
+        var view = new App.Views.SocialAccount({ model: social_account });
+        view.render();
+      } else {
+        redirect_to(social_accounts_path());
+      }
     },
     
     index: function() {
@@ -35,7 +40,7 @@ $(function(){
       
       App.Router.match("/accounts/:id", {
         as: "social_account",
-        callback: this.index
+        callback: this.show
       });
       
       App.Router.match("/accounts/auth/:provider", {

@@ -539,6 +539,8 @@ ul.info {
   background-image: url("/images/socials/twitter32.png"); }
 .links .blip {
   background-image: url("/images/socials/blip32.png"); }
+.links .lastfm {
+  background-image: url("/images/socials/lastfm32.png"); }
 
 .links {
   list-style: none;
@@ -779,3 +781,11 @@ form .status_body {
     background-image: url("/images/logout.png"); }
   .dropdown_menu a:hover {
     background-color: #121212; }
+
+.columns .column {
+  float: left; }
+  .columns .column.left {
+    width: 489px; }
+  .columns .column.right {
+    margin-left: 10px;
+    width: 479px; }

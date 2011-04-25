@@ -3,13 +3,19 @@ $(function(){
     tagName:  "div",
     data: null,
     events: {
-      //"click .views": "onTabChange",
+      "click .destro": "destroy",
     },
 
     initialize: function() {
-      _.bindAll(this, 'render', 'process');
+      _.bindAll(this, 'render', 'process', 'destroy');
       $.get("/streams/"+this.model.get("id")+"/chart", this.process);
       this.render();
+    },
+
+    destroy: function(){
+      this.model.destroy();
+      redirect_to(social_accounts());
+      return false;
     },
 
     process: function(data) {
