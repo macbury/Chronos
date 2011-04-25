@@ -5,6 +5,8 @@ $(function(){
     initialize: function(){
       _.bindAll(this, 'render');
       App.Storage.SocialAccounts.bind("refresh", this.render);
+      App.Storage.SocialAccounts.bind("change", this.render);
+      App.Storage.SocialAccounts.bind("add", this.render);
     },
 
     render: function() {
@@ -14,6 +16,7 @@ $(function(){
       this.$("#providers a").click(function(){
         if($(this).attr("data-basic_auth") == "true") {
           view = new App.Views.BasicAuth();
+          view.provider = $(this).attr("data-provider");
           view.render();
           return false;
         }

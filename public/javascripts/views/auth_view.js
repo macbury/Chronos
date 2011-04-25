@@ -15,8 +15,7 @@ $(function(){
     },
 
     update: function(data) {
-      $('.progress_status img', this.el).hide();
-      $('.progressbar', this.el).show();
+      
       var redirect_to = $(this.el).attr("data-redirect_to");
       $('.progress', this.el).animate({
         width: data.progress + "%"
