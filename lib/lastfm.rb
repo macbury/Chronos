@@ -21,6 +21,47 @@ class LastFm
     @logged_in = !profile_page.search("#idBadgerUser").empty?
   end
   
+  # band, title, date, city, description
+  def add_event(options={})
+    page = @agent.get("http://www.lastfm.pl/events/add?artistNames[]=#{CGI.escape(options['band'])}")
+    
+    event_form = page.form_with(:action => /\/events\/add/i)
+    event_form.field_with(:name => "festivalName").value = options['title']
+    
+    date = options['date']
+    event_form.field_with(:name => "startday").value = date.day
+    event_form.field_with(:name => "startmonth").value = date.month
+    event_form.field_with(:name => "startyear").value = date.year
+    
+    event_form.field_with(:name => "starttime").value = date.strftime("%H:%M")
+    
+    page = @agent.submit(event_form)
+    event_form = page.form_with(:action => /\/events\/add/i)
+    event_form.field_with(:name => "venue").value = options['venue']
+    event_form.field_with(:name => "city").value = options['city']
+    
+    page = @agent.submit(event_form)
+    event_form = page.form_with(:action => /\/events\/add/i)
+    event_form.radiobuttons_with(:name => "venueid", :value => "8780080").check
+    
+    page = @agent.submit(event_form)
+    
+    event_form = page.form_with(:action => /\/events\/add/i)
+    event_form.field_with(:name => "description").value = options['description']
+    page = @agent.submit(event_form)
+    
+    #/​event/​1920060+Test/​edit
+    edit_more = page.search("a.togglerCollapsed")
+    puts edit_more["href"]
+    if edit_more["href"] =~ /([0-9]+)/i
+      event_id = $1
+    else
+      return false
+    end
+    
+    return event_id
+  end
+  
   def publish_on_wall(band_name, content)
     url = "http://www.lastfm.pl/music/#{CGI.escape(band_name)}"
     page = @agent.get(url)
