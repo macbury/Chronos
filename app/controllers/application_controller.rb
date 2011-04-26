@@ -1,11 +1,14 @@
 class ApplicationController < ActionController::Base
-  
-  
-  #protect_from_forgery
   include ::SslRequirement
   helper_method :logged_in?, :current_user, :access_token
   
+  before_filter :semi_verify_authenticity_token
+  
   protected
+  
+    def semi_verify_authenticity_token
+      verify_authenticity_token unless (request.format == Mime::XML || request.format == Mime::JSON)
+    end
     
     def self.set_tab(name, options = {})
       before_filter(options) do |controller|
