@@ -45,6 +45,8 @@ class Link < ActiveRecord::Base
   def enqueue_event
     if self.social_account.social_type == SocialAccount::Facebook
       Delayed::Job.enqueue FacebookEventPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
+    elsif self.social_account.social_type == SocialAccount::Muzzo
+      Delayed::Job.enqueue MuzzoEventPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
     end
   end
 

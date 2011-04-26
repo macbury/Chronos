@@ -27,7 +27,16 @@ class Event < ActiveRecord::Base
   def send_to
     Event::PublishTo
   end
-
+  
+  def to_muzzo
+    {
+      'title' => self.title,
+      'date' => self.start_date,
+      'description' => self.description,
+      'city' => self.where
+    }
+  end
+  
   def to_facebook
     out = {
       :name => self.title,

@@ -36,4 +36,22 @@ class Muzzo
       return band_name.empty? ? nil : band_name
     end
   end
+  
+  def agent
+    @agent
+  end
+  
+  # title, date, city, description
+  def add_event(options={})
+    page = @agent.get("http://muzzo.pl/profil/kalendarium")
+    
+    form = page.form_with(:action => "")
+    form.field_with(:name => "event").value = options['title']
+    form.field_with(:name => "date").value = options['date'].strftime("%Y-%m-%d")
+    form.field_with(:name => "time").value = options['date'].strftime("%H:%M")
+    form.field_with(:name => "pleace").value = options['city']
+    form.field_with(:name => "description").value = options['description']
+    
+    @agent.submit(form)
+  end
 end

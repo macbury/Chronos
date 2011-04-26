@@ -541,6 +541,8 @@ ul.info {
   background-image: url("/images/socials/blip32.png"); }
 .links .lastfm {
   background-image: url("/images/socials/lastfm32.png"); }
+.links .muzzo {
+  background-image: url("/images/socials/muzzo32.png"); }
 
 .links {
   list-style: none;
