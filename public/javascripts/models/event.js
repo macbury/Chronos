@@ -24,8 +24,8 @@ $(function(){
         return "Musisz podać nazwę wydarzenia, musi ona mieć minimalnie 5 znaków a maksymalnie 255";
       }
 
-      if(!Validate.size(attrs.description, 5, 400)) {
-        return "Musisz podać opis wydarzenia, musi ona mieć minimalnie 5 znaków a maksymalnie 400";
+      if(!Validate.size(attrs.description, 5, 1024)) {
+        return "Musisz podać opis wydarzenia, musi ona mieć minimalnie 5 znaków a maksymalnie 1024";
       }
 
       if(!Validate.size(attrs.where, 5, 255)) {

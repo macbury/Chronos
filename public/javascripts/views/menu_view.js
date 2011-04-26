@@ -5,6 +5,13 @@ $(function(){
     events: {
       "click .status": "newStatus",
       "click .event": "newEvent",
+      "click .photo": "newPhoto",
+    },
+    
+    newPhoto: function() {
+      var photosView = new App.Views.UploadPhoto();
+      photosView.render();
+      return false;
     },
     
     newStatus: function() {
@@ -22,7 +29,7 @@ $(function(){
     },
 
     initialize: function(){
-      _.bindAll(this, 'render', 'newStatus', 'newEvent');
+      _.bindAll(this, 'render', 'newStatus', 'newEvent', 'newPhoto');
       this.render();
     },
 
