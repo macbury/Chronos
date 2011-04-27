@@ -19,7 +19,9 @@ $(document).ready(function(){
       timeout: 60
     });
   } else {
-    console.log("Faye server is off!");
+    window.error("Błąd połączenia!!!", "Nie można się połączyć z serwerem! Odśwież stronę lub spróbuj później.", function(){
+      window.location.reload();
+    });
   }
   
   for(var controller_name in App.Controllers) {

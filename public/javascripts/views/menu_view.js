@@ -6,6 +6,7 @@ $(function(){
       "click .status": "newStatus",
       "click .event": "newEvent",
       "click .photo": "newPhoto",
+      "click #notification_permission": "changeNotificationPermission"
     },
     
     newPhoto: function() {
@@ -29,16 +30,32 @@ $(function(){
     },
 
     initialize: function(){
-      _.bindAll(this, 'render', 'newStatus', 'newEvent', 'newPhoto');
+      _.bindAll(this, 'render', 'newStatus', 'newEvent', 'newPhoto', 'changeNotificationPermission');
       this.render();
+    },
+
+    changeNotificationPermission: function() {
+      window.webkitNotifications.requestPermission(function(){
+        $.notice({ 
+          title: "Chronos",
+          description: "Będziesz teraz dostawał powiadomienia na pulpicie!"
+        });
+      });
     },
 
     render: function() {
       var self = this;
       this.$('.dropdown').click(function(){
-        $(this).addClass("selected");
+        var selected = $(this).hasClass("selected");
+        self.$('.dropdown').removeClass("selected");
+        
         self.$('.dropdown_menu').hide();
-        $(this).parents("li").find(".dropdown_menu").show();
+        if(!selected) {
+          $(this).addClass("selected");
+          $(this).parents("li").find(".dropdown_menu").show();
+        } else {
+          $(this).removeClass("selected");
+        }
         return false;
       });
       
@@ -46,6 +63,17 @@ $(function(){
         $(this).parents("li").find('.dropdown').removeClass("selected");
         $(this).parents('.dropdown_menu').hide();
       });
+      
+      var html5Notification = (window["webkitNotifications"] != null);
+  
+      if(html5Notification) {
+        if(window.webkitNotifications.checkPermission() > 0) {
+          this.$('#notification_permission').removeAttr("checked");
+        } else {
+          this.$('#notification_permission').attr("checked", "checked");
+        }
+        
+      }
       return this;
     },
   });
