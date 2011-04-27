@@ -5,7 +5,7 @@ $(function(){
     events: {
       "click .status": "newStatus",
       "click .event": "newEvent",
-      "click .photo": "newPhoto",
+      //"click .photo": "newPhoto",
       "click #notification_permission": "changeNotificationPermission"
     },
     
@@ -31,6 +31,7 @@ $(function(){
 
     initialize: function(){
       _.bindAll(this, 'render', 'newStatus', 'newEvent', 'newPhoto', 'changeNotificationPermission');
+      var photoUpload = new App.Views.UploadPhoto();
       this.render();
     },
 
@@ -45,6 +46,9 @@ $(function(){
 
     render: function() {
       var self = this;
+      
+      
+      
       this.$('.dropdown').click(function(){
         var selected = $(this).hasClass("selected");
         self.$('.dropdown').removeClass("selected");

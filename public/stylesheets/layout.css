@@ -171,6 +171,8 @@ li.loading {
         background: transparent url("/images/dashboard.png") 5px center no-repeat; }
       .menu ul li.settings > a {
         background-image: url("/images/config.png"); }
+      .menu ul li.notifications > a {
+        background-image: url("/images/notifications.png"); }
       .menu ul li.status > a {
         background-image: url("/images/post.png"); }
       .menu ul li.photo > a {
@@ -786,8 +788,6 @@ form .status_body {
     background-image: url("/images/accounts.png"); }
   .dropdown_menu .payments {
     background-image: url("/images/payments.png"); }
-  .dropdown_menu .notifications {
-    background-image: url("/images/notifications.png"); }
   .dropdown_menu .logout {
     background-image: url("/images/logout.png"); }
   .dropdown_menu a:hover {
@@ -800,3 +800,17 @@ form .status_body {
   .columns .column.right {
     margin-left: 10px;
     width: 479px; }
+
+.upload_photo #upload_progress {
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2px; }
+.upload_photo .progressbar {
+  float: none;
+  margin-top: 10px;
+  width: 498px; }
+  .upload_photo .progressbar .progress {
+    height: 24px; }
+.upload_photo input[type="text"], .upload_photo textarea {
+  width: 488px; }
