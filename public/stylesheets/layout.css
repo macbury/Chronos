@@ -814,3 +814,6 @@ form .status_body {
     height: 24px; }
 .upload_photo input[type="text"], .upload_photo textarea {
   width: 488px; }
+
+.ui-button:disabled, .ui-button[disabled="disabled"] {
+  opacity: 0.2; }
