@@ -83,7 +83,7 @@ $(function(){
         button: this.$('#flayer_upload')[0],
         multiple: false,
         debug: true,
-        action: '/events/upload',
+        action: '/data',
         onSubmit: function(id, fileName){
           self.$('#flayer_upload').hide();
           self.$('#flayer_progress').show();

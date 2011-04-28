@@ -1,4 +1,6 @@
 Chronos::Application.routes.draw do
+  resource :data, :controller => "data"
+  
   resources :events do
     collection do
       post :upload

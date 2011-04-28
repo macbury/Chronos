@@ -14,7 +14,7 @@ $(function(){
         button: $('.menu .photo')[0],
         multiple: true,
         maxConnections: 1,
-        action: '/events/upload',
+        action: '/data',
         allowedExtensions: ['png', 'jpg', 'jpeg'],
         onSubmit: function(id, fileName){
           self.files[id] = { loaded: 0, total: 0 };
