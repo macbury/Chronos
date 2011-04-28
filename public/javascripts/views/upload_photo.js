@@ -3,34 +3,55 @@ $(function(){
     tagName: "div",
     uploader: null,
 
+    files: {},
+    done_files: 0,
+
     initialize: function(options) {
-      _.bindAll(this, 'render', 'progress', 'complete');
+      _.bindAll(this, 'render', 'progress', 'complete', 'done', 'close');
       var self = this;
+
       this.uploader = new qq.FileUploaderBasic({
         button: $('.menu .photo')[0],
         multiple: true,
         maxConnections: 1,
+        action: '/events/upload',
         allowedExtensions: ['png', 'jpg', 'jpeg'],
         onSubmit: function(id, fileName){
+          self.files[id] = { loaded: 0, total: 0 };
+          self.done_files = 0;
           self.render();
         },
         onComplete: this.complete,
         onProgress: this.progress
       });
     },
-    
+
     progress: function(id, fileName, loaded, total) {
-      
-      var done = Math.round(loaded * 100 / total);
-      this.$('.progressbar .progress').animate({
-        width: done + "%"
+      this.files[id] = { loaded: loaded, total: total };
+    },
+
+    close: function() {
+      this.files = {};
+      $(this.el).dialog("close");
+    },
+
+    done: function() {
+      return Math.round(this.done_files * 100 / _.size(this.files));
+    },
+
+    complete: function() {
+      this.done_files += 1;
+      this.refresh();
+    },
+
+    refresh: function() {
+      this.$("#upload_progress").text("Wysyłano " + this.done_files + " z " +_.size(this.files) + " zdjęć");
+
+      this.$('.progressbar .progress').css({
+        width: this.done() + "%"
       });
     },
-  
-    complete: function() {
-    
-    },
-    
+
     render: function() {
       var self = this;
       $(this.el).empty();
@@ -39,19 +60,16 @@ $(function(){
         title: "Zdjęcia",
         autoOpen: false,
         show: "fade",
-        hide: "fade",
         width: 530,
         resizable: false,
         modal: true,
-        close: this.remove,
+        close: this.close,
         buttons: {
           'Publikuj': this.add,
-          'Anuluj': function() {
-            $(this).dialog("close");
-          }
+          'Anuluj': this.close
         }
       });
-      
+      this.refresh();
       $(this.el).dialog("open");
       return this;
     },
