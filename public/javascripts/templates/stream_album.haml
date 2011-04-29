@@ -5,4 +5,7 @@
   %strong= stream.streamable.escape("title")
   %br/
   %span= stream.streamable.escape("description")
+.thumbs
+  :each photo in stream.streamable.get("preview")
+    %img{ src: photo.thumb }
 .clear
