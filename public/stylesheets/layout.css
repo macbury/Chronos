@@ -88,6 +88,13 @@ li.loading {
       .update.event .description .content span {
         font-size: 10px;
         color: #999999; }
+  .update.album h3 {
+    background-image: url("/images/photo_small.png"); }
+  .update.album .description {
+    margin-top: 5px; }
+    .update.album .description span {
+      font-size: 10px;
+      color: #999999; }
   .update h3 {
     margin: 0;
     padding-left: 20px;

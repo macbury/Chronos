@@ -12,6 +12,10 @@ gem 'jammit', :git => "git://github.com/macbury/jammit.git"
 gem 'will_paginate'
 gem 'oauth2'
 gem 'json'
+
+#gem 'myspace'
+#gem 'hpricot'
+
 gem "haml-rails"
 gem 'omniauth'
 gem 'koala', :git => "https://github.com/arsduo/koala.git"

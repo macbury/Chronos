@@ -20,7 +20,6 @@ $(function(){
         allowedExtensions: ['png', 'jpg', 'jpeg'],
         onSubmit: function(id, fileName){
           self.files[id] = { loaded: 0, total: 0 };
-          self.uploaded_files = [];
           self.done_files = 0;
           self.render();
         },
@@ -35,7 +34,6 @@ $(function(){
 
     close: function() {
       this.files = {};
-      $(this.el).dialog("close");
     },
 
     addButton: function() {
@@ -48,7 +46,11 @@ $(function(){
 
     complete: function(id, fileName, resp) {
       this.done_files += 1;
-      this.uploaded_files.push(resp["file"]);
+      
+      var input = $("<input type='hidden' name='album[raw_photos][]' />");
+      input.val(resp["file_name"]);
+      this.$("form").append(input);
+      
       this.refresh();
     },
 
@@ -66,7 +68,19 @@ $(function(){
     },
     
     add: function() {
-    
+      $.ajax({
+        url: "/albums",
+        data: this.$('form').serialize(),
+        dataType: "JSON",
+        type: "post",
+        success: function(resp) {
+          resp = jQuery.parseJSON(resp);
+          App.Storage.Streams.add([resp.stream]);
+          redirect_to(stream_path({ id: resp.stream.id }));
+        }
+      });
+      
+      $(this.el).dialog("close");
     },
     
     render: function() {
@@ -83,7 +97,9 @@ $(function(){
         close: this.close,
         buttons: {
           'Utwórz album': this.add,
-          'Anuluj': this.close
+          'Anuluj': function() {
+            $(self.el).dialog("close");
+          }
         }
       });
       

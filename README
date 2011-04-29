@@ -1,1 +1,11 @@
 TODO Clear files under tmp/uploads
+
+input[type="text"], input[type="password"], input[type="email"], textarea
+  border-radius: 3px !important
+  -webkit-border-radius: 3px !important
+  -moz-border-radius: 3px !important
+  border: 1px solid #202020 !important
+  padding: 8px 5px !important
+  background: #242424 !important
+  color: #fff !important
+  width: 660px

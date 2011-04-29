@@ -6,10 +6,10 @@
   %p
     %label Nazwa albumu
     %br/
-    %input.name{ type: "text" }
+    %input.name{ type: "text", name: "album[title]" }
   %p
     %label Opis
     %br/
-    %textarea.description
+    %textarea.description{ name: "album[description]" }
 
 

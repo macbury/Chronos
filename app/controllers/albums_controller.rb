@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(params[:album])
-    @stream = self.current_user.streams.create(:streamable => @album) if @status.save
+    @stream = self.current_user.streams.create(:streamable => @album) if @album.save
 
     respond_with(@album, :include => [:stream])
   end
