@@ -26,7 +26,7 @@ class Album < ActiveRecord::Base
   end
   
   def preview
-    self.photos.map { |photo| { :thumb => photo.image.url(:thumb), :original => photo.image.url(:original) } }
+    self.photos.limit(18).map { |photo| { :thumb => photo.image.url(:thumb), :original => photo.image.url(:original) } }
   end
   
   def serializable_hash(options = {})
