@@ -74,9 +74,11 @@ $(function(){
         dataType: "JSON",
         type: "post",
         success: function(resp) {
-          resp = jQuery.parseJSON(resp);
-          App.Storage.Streams.add([resp.stream]);
-          redirect_to(stream_path({ id: resp.stream.id }));
+          App.Storage.Streams.fetch({
+            success: function() {
+              redirect_to(stream_path({ id: resp.stream.id }));
+            }
+          });
         }
       });
       
