@@ -20,7 +20,7 @@ class StreamPublish < Struct.new(:link_id)
   end
   
   def notify(data)
-    message = { :channel => "/#{link.stream.user.api_token}/notifications/links", :data => notify }
+    message = { :channel => "/#{link.stream.user.api_token}/notifications/links", :data => data }
     uri = URI.parse(RhCore::Config["faye_server"])
     Net::HTTP.post_form(uri, :message => message.to_json)
   end
@@ -42,7 +42,7 @@ class StreamPublish < Struct.new(:link_id)
   end
 
   def failure
-    status(Link::Failure)
+    status(Link::Error)
   end
 end
 
