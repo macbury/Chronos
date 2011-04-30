@@ -39,6 +39,8 @@ class Link < ActiveRecord::Base
       enqueue_status
     elsif stream.streamable_type == "Event"
       enqueue_event
+    elsif stream.streamable_type == "Album"
+      enqueue_album
     end
   end
   
