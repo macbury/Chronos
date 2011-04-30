@@ -5,6 +5,8 @@ Delayed::Worker.max_run_time = 30.seconds
 Delayed::Worker.delay_jobs = !Rails.env.test?
 
 module TaskPriority
-  Auth = 10
-  StatusPublish = 1
+  Photo = 2
+  Album = 1
+  Auth = -2
+  StatusPublish = -1
 end

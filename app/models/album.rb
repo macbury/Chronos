@@ -38,4 +38,8 @@ class Album < ActiveRecord::Base
     end
     super(options)
   end
+  
+  def to_facebook
+    { :title => self.title, :description => self.description }
+  end
 end

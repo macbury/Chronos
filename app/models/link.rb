@@ -16,7 +16,7 @@ class Link < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    serializable_hash(:methods => [:social_account], :only => [:id, :status_type, :stream_id])
+    serializable_hash(:methods => [:social_account], :only => [:id, :status_type, :stream_id, :progress])
   end
 
   def social_url
@@ -41,7 +41,13 @@ class Link < ActiveRecord::Base
       enqueue_event
     end
   end
-
+  
+  def enqueue_album
+    if self.social_account.social_type == SocialAccount::Facebook
+      Delayed::Job.enqueue FacebookAlbumPublish.new(self.id), TaskPriority::AlbumPublish, 5.seconds.from_now
+    end
+  end
+  
   def enqueue_event
     if self.social_account.social_type == SocialAccount::Facebook
       Delayed::Job.enqueue FacebookEventPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
