@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   attr_accessor :image
   before_create :assign_image
   
+  validates :title, :description, :where, :start_date, :end_date, :presence => true
+  
   has_attached_file :flayer, :styles => { :original => "620x440>", :thumb => "43x60>" }
   validates_attachment_size :flayer, :less_than => 5.megabytes
   validates_attachment_content_type :flayer, :content_type => ['image/jpeg', 'image/png', 'image/jpg']

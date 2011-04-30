@@ -15,7 +15,7 @@ $(function(){
       this.uploader = new qq.FileUploaderBasic({
         button: $('.menu .photo')[0],
         multiple: true,
-        maxConnections: 1,
+        maxConnections: 3,
         action: '/data',
         allowedExtensions: ['png', 'jpg', 'jpeg'],
         onSubmit: function(id, fileName){
@@ -58,7 +58,7 @@ $(function(){
       this.addButton().attr("disabled", "disabled");
       this.$("#upload_progress").text("Wysyłano " + this.done_files + " z " +_.size(this.files) + " zdjęć");
 
-      this.$('.progressbar .progress').animate({
+      this.$('.progressbar .progress').css({
         width: this.done() + "%"
       }, "fast");
       
@@ -68,16 +68,25 @@ $(function(){
     },
     
     add: function() {
+      var self = this;
+      
       $.ajax({
-        url: "/albums",
+        url: "/albums.json",
         data: this.$('form').serialize(),
-        dataType: "JSON",
+        dataType: "json",
         type: "post",
         success: function(resp) {
           App.Storage.Streams.fetch({
             success: function() {
               redirect_to(stream_path({ id: resp.stream.id }));
             }
+          });
+        },
+        error: function(resp) {
+          var data = jQuery.parseJSON(resp.response);
+          var error_msg = _.map(data, function(v,k) { return "<p>"+k + ": " + v+"</p>"; }).join("\n");
+          error("Nie można dodać albumu!", error_msg, function() {
+            $(self.el).dialog("open");
           });
         }
       });

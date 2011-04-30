@@ -6,6 +6,8 @@ class Album < ActiveRecord::Base
   
   attr_accessor :raw_photos
   
+  validates :title, :description, :presence => true
+  
   after_create :assign_images
   
   def send_to
