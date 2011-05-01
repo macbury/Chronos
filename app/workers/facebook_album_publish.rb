@@ -12,12 +12,12 @@ class FacebookAlbumPublish < StreamPublish
       done = 0
       
       photos.each do |photo|
+        done += 1
         begin
           self.upload_picture(photo)
-          done += 1
           self.progress((done * 100 / total).round)
         rescue Exception => e
-        
+          
         end
       end
     end

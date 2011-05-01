@@ -50,6 +50,7 @@ $(function(){
       
       App.Faye.subscribe("/"+$('meta[name=auth_token]').attr('content')+"/notifications/links", function(data) {
         var data = jQuery.parseJSON(data);
+        
         var streamRecord = self.streamDetailsCache.get(data["stream_id"]);
         if(streamRecord != null) {
           if (streamRecord.links.length == 0) {

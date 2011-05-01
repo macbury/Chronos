@@ -14,6 +14,7 @@ $(function(){
     
     refresh: function() {
       $(this.el).html(Haml.render(JST.stream_links, { locals: {link: this.model} }));
+      this.render_progress();
     },
     
     canvas: function() {
@@ -25,6 +26,7 @@ $(function(){
       if(progress > 0) {
         progress = progress / 100;
       }
+      
       var ctx = this.canvas();
       ctx.save();
       ctx.clearRect(0,0,32,32);

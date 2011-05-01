@@ -5,8 +5,7 @@ class StreamPublish < Struct.new(:link_id)
   end
   
   def progress(done)
-    link.progress = done
-    link.save
+    link.update_attributes(:progress => done)
     
     self.notify(link.to_json)
   end
