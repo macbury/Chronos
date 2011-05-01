@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    if Rails.env == "development"
+    if Rails.env == "development" && User.first
       session[:user_id] = User.first.id
       redirect_to root_path
     else

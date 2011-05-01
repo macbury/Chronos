@@ -46,7 +46,7 @@ class Link < ActiveRecord::Base
   
   def enqueue_album
     if self.social_account.social_type == SocialAccount::Facebook
-      Delayed::Job.enqueue FacebookAlbumPublish.new(self.id), TaskPriority::AlbumPublish, 5.seconds.from_now
+      Delayed::Job.enqueue FacebookAlbumPublish.new(self.id), TaskPriority::Album, 5.seconds.from_now
     end
   end
   
