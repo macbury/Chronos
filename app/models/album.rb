@@ -42,6 +42,6 @@ class Album < ActiveRecord::Base
   end
   
   def to_facebook
-    { :title => self.title, :description => self.description }
+    { :name => self.title, :description => self.description }
   end
 end
