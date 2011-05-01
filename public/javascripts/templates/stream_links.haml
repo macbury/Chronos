@@ -1,4 +1,5 @@
 .status
+  %canvas{ width: "32px", height: "32px" }
   %a.account{ href: social_account_path({ id: link.get('social_account').id }) }= link.get("social_account").name
   .description
     :if link.pending()
