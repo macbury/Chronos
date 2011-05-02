@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110430072454) do
+ActiveRecord::Schema.define(:version => 20110502143954) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20110430072454) do
     t.string   "locked_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "run_every"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -65,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20110430072454) do
     t.integer  "status_type",       :default => 0
     t.string   "status_message"
     t.integer  "progress",          :default => 0
+    t.integer  "done",              :default => 0
+    t.integer  "total",             :default => 0
   end
 
   create_table "photos", :force => true do |t|
@@ -75,6 +78,17 @@ ActiveRecord::Schema.define(:version => 20110430072454) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "image_processing"
+  end
+
+  create_table "reactions", :force => true do |t|
+    t.integer  "stream_id"
+    t.integer  "reaction_type"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "social_account_id"
+    t.string   "message"
   end
 
   create_table "roles", :force => true do |t|
@@ -113,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20110430072454) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "likes",      :default => 0
   end
 
   create_table "streams", :force => true do |t|

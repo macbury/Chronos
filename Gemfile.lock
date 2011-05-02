@@ -68,6 +68,8 @@ GEM
     builder (2.1.2)
     crypt (1.1.4)
     daemons (1.1.2)
+    delayed_paperclip (0.6.5)
+      paperclip (>= 2.3.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faraday (0.5.7)
@@ -183,6 +185,7 @@ DEPENDENCIES
   bartt-ssl_requirement
   crypt
   delayed_job!
+  delayed_paperclip
   haml
   haml-rails
   jammit!

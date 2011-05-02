@@ -78,6 +78,16 @@ $(function(){
         }
         
       }
+      
+      App.Faye.subscribe("/"+$('meta[name=auth_token]').attr('content')+"/notifications", function(data) {
+        var data = jQuery.parseJSON(data);
+        console.log(data);
+        
+        $.notice({ 
+          title: "Chronos",
+          description: data["message"]
+        });
+      });
       return this;
     },
   });

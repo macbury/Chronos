@@ -5,8 +5,12 @@ Delayed::Worker.max_run_time = 30.seconds
 Delayed::Worker.delay_jobs = !Rails.env.test?
 
 module TaskPriority
-  Photo = 2
-  Album = 1
-  Auth = -2
-  StatusPublish = -1
+  # 0 delayed paperclip
+  Notification = 4
+  Photo = 3
+  Album = 2
+  Auth = 1
+  StatusPublish = 1
 end
+
+TaskFrequency = Rails.env == "development" ? 10.seconds : 1.hour

@@ -1,6 +1,7 @@
 class Stream < ActiveRecord::Base
   belongs_to :user
   has_many :links, :dependent => :destroy
+  has_many :reactions, :dependent => :destroy
   belongs_to :streamable, :polymorphic => true
 
   after_create :build_links

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  stream_id: 1
+  reaction_type: 1
+  uid: MyString
+
+two:
+  stream_id: 1
+  reaction_type: 1
+  uid: MyString

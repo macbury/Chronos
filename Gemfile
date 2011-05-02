@@ -14,7 +14,7 @@ gem 'oauth2'
 gem 'json'
 
 gem 'myspaceid-sdk'
-#gem 'hpricot'
+gem 'delayed_paperclip'
 
 gem "haml-rails"
 gem 'omniauth'
