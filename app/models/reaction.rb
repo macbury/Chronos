@@ -4,4 +4,7 @@ class Reaction < ActiveRecord::Base
   
   Fan = 0
   
+  def as_json(options = {})
+    serializable_hash(:methods => [:social_account], :only => [:id, :message, :stream_id, :created_at])
+  end
 end

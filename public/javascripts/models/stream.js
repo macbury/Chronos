@@ -4,6 +4,7 @@ $(function(){
     initialize: function(){
       _.bindAll(this, 'attachStreamable', 'attachLinks');
       this.links = new App.Collections.Links();
+      this.reactions = new App.Collections.Reactions();
 
       this.bind('change:streamable', this.attachStreamable);
       this.bind('change:id', this.attachLinks);
@@ -16,6 +17,7 @@ $(function(){
     attachLinks: function() {
       this.url = "/streams/"+this.get("id");
       this.links.url = '/streams/' + this.get("id") + '/links';
+      this.reactions.url = '/streams/' + this.get("id") + '/reactions';
     },
     
     attachStreamable: function() {
