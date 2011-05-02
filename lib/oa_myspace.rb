@@ -1,10 +1,10 @@
 require 'omniauth'
 require 'omniauth/oauth'
 require 'multi_json'
-
+require "debug_auth"
 module OmniAuth
   module Strategies
-    class Myspace < OAuth
+    class Myspace < DebugOAuth
       # Authenticate to blip.pl via OAuth.
       #
       # Usage:
@@ -19,7 +19,9 @@ module OmniAuth
           :http_method => :get,
           :request_token_path => '/request_token',
           :access_token_path => '/access_token',
-          :authorize_path => '/authorize' })
+          :authorize_path => '/authorize' }, options)
+          
+        Rails.logger.debug self.options.to_yaml
       end
 
       def auth_hash

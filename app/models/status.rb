@@ -30,7 +30,11 @@ class Status < ActiveRecord::Base
   def to_lastfm
     to_twitter
   end
-
+  
+  def to_myspace
+    to_twitter
+  end
+  
   def to_facebook
     out = {
       :message => to_twitter

@@ -13,7 +13,7 @@ gem 'will_paginate'
 gem 'oauth2'
 gem 'json'
 
-#gem 'myspace'
+gem 'myspaceid-sdk'
 #gem 'hpricot'
 
 gem "haml-rails"

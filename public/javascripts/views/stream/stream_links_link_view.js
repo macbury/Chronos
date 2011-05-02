@@ -38,6 +38,15 @@ $(function(){
       ctx.lineCap = "square";
       
       ctx.save();
+      ctx.strokeStyle = "#121212";
+      ctx.beginPath();
+      
+      ctx.arc(0,0, 4,0,(Math.PI*2),false);
+      
+      ctx.stroke();
+      ctx.restore();
+      
+      ctx.save();
       ctx.strokeStyle = "#D7D7D7";
       ctx.beginPath();
       
