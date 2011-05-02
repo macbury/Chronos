@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 public/albums/**/*
 public/flayers/**/*
+public/system/flayers/**/*
