@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110502235629) do
+ActiveRecord::Schema.define(:version => 20110503120412) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20110502235629) do
     t.integer  "done",              :default => 0
     t.integer  "total",             :default => 0
     t.integer  "likes",             :default => 0
+    t.integer  "comments",          :default => 0
   end
 
   create_table "photos", :force => true do |t|

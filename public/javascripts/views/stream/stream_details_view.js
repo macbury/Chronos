@@ -80,6 +80,7 @@ $(function(){
       } else if(this.tab == "reactions") {
         if(this.reactionsView == null){
           this.reactionsView = new App.Views.Reactions({model: this.model});
+          this.model.reactions.fetch();
         }
         view = this.reactionsView;
       } else if(this.tab == "stats") {

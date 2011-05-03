@@ -6,6 +6,8 @@ class FacebookEventPublish < StreamPublish
     if resp["id"]
       link.uid = resp["id"]
       link.save
+      
+      Delayed::Job.enqueue FacebookEventNotification.new(link.id), TaskPriority::Notification, TaskFrequency.from_now
     end
   end
 end
