@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110502143954) do
+ActiveRecord::Schema.define(:version => 20110502235629) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20110502143954) do
     t.integer  "progress",          :default => 0
     t.integer  "done",              :default => 0
     t.integer  "total",             :default => 0
+    t.integer  "likes",             :default => 0
   end
 
   create_table "photos", :force => true do |t|
@@ -127,7 +128,6 @@ ActiveRecord::Schema.define(:version => 20110502143954) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes",      :default => 0
   end
 
   create_table "streams", :force => true do |t|
