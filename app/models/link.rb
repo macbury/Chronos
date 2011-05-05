@@ -35,7 +35,7 @@ class Link < ActiveRecord::Base
   end
 
   def enqueue
-    if stream.streamable_type == "Status"
+    if stream.streamable_type == "Status" || stream.streamable_type == "Update"
       enqueue_status
     elsif stream.streamable_type == "Event"
       enqueue_event

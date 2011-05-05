@@ -1,21 +1,26 @@
 class Update < ActiveRecord::Base
-
+  PublishTo = [SocialAccount::Facebook, SocialAccount::Twitter, SocialAccount::Blip, SocialAccount::Flaker, SocialAccount::MySpace, SocialAccount::LastFm]
+  
   belongs_to :user
-  has_many :links, :dependent => :destroy
+  has_one :stream, :as => :streamable
   
-  after_create :build_links
+  def send_to
+    Status::PublishTo
+  end
   
-  #validates :title, :presence => true
-  
-  def build_links
-    self.user.social_accounts.all.each do |sa|
-      self.links.create(:social_account_id => sa.id)
+  def serializable_hash(options = {})
+    defaults = {:only => [:id, :body, :created_at, :title]}
+    if options.nil?
+      options = defaults
+    else
+      options.merge!(defaults)
     end
+    super(options)
   end
   
   def short_url
     unless (url.nil? || url.empty?)
-      short = user.short_links.find_or_create_by_url(url)
+      short = stream.user.short_links.find_or_create_by_url(url)
       return ModelHelper.short_link_url(:id => short.id.to_s(32))
     end
   end
@@ -32,6 +37,10 @@ class Update < ActiveRecord::Base
   
   def to_lastfm
     [ModelHelper.strip_tags(self.title), self.short_url].compact.join("\n").strip
+  end
+
+  def to_myspace
+    to_lastfm
   end
   
   def image
