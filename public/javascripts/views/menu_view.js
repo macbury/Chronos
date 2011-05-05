@@ -32,6 +32,7 @@ $(function(){
     initialize: function(){
       _.bindAll(this, 'render', 'newStatus', 'newEvent', 'newPhoto', 'changeNotificationPermission');
       var photoUpload = new App.Views.UploadPhoto();
+      this.notificationsView = new App.Views.Notifications();
       this.render();
     },
 
@@ -47,7 +48,7 @@ $(function(){
     render: function() {
       var self = this;
       
-      
+      self.notificationsView.render();
       
       this.$('.dropdown').click(function(){
         var selected = $(this).hasClass("selected");
@@ -79,15 +80,6 @@ $(function(){
         
       }
       
-      App.Faye.subscribe("/"+$('meta[name=auth_token]').attr('content')+"/notifications", function(data) {
-        var data = jQuery.parseJSON(data);
-        console.log(data);
-        
-        $.notice({ 
-          title: "Chronos",
-          description: data["message"]
-        });
-      });
       return this;
     },
   });

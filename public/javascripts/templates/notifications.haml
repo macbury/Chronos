@@ -1,0 +1,2 @@
+:each item in notifications
+  %a{ href: stream_path({ id: item.get("stream_id"), tab: "reactions" }) }= item.get("message")

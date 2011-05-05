@@ -16,6 +16,7 @@
   %li.icon.notifications
     = link_to "Powiadomienia", "#", :class => "dropdown"
     .dropdown_menu.notifications
-      %p.empty Brak powiadomień
+      .list
+        %p.empty Brak powiadomień
       .bar
         %input#notification_permission{ :type => "checkbox" } Powiadomienia na pulpicie
