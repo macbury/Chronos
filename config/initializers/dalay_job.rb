@@ -13,4 +13,4 @@ module TaskPriority
   StatusPublish = 1
 end
 
-TaskFrequency = Rails.env == "development" ? 10.seconds : 1.hour
+TaskFrequency = Rails.env == "development" ? 30.seconds : 1.hour

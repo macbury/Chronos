@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110503120412) do
+ActiveRecord::Schema.define(:version => 20110505183032) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20110503120412) do
     t.datetime "updated_at"
     t.integer  "social_account_id"
     t.string   "message"
+    t.boolean  "unread",            :default => true
   end
 
   create_table "roles", :force => true do |t|

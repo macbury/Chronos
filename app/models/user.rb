@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :short_links, :dependent => :destroy
   has_many :streams, :dependent => :destroy
   
+  has_many :reactions, :through => :streams
+  
   def type?
     !self.user_type.nil?
   end

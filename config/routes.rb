@@ -1,5 +1,6 @@
 Chronos::Application.routes.draw do
   resources :albums
+  resources :reactions
   resource :data, :controller => "data"
   
   resources :events do
