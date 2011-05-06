@@ -1,3 +1,4 @@
+require 'jammit'
 namespace :chronos do
   
   task :clear_files do
@@ -9,4 +10,7 @@ namespace :chronos do
     end
   end
   
+  task :jammit => :environment do
+    Jammit.package!
+  end
 end
