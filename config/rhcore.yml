@@ -12,3 +12,4 @@ production:
   site: "http://user.rhmusic.pl"
   base_site: "http://tz.rhmusic.pl/"
   host: "tz.rhmusic.pl"
+  faye_server: "http://tz.rhmusic.pl:9292/realtime"
