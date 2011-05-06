@@ -4,7 +4,7 @@ template_function: off
 templates_strip_newlines: off
 
 javascripts:
-  app:
+  lib:
     - public/javascripts/lib/constans.js
     - public/javascripts/lib/jquery.min.js
     - public/javascripts/lib/jquery-ui.min.js
@@ -18,6 +18,7 @@ javascripts:
     - public/javascripts/lib/rails.js
     - public/javascripts/lib/haml.js
     - public/javascripts/lib/jquery-timepicker.js
+  app:
     - public/javascripts/plugins/*.js
     - public/javascripts/models/*.js
     - public/javascripts/collections/*.js

@@ -11,6 +11,7 @@
 
     = csrf_meta_tag
     = include_stylesheets :app, :media => 'all'
+    = include_javascripts :lib
     = include_javascripts :app
     = javascript_include_tag RhCore::Config["faye_server"]+".js"
     = #javascript_include_tag File.join([RhCore::Config["site"], "javascripts", "rhcore.js"])

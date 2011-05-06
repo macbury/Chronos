@@ -18,7 +18,7 @@ after 'deploy:symlink_shared', 'deploy:migrate'
 after "deploy:stop",    "deploy:delay_stop"
 after "deploy:restart",   "deploy:delay_restart"
 after "deploy:start",   "deploy:delay_start"
-after "deploy:start",   "deploy:faye_start"
+after "deploy:delay_start",   "deploy:faye_start"
 namespace :deploy do
   desc "Tell Passenger to restart the app."
   task :restart do
