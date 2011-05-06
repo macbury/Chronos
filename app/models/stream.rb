@@ -8,7 +8,7 @@ class Stream < ActiveRecord::Base
 
   def build_links
     self.user.social_accounts.for_types(streamable.send_to).all.each do |sa|
-      self.links.find_or_create_by_social_account_id(sa.id)
+      self.links.create(:social_account_id => sa.id)
     end
   end
 
