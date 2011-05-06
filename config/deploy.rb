@@ -52,7 +52,7 @@ namespace :deploy do
 
   desc "Install bundles"
   task :bundle do
-    #run "cd #{release_path} && bundle install"
+    run "cd #{release_path} && bundle pack"
   end
   
   task :migrate do
