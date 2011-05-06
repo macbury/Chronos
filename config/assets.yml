@@ -1,4 +1,5 @@
 embed_assets: on
+package_assets: off
 template_extension: haml
 template_function: off
 templates_strip_newlines: off
