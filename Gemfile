@@ -13,14 +13,14 @@ gem 'will_paginate'
 gem 'oauth2'
 gem 'json'
 
-#gem 'myspaceid-sdk'
+gem 'myspaceid-sdk'
 gem 'delayed_paperclip'
 
 gem "haml-rails"
 gem 'omniauth'
 gem 'koala', :git => "https://github.com/arsduo/koala.git"
 gem 'crypt'
-#gem 'mechanize'
+gem 'mechanize'
 gem 'delayed_job', :git => "https://github.com/collectiveidea/delayed_job.git"
 gem "bartt-ssl_requirement", :require => "ssl_requirement"
 gem 'rack-raw-upload', :git => 'git://github.com/newbamboo/rack-raw-upload.git'
