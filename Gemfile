@@ -13,7 +13,7 @@ gem 'will_paginate'
 gem 'oauth2'
 gem 'json'
 
-gem 'myspaceid-sdk'
+#gem 'myspaceid-sdk'
 gem 'delayed_paperclip'
 
 gem "haml-rails"
