@@ -89,18 +89,11 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mechanize (1.0.0)
-      nokogiri (>= 1.2.1)
     mime-types (1.16)
     multi_json (0.0.5)
     multipart-post (1.1.0)
-    myspaceid-sdk (0.1.11)
-      json
-      oauth
-      ruby-openid
     mysql2 (0.2.7)
     net-ldap (0.1.1)
-    nokogiri (1.4.3.1)
     oa-basic (0.2.0)
       multi_json (~> 0.0.2)
       oa-core (= 0.2.0)
@@ -191,8 +184,6 @@ DEPENDENCIES
   jammit!
   json
   koala!
-  mechanize
-  myspaceid-sdk
   mysql2
   oauth2
   omniauth
