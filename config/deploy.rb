@@ -30,7 +30,7 @@ namespace :deploy do
   end
   
   task :faye_start do
-    run "cd #{File.join(release_path, "/faye_server")} && thin start -C thin.yaml -R faye.ru"
+    run "cd #{release_path}/faye_server && thin start -C #{release_path}/faye_server/thin.yaml -R #{release_path}/faye_server/faye.ru"
   end
   
   desc "Symlink shared configs and folders on each release."

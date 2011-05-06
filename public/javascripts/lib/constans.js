@@ -1,7 +1,7 @@
-window.App = {
+var App = {
   Controllers: {},
   Models: {},
   Collections: {},
   Views: {},
-  Storage: {},
-}
+  Storage: {}
+};
