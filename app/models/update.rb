@@ -9,7 +9,7 @@ class Update < ActiveRecord::Base
   end
   
   def serializable_hash(options = {})
-    defaults = {:only => [:id, :body, :created_at, :title]}
+    defaults = {:only => [:id, :body, :created_at, :title], :methods => [:image]}
     if options.nil?
       options = defaults
     else
