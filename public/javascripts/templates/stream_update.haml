@@ -2,11 +2,8 @@
   Aktualność
 .clear
 .description
-  .flyaer
-    :if stream.streamable.get("image")
-      %img{ src: stream.streamable.get("image") }
-  .content
-    %strong= stream.streamable.escape("title")
-    %br/
-    %span= stream.streamable.escape("body")
+  %strong= stream.streamable.escape("title")
+  %br/
+  %span= stream.streamable.get("body")
+.clear
 
