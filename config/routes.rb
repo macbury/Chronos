@@ -44,6 +44,6 @@ Chronos::Application.routes.draw do
 
   match '/auth/:provider/callback' => 'oauth#create', :as => :bind_account
   match "/dashboard" => "dashboard#index", :as => "dashboard"
-  root :to => Rails.env == "production" ? redirect("http://rhmusic.pl") : "dashboard#index"
+  root :to => "dashboard#index"
 end
 
