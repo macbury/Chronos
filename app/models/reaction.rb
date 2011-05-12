@@ -4,6 +4,8 @@ class Reaction < ActiveRecord::Base
   
   scope :newest, order("reactions.created_at DESC").where("reactions.unread = ?", true)
   
+  attr_accessible :unread
+  
   Fan = 0
   Comment = 1
   

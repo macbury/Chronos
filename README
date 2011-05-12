@@ -1,5 +1,6 @@
 TODO Clear files under tmp/uploads
-
+TODO Invitations
+Użytkownicy zapraszaja innych uzytkownikow i za to dostaja znizke
 input[type="text"], input[type="password"], input[type="email"], textarea
   border-radius: 3px !important
   -webkit-border-radius: 3px !important

@@ -13,6 +13,18 @@ class ReactionsController < ApplicationController
     respond_with @reactions
   end
   
+  def update
+    if @stream
+      @reaction = @stream.reactions.find(params[:id])
+    else
+      @reaction = Reaction.find(params[:id])
+    end
+    
+    @reaction.update_attributes(params[:reaction])
+    
+    respond_with @reaction
+  end
+  
   protected
 
     def preload_resource

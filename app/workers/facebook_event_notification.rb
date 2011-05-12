@@ -5,9 +5,13 @@ class FacebookEventNotification < NotificationCheck
 
     @status = link.stream.streamable
     
+    get_attending
     get_comments
-    
     link.save
+  end
+
+  def get_attending
+  
   end
 
   def get_comments

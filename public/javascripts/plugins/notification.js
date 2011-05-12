@@ -12,6 +12,7 @@ $.notice = function(options) {
     var notification = window.webkitNotifications.createNotification(options['icon'], options['title'], options['description']);
     notification.onclose = options['callback'];
     notification.show();
+
   }
 
 }

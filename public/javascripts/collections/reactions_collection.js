@@ -8,6 +8,10 @@ $(function(){
       return d * -1;
     },
 
+    unreaded: function() {
+      return this.filter(function(reaction){ return reaction.get('unread'); });
+    },
+
     download: function() {
       if(this.length == 0 && !this.downloaded) {
         this.downloaded = true;
