@@ -61,7 +61,7 @@ $(function(){
         $(this.el).find(".update:even").addClass("alt");
         
         if(App.Storage.Streams.length >= 10) {
-          $(this.el).append("<li class='loading'><button class='button load_more'>Wczytaj więcej</button></li>");
+	    //$(this.el).append("<li class='loading'><button class='button load_more'>Wczytaj więcej</button></li>");
         }
         
         $(this.el).find(".load_more").click(this.nextPage);

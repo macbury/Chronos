@@ -13,12 +13,7 @@ class NotificationCheck < Struct.new(:link_id)
 
   def perform
     throw "Setup Perform Action"
-  end
-  
-  def after(job)
-    @link = nil
-    Delayed::Job.enqueue self, TaskPriority::Notification, TaskFrequency.from_now
-  end
+  end 
   
 end
 

@@ -19,7 +19,13 @@ after "deploy:stop",    "deploy:delay_stop"
 after "deploy:restart",   "deploy:delay_restart"
 after "deploy:start",   "deploy:delay_start"
 after "deploy:delay_start",   "deploy:faye_start"
+after "deploy:faye_start", "deploy:cron"
 namespace :deploy do
+
+  task :cron do
+    run "cd #{release_path} && whenever -w --set environment=production"
+  end
+
   desc "Tell Passenger to restart the app."
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"

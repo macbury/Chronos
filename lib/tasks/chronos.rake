@@ -13,4 +13,8 @@ namespace :chronos do
   task :jammit => :environment do
     Jammit.package!
   end
+  
+  task :notifications => :environment do
+    Link.order("created_at DESC").where("created_at > ?", 4.weeks.ago).find_in_batches(:batch_size => 500 ) { |links| links.each(&:check_notification) }
+  end
 end

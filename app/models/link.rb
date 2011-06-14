@@ -36,44 +36,35 @@ class Link < ActiveRecord::Base
 
   def enqueue
     if stream.streamable_type == "Status" || stream.streamable_type == "Update"
-      enqueue_status
+      run_job("StreamPublish", TaskPriority::StatusPublish, 5.seconds.from_now)
     elsif stream.streamable_type == "Event"
-      enqueue_event
+      run_job("EventPublish", TaskPriority::StatusPublish, 5.seconds.from_now)
     elsif stream.streamable_type == "Album"
-      enqueue_album
+      run_job("AlbumPublish", TaskPriority::AlbumPublish, 10.seconds.from_now)
     end
   end
   
-  def enqueue_album
-    if self.social_account.social_type == SocialAccount::Facebook
-      Delayed::Job.enqueue FacebookAlbumPublish.new(self.id), TaskPriority::Album, 10.seconds.from_now
+  def run_job(name, priority, time)
+    klass_name = self.social_account.class_name + name
+    begin
+      klass = (klass_name).constantize
+      Delayed::Job.enqueue klass.new(self.id), priority, time
+      Rails.logger.info "Adding #{klass_name} to job Quee!"
+    rescue Exception => e
+      Rails.logger.error "Define #{klass_name}!"
     end
   end
   
-  def enqueue_event
-    if self.social_account.social_type == SocialAccount::Facebook
-      Delayed::Job.enqueue FacebookEventPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
-    elsif self.social_account.social_type == SocialAccount::Muzzo
-      Delayed::Job.enqueue MuzzoEventPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
+  def check_notification
+    if stream.streamable_type == "Status" || stream.streamable_type == "Update"
+      run_job("StatusNotification", TaskPriority::Notification, 1.seconds.from_now)
+    elsif stream.streamable_type == "Event"
+      run_job("EventNotification", TaskPriority::Notification, 1.seconds.from_now)
+    elsif stream.streamable_type == "Album"
+      run_job("AlbumNotification", TaskPriority::Notification, 1.seconds.from_now)
     end
   end
-
-  def enqueue_status
-    if self.social_account.social_type == SocialAccount::Facebook
-      Delayed::Job.enqueue FacebookStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
-    elsif self.social_account.social_type == SocialAccount::Twitter
-      Delayed::Job.enqueue TwitterStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
-    elsif self.social_account.social_type == SocialAccount::Blip
-      Delayed::Job.enqueue BlipStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
-    elsif self.social_account.social_type == SocialAccount::Flaker
-      Delayed::Job.enqueue FlakerStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
-    elsif self.social_account.social_type == SocialAccount::LastFm
-      Delayed::Job.enqueue LastfmStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
-    elsif self.social_account.social_type == SocialAccount::MySpace
-      Delayed::Job.enqueue MyspaceStreamPublish.new(self.id), TaskPriority::StatusPublish, 5.seconds.from_now
-    end
-  end
-
+  
   #handle_asynchronously :enqueue
 end
 

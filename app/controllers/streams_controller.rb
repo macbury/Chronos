@@ -3,7 +3,7 @@ class StreamsController < ApplicationController
   respond_to :json
 
   def index
-    @streams = self.current_user.streams.includes(:streamable).order("created_at DESC").paginate :per_page => 10, :page => params[:page]
+    @streams = self.current_user.streams.includes(:streamable).order("created_at DESC").paginate :per_page => 50, :page => params[:page]
     
     respond_with(@streams, :include => [:streamable])
   end

@@ -206,6 +206,7 @@ li.loading {
   width: 500px; }
 
 .block {
+  box-shadow: black 0px 0px 3px;
   padding: 10px 15px;
   margin-bottom: 10px;
   background: #0f0e0e;
@@ -285,7 +286,6 @@ select {
   border-radius: 3px !important;
   -webkit-border-radius: 3px !important;
   -moz-border-radius: 3px !important;
-  border: 1px solid #202020 !important;
   padding: 0px 5px !important;
   height: 23px;
   background: #242424 !important;
@@ -296,11 +296,54 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
   border-radius: 3px !important;
   -webkit-border-radius: 3px !important;
   -moz-border-radius: 3px !important;
-  border: 1px solid #202020 !important;
+  border: 1px solid #383838;
   padding: 8px 5px !important;
   background: #242424 !important;
-  color: white !important;
-  width: 660px; }
+  color: white !important; }
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+  background: #2b2b2b !important; }
+
+input[type="button"], input[type="submit"], .button, .ui-button {
+  background: #242424;
+  padding: 4px 5px !important;
+  color: white;
+  border: 0px;
+  border-radius: 3px;
+  font-weight: bold;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #383838;
+  padding: 0px 5px !important;
+  height: 23px;
+  background: #242424 !important;
+  color: white;
+  font-weight: bold; }
+
+input[type="text"], input[type="password"], input[type="email"], textarea {
+  border-radius: 3px !important;
+  -webkit-border-radius: 3px !important;
+  -moz-border-radius: 3px !important;
+  border: 1px solid #383838;
+  padding: 8px 5px !important;
+  background: #242424 !important;
+  color: white !important; }
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+  background: #2b2b2b !important; }
+
+input[type="button"], input[type="submit"], .button, .ui-button {
+  background: #242424;
+  padding: 4px 5px !important;
+  color: white;
+  border: 0px;
+  border-radius: 3px;
+  font-weight: bold;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #383838; }
 
 .block.center input[type="text"], .block.center input[type="password"] {
   width: 490px; }
