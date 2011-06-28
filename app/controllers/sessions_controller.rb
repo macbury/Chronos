@@ -1,12 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    if Rails.env == "development"
-      u = User.first
-      session[:user_id] = u.id
-      redirect_to root_path
-    else
-      redirect_to client.web_server.authorize_url( :redirect_uri => oauth_process_url, :scope => '', :response_type => "code")
-    end
+    redirect_to client.web_server.authorize_url( :redirect_uri => oauth_process_url, :scope => '', :response_type => "code")      
   end
   
   def create

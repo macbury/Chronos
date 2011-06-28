@@ -6,7 +6,7 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'whenever', :require => false
 gem 'mysql2'
-
+gem 'nokogiri'
 gem 'haml'
 gem 'jammit', :git => "git://github.com/macbury/jammit.git"
 gem 'will_paginate'

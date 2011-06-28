@@ -44,6 +44,6 @@ Chronos::Application.routes.draw do
 
   match '/auth/:provider/callback' => 'oauth#create', :as => :bind_account
   match "/dashboard" => "dashboard#index", :as => "dashboard"
-  root :to => "dashboard#indexs"
+  root :to => "dashboard#index"
 end
 

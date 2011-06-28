@@ -2,10 +2,86 @@ body
   color: #D7D7D7
   font-family: Arial
   font-size: 10pt
+  overflow-y: scroll
   margin: 0px
   padding: 70px 0 10px 0
   background: #161515 url(/images/bottom_crowd.png) fixed repeat-x bottom center
-
+  
+  &::-webkit-scrollbar 
+    width: 15px
+    height: 15px
+  
+  &::-webkit-scrollbar:vertical  
+    background: #161515 url('/images/scroller-vertical-track.png') repeat-y 
+  &::-webkit-scrollbar:horizontal  
+    background: #161515 url('/images/scroller-horizontal-track.png') repeat-x 
+  
+  &::-webkit-scrollbar:vertical:disabled  
+    background: #161515 url('/images/scroller-vertical-track-disabled.png') repeat-y 
+  &::-webkit-scrollbar:horizontal:disabled   
+    background: #161515 url('/images/scroller-horizontal-track-disabled.png') repeat-x 
+  
+  &::-webkit-scrollbar-corner  
+    background-color: #161515 
+  
+  &::-webkit-scrollbar-thumb:vertical  
+    -webkit-border-image: url(/images/scroller-knob-vertical.png) 10 0 10 0
+    border-color: transparent
+    border-width: 10px 0
+    min-height: 20px
+  
+  &::-webkit-scrollbar-thumb:horizontal  
+    -webkit-border-image: url(/images/scroller-knob-horizontal.png) 0 10 0 10
+    border-color: transarent
+    border-width: 0 10px
+    min-width: 20px
+    margin-bottom: 2px
+  
+  &::-webkit-scrollbar-track-piece:vertical:start  
+    margin-top: -9px 
+  &::-webkit-scrollbar-track-piece:vertical:end  
+    margin-bottom: -8px 
+  
+  &::-webkit-scrollbar-track-piece:horizontal:start  
+    margin-left: -9px 
+  &::-webkit-scrollbar-track-piece:horizontal:end  
+    margin-right: -9px 
+  
+  &::-webkit-scrollbar-button:vertical:start:decrement, &::-webkit-scrollbar-button:vertical:end:increment   
+    height: 24px 
+    display: block 
+  
+  &::-webkit-scrollbar-button:horizontal:start:decrement, &::-webkit-scrollbar-button:horizontal:end:increment   
+    width: 24px 
+    display: block 
+  
+  &::-webkit-scrollbar-button:vertical:start:decrement  
+    background: #161515 url('/images/scroller-up-arrow.png') repeat-y 
+  &::-webkit-scrollbar-button:vertical:start:decrement:active  
+    background: #161515 url('/images/scroller-up-arrow-highlighted.png') repeat-y 
+  &::-webkit-scrollbar-button:vertical:start:decrement:disabled  
+    background: #161515 url('/images/scroller-up-arrow-disabled.png') repeat-y 
+  
+  &::-webkit-scrollbar-button:horizontal:start:decrement  
+    background: #161515 url('/images/scroller-left-arrow.png') repeat-y 
+  &::-webkit-scrollbar-button:horizontal:start:decrement:active  
+    background: #161515 url('/images/scroller-left-arrow-highlighted.png') repeat-y 
+  &::-webkit-scrollbar-button:horizontal:start:decrement:disabled  
+    background: #161515 url('/images/scroller-left-arrow-disabled.png') repeat-y 
+  
+  &::-webkit-scrollbar-button:vertical:end:increment  
+    background: #161515 url('/images/scroller-down-arrow.png') repeat-y 
+  &::-webkit-scrollbar-button:vertical:end:increment:active  
+    background: #161515 url('/images/scroller-down-arrow-highlighted.png') repeat-y 
+  &::-webkit-scrollbar-button:vertical:end:increment:disabled  
+    background: #161515 url('/images/scroller-down-arrow-disabled.png') repeat-y 
+  
+  &::-webkit-scrollbar-button:horizontal:end:increment  
+    background: #161515 url('/images/scroller-right-arrow.png') repeat-y 
+  &::-webkit-scrollbar-button:horizontal:end:increment:active  
+    background: #161515 url('/images/scroller-right-arrow-highlighted.png') repeat-y 
+  &::-webkit-scrollbar-button:horizontal:end:increment:disabled  
+    background: #161515 url('/images/scroller-right-arrow-disabled.png') repeat-y 
 .wrapper
   width: 978px
   margin: 0 auto
